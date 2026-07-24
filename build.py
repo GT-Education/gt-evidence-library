@@ -192,8 +192,8 @@ def convert_cta(html_str: str) -> str:
     return html_str[:m.start()] + card + html_str[m.end():]
 
 
-# --- Citations become superscript footnotes; the reference list lives at the bottom (collapsed).
-# Only PARENTHESIZED links to known sources become footnotes; nav links ("see how...") stay inline.
+# --- House style: attribution lives in the bottom Sources list, not inline footnotes. Parenthesized
+# links to known sources are stripped from the body; non-source (navigation) links stay inline.
 _SOURCES_BLOCK_RE = re.compile(
     r"<h([23])[^>]*>\s*(?:Sources?|References?)(?:\s*&amp;\s*[Rr]eferences?)?\s*</h\1>\s*"
     r"(?:<(?:ul|ol|p)[^>]*>.*?</(?:ul|ol|p)>)",
@@ -208,19 +208,15 @@ def strip_sources_block(html_str: str) -> str:
 
 
 def convert_citations(html_str: str, sources: list[dict]) -> tuple[str, list[str]]:
+    """Strip parenthesized links to known sources from the body; attribution lives in the bottom
+    Sources list. Non-source (navigation) links stay inline. Returns an empty order so the Sources
+    list is built from the full front-matter source list, not just the ones cited inline."""
     urls = {s["url"] for s in sources if s.get("url")}
-    order: list[str] = []
 
     def repl(m: "re.Match[str]") -> str:
-        href = m.group("href")
-        if href not in urls:
-            return m.group(0)
-        if href not in order:
-            order.append(href)
-        n = order.index(href) + 1
-        return f'<sup class="fn"><a href="#src{n}">{n}</a></sup>'
+        return "" if m.group("href") in urls else m.group(0)
 
-    return _CITE_RE.sub(repl, html_str), order
+    return _CITE_RE.sub(repl, html_str), []
 
 
 def build_sources_details(order: list[str], sources: list[dict]) -> str:
@@ -394,7 +390,6 @@ def render(fm: dict, body: str, titles: dict[str, str], template: str) -> str:
         "{{KEYWORDS}}": html.escape(", ".join(fm.get("target_queries") or [])),
         "{{CATEGORY}}": html.escape(fm.get("category", "Gifted Education")),
         "{{HUE}}": str(SLUG_HUE.get(slug, 45)),
-        "{{ANSWER_BG}}": _answer_bg(SLUG_HUE.get(slug, 45)),
         "{{DATE_PUBLISHED_ISO}}": iso(fm["date_published"]),
         "{{DATE_MODIFIED_ISO}}": iso(fm["date_modified"]),
         "{{DATE_PUBLISHED_HUMAN}}": human(fm["date_published"]),
@@ -469,12 +464,6 @@ LIBRARY_GROUPS = [
 
 # Map each article slug to its theme hue (drives the per-article ombre hero + library markers).
 SLUG_HUE = {slug: g["h"] for g in LIBRARY_GROUPS for (slug, _t, _b) in g["items"]}
-
-
-def _answer_bg(hue: int) -> str:
-    # Quick Answer harmonizes with the hero ombre: warm orange for the coral/terracotta themes,
-    # soft yellow for the yellow-green themes (orange on a yellow-green page looks off).
-    return "oklch(97.4% 0.033 84)" if hue >= 65 else "oklch(95.5% 0.04 55)"
 
 _LIB_CSS = """<style>
   :root{--cream:oklch(97.5% .014 75);--paper:oklch(99.6% .004 85);--ink:oklch(23% .025 45);--muted:oklch(46% .03 45);--faint:oklch(62% .025 55);--line:oklch(89% .02 60);

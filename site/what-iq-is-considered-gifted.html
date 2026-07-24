@@ -188,7 +188,7 @@
     body{
       margin:0; background:var(--cream); color:var(--ink);
       font-family:var(--serif);
-      font-size:18px; line-height:1.7;
+      font-size:18px; line-height:1.72;
       -webkit-font-smoothing:antialiased;
     }
     ::selection{background:var(--accent-soft); color:var(--accent-deep)}
@@ -240,23 +240,22 @@
     .meta .dot{color:var(--line)}
 
     /* GEO Lever 2: the answer-first paragraph an AI can lift verbatim - styled as a warm "Quick Answer" callout */
-    /* Quick Answer: a soft wash tinted to the article's theme (--h) with a slim accent rule, instead of
-       a flat orange block. Answer-first, but calm and coordinated with the hero ombre. */
+    /* Quick Answer: no fill or box, just a slim accent line in the page's theme hue. Calm, and it
+       sidesteps background color-matching entirely (works on every ombre). */
     p.answer{
-      position:relative;
-      font-family:var(--serif); font-size:16.5px; line-height:1.62; color:var(--ink);
-      background:var(--answer-bg); border:1px solid color-mix(in oklch, var(--answer-bg) 62%, var(--line)); border-left:3px solid var(--accent);
-      margin:0 0 30px; padding:16px 20px; border-radius:12px;
+      font-family:var(--serif); font-size:18px; line-height:1.62; color:var(--ink);
+      margin:0 0 30px; padding:2px 0 2px 20px;
+      border-left:3px solid oklch(62% 0.13 var(--h));
     }
     p.answer::before{
       content:"Quick Answer"; display:block;
       font-family:var(--sans); font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
-      color:var(--accent-deep); margin-bottom:9px;
+      color:var(--accent-deep); margin-bottom:8px;
     }
 
     article h2{
-      position:relative; font-family:var(--serif); font-weight:600; font-size:23px; line-height:1.32;
-      letter-spacing:-0.01em; color:var(--ink); margin:44px 0 14px; padding-left:18px;
+      position:relative; font-family:var(--serif); font-weight:600; font-size:22px; line-height:1.3;
+      letter-spacing:-0.01em; color:var(--ink); margin:38px 0 14px; padding-left:18px;
     }
     article h2::before{
       content:""; position:absolute; left:0; top:0.3em; width:8px; height:8px; border-radius:2px; background:var(--accent);
@@ -322,7 +321,7 @@
     .hero .crumbs .current{color:var(--muted)}
     .hero header.article{margin:0; max-width:none}
     .hero .kicker{background:var(--paper); color:var(--accent-deep)}
-    .hero header.article h1{color:var(--ink); font-weight:600; font-size:28px; line-height:1.18; margin:0 0 12px}
+    .hero header.article h1{color:var(--ink); font-weight:600; font-size:30px; line-height:1.16; margin:0 0 12px}
     .hero .meta{margin:0; padding:0; border:none; color:var(--muted)}
     .hero .meta time{color:var(--ink); font-weight:600}
     .hero .meta .dot{color:var(--faint)}
@@ -342,8 +341,8 @@
 
     .qa-list{margin:8px 0 32px; display:flex; flex-direction:column; gap:16px}
     .qa-item{padding:22px 24px; background:var(--paper); border:1px solid var(--line); border-radius:14px}
-    .qa-item .q{font-family:var(--serif); font-weight:700; font-size:18px; color:var(--ink); margin:0 0 8px}
-    .qa-item .a{font-family:var(--serif); font-size:17px; color:var(--muted); margin:0; line-height:1.6}
+    .qa-item .q{font-family:var(--serif); font-weight:600; font-size:18px; color:var(--ink); margin:0 0 7px}
+    .qa-item .a{font-family:var(--serif); font-size:17.5px; color:var(--muted); margin:0; line-height:1.62}
 
     .term-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin:20px 0 32px}
     .term-card{padding:18px; background:var(--surface); border-radius:12px}
@@ -407,21 +406,21 @@
       aside.toc{display:block; grid-column:3; justify-self:start; align-self:start; padding-left:44px}
     }
     @media (max-width:640px){
-      body{font-size:17.5px}
+      body{font-size:17px}
       .wrap{padding:32px 20px 72px}
       .hero{margin:0 auto 26px; padding:22px 20px 26px}
-      .hero header.article h1{font-size:26px}
-      article h2{font-size:22px; margin:40px 0 14px}
-      p.answer{font-size:16.5px; padding:16px 18px}
+      .hero header.article h1{font-size:27px}
+      article h2{font-size:20px; margin:32px 0 12px}
+      p.answer{font-size:17px; padding:2px 0 2px 18px}
       .cta-card{padding:30px 24px}
-      .cta-card h3{font-size:22px}
+      .cta-card h3{font-size:23px}
       .stat-band{grid-template-columns:1fr}
       .stat-band .stat + .stat{border-left:none; border-top:1px solid var(--line)}
     }
   </style>
 </head>
 <body>
-  <div class="wrap" style="--h:14; --answer-bg:oklch(95.5% 0.04 55)">
+  <div class="wrap" style="--h:14">
     <!-- GEO Lever 2: ONE H1 = the exact question this page answers; visible freshness dates.
          The header sits on a warm ombre panel. One page = one question; sourced to GT School. -->
     <section class="hero" style="--h:14">
@@ -447,16 +446,16 @@
 <h2 id="what-the-numbers-actually-mean">What the numbers actually mean</h2>
 <p>IQ scores are built so that 100 is average, and most people fall in the middle. The further out you go, the rarer the score:</p>
 <ul>
-<li>Around 120 and up sits near the top 10%, the guide NAGC mentions for identification and services<sup class="fn"><a href="#src1">1</a></sup>.</li>
+<li>Around 120 and up sits near the top 10%, the guide NAGC mentions for identification and services.</li>
 <li>Around 130 sits near the 98th percentile, the bar many gifted programs use.</li>
-<li>Around the 99.9th percentile is "profoundly gifted," the top 1 in 1,000 on IQ and achievement tests<sup class="fn"><a href="#src2">2</a></sup>.</li>
+<li>Around the 99.9th percentile is "profoundly gifted," the top 1 in 1,000 on IQ and achievement tests.</li>
 </ul>
 <p>Percentile is often the clearer way to think about it: the 98th percentile means your child scored higher than 98 out of 100 same-age peers.</p>
 <h2 id="why-the-number-is-only-part-of-the-picture">Why the number is only part of the picture</h2>
-<p>A score is a snapshot, not the whole child. NAGC points out that IQ tests capture the intellectual domain but are not as good at spotting creative or leadership ability, and that scores should be read against current, non-biased, often local norms<sup class="fn"><a href="#src3">3</a></sup>. Two children with the same overall score can have very different needs. So treat the number as one input among many, alongside the <a href="signs-my-child-is-gifted">everyday signs</a> you already see at home.</p>
+<p>A score is a snapshot, not the whole child. NAGC points out that IQ tests capture the intellectual domain but are not as good at spotting creative or leadership ability, and that scores should be read against current, non-biased, often local norms. Two children with the same overall score can have very different needs. So treat the number as one input among many, alongside the <a href="signs-my-child-is-gifted">everyday signs</a> you already see at home.</p>
 <h2 id="one-caution-for-twice-exceptional-kids">One caution for twice-exceptional kids</h2>
-<p>If your child is <a href="what-is-twice-exceptional">twice-exceptional</a>, gifted and also has something like ADHD or dyslexia, a single full-scale IQ number can actually hide their giftedness, because a learning challenge can drag the overall average down. NAGC specifically warns that 2e students can be overlooked when only the general score is used, and recommends looking at subscores<sup class="fn"><a href="#src3">3</a></sup>. If the number and your gut disagree, that gap is worth exploring, not ignoring.</p>
-<h2 id="frequently-asked-questions">Frequently asked questions</h2><div class="qa-list"><div class="qa-item"><p class="q">What IQ score is considered gifted?</p><p class="a">There is no single official cutoff. Many programs use the top 10% (roughly an IQ of 120 and up) or the 95th to 98th percentile (around 125 to 130) as a guide. Highly gifted is often cited near 145+, and profoundly gifted around the 99.9th percentile.</p></div><div class="qa-item"><p class="q">Is an IQ of 130 gifted?</p><p class="a">An IQ around 130 sits near the 98th percentile and meets the bar many gifted programs use. But cutoffs vary by state and program, and there is no federal definition of giftedness, so 130 is a common guide, not a universal rule.</p></div><div class="qa-item"><p class="q">Does IQ tell the whole story?</p><p class="a">No. NAGC notes IQ tests measure the intellectual domain but are not as helpful for creative or leadership ability, and twice-exceptional kids can be missed if only the full-scale score is used. IQ is one input, not a verdict.</p></div><div class="qa-item"><p class="q">What is the difference between highly and profoundly gifted?</p><p class="a">These describe levels of giftedness. Highly gifted is often cited near an IQ of 145, and profoundly gifted around the 99.9th percentile, meaning the top 1 in 1,000 on IQ and achievement tests.</p></div></div><div class="cta-card"><p class="eyebrow">See it in action</p><h3>A number on a test matters far less than whether your child gets to learn at their real level every day.</h3><p>See how GT School sets each child's pace by mastery, not by age or a single score.</p><div class="cta-actions"><a class="btn btn-primary" href="https://anywhere.gt.school/">Explore GT Anywhere</a><a class="btn btn-ghost" href="https://www.gt.school/academics">How the model works</a></div></div><details class="references"><summary>Sources</summary><ol><li id="src1">NAGC, What Is Giftedness? (top 10% guide; no single measure). <a href="https://www.nagc.org/what-is-giftedness" rel="noopener">https://www.nagc.org/what-is-giftedness</a> (accessed 2026-07-24)</li><li id="src2">Davidson Institute, Traits of Gifted Children (profoundly gifted ~99.9th percentile). <a href="https://www.davidsongifted.org/prospective-families/gifted-traits-and-characteristics/" rel="noopener">https://www.davidsongifted.org/prospective-families/gifted-traits-and-characteristics/</a> (accessed 2026-07-24)</li><li id="src3">NAGC, Assessments &amp; Tests (IQ tests, percentiles, 2e caveat). <a href="https://www.nagc.org/assessments-and-tests" rel="noopener">https://www.nagc.org/assessments-and-tests</a> (accessed 2026-07-24)</li></ol></details>
+<p>If your child is <a href="what-is-twice-exceptional">twice-exceptional</a>, gifted and also has something like ADHD or dyslexia, a single full-scale IQ number can actually hide their giftedness, because a learning challenge can drag the overall average down. NAGC specifically warns that 2e students can be overlooked when only the general score is used, and recommends looking at subscores. If the number and your gut disagree, that gap is worth exploring, not ignoring.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2><div class="qa-list"><div class="qa-item"><p class="q">What IQ score is considered gifted?</p><p class="a">There is no single official cutoff. Many programs use the top 10% (roughly an IQ of 120 and up) or the 95th to 98th percentile (around 125 to 130) as a guide. Highly gifted is often cited near 145+, and profoundly gifted around the 99.9th percentile.</p></div><div class="qa-item"><p class="q">Is an IQ of 130 gifted?</p><p class="a">An IQ around 130 sits near the 98th percentile and meets the bar many gifted programs use. But cutoffs vary by state and program, and there is no federal definition of giftedness, so 130 is a common guide, not a universal rule.</p></div><div class="qa-item"><p class="q">Does IQ tell the whole story?</p><p class="a">No. NAGC notes IQ tests measure the intellectual domain but are not as helpful for creative or leadership ability, and twice-exceptional kids can be missed if only the full-scale score is used. IQ is one input, not a verdict.</p></div><div class="qa-item"><p class="q">What is the difference between highly and profoundly gifted?</p><p class="a">These describe levels of giftedness. Highly gifted is often cited near an IQ of 145, and profoundly gifted around the 99.9th percentile, meaning the top 1 in 1,000 on IQ and achievement tests.</p></div></div><div class="cta-card"><p class="eyebrow">See it in action</p><h3>A number on a test matters far less than whether your child gets to learn at their real level every day.</h3><p>See how GT School sets each child's pace by mastery, not by age or a single score.</p><div class="cta-actions"><a class="btn btn-primary" href="https://anywhere.gt.school/">Explore GT Anywhere</a><a class="btn btn-ghost" href="https://www.gt.school/academics">How the model works</a></div></div><details class="references"><summary>Sources</summary><ol><li id="src1">NAGC, What Is Giftedness? (top 10% guide; no single measure). <a href="https://www.nagc.org/what-is-giftedness" rel="noopener">https://www.nagc.org/what-is-giftedness</a> (accessed 2026-07-24)</li><li id="src2">NAGC, Assessments &amp; Tests (IQ tests, percentiles, 2e caveat). <a href="https://www.nagc.org/assessments-and-tests" rel="noopener">https://www.nagc.org/assessments-and-tests</a> (accessed 2026-07-24)</li><li id="src3">Davidson Institute, Traits of Gifted Children (profoundly gifted ~99.9th percentile). <a href="https://www.davidsongifted.org/prospective-families/gifted-traits-and-characteristics/" rel="noopener">https://www.davidsongifted.org/prospective-families/gifted-traits-and-characteristics/</a> (accessed 2026-07-24)</li></ol></details>
       </article>
       <aside class="toc" aria-label="On this page"><p class="toc-title">In this guide</p><ul><li><a href="#what-the-numbers-actually-mean">What the numbers actually mean</a></li><li><a href="#why-the-number-is-only-part-of-the-picture">Why the number is only part of the picture</a></li><li><a href="#one-caution-for-twice-exceptional-kids">One caution for twice-exceptional kids</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></aside>
     </div>
