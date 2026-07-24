@@ -42,16 +42,36 @@ python3 blog/build.py <slug>     # build one article
 
 Generated pages are standalone (CSS inlined) and portable to any host/CMS. **Don't edit `blog/site/` by hand** — edit the `.md` or `template.html`, then rebuild. Platform-specific export (Webflow/WordPress/etc.) can be added once the gt.school platform is known.
 
-## Index
-| Article | Archetype | Question | Status |
-|---|---|---|---|
-| `is-my-gifted-child-under-challenged.md` | diagnostic-checklist | Is my gifted child under-challenged? | draft |
-| `does-grade-skipping-hurt-kids-socially.md` | myth-vs-evidence | Does grade-skipping hurt kids socially? | draft |
-| `use-texas-tefa-voucher-online-gifted-school.md` | eligibility-howto | Can I use my Texas TEFA voucher for an online gifted school? | draft |
-| `what-is-curriculum-compacting.md` | definition-explainer | What is curriculum compacting? | draft |
-| `gifted-child-bored-what-are-my-options.md` | options-guide | My gifted child is bored — what are my options? | draft |
-| `does-academic-acceleration-actually-work.md` | evidence-outcomes | Does academic acceleration actually work? | draft |
-| `online-gifted-school-vs-homeschooling-gifted-child.md` | comparison | Online gifted school vs. homeschooling a gifted child | draft |
-| `what-is-mastery-based-learning.md` | definition-explainer | What is a mastery-based (2-hour) learning model? | draft |
+## Index (live library, grouped by theme)
+The live library groups articles into five parent-question themes (same order on the site).
 
-**Archetype coverage:** all 7 archetypes are now represented. Remaining priority questions to seed the library: twice-exceptional (2e) explainer, and an online-gifted-school-for-K–8 options guide.
+**Is my child actually gifted?**
+- `signs-my-child-is-gifted.md` : How do I know if my child is gifted?
+- `gifted-vs-high-achiever.md` : Gifted or just a high achiever?
+- `what-iq-is-considered-gifted.md` : What IQ score is considered gifted?
+- `what-is-twice-exceptional.md` : What does twice-exceptional (2e) mean?
+- `how-are-gifted-children-tested.md` : How are children tested for giftedness?
+
+**Is my child bored or under-challenged?**
+- `is-my-gifted-child-under-challenged.md` : Is my gifted child under-challenged?
+- `gifted-child-bored-what-are-my-options.md` : My gifted child is bored, what are my options?
+- `how-to-advocate-for-your-gifted-child-at-school.md` : How do I advocate for my gifted child at school?
+
+**Should we let them move ahead?**
+- `does-academic-acceleration-actually-work.md` : Does academic acceleration actually work?
+- `does-grade-skipping-hurt-kids-socially.md` : Does grade-skipping hurt kids socially?
+- `what-is-single-subject-acceleration.md` : What is single-subject acceleration?
+
+**How do gifted kids learn best?**
+- `what-is-mastery-based-learning.md` : What is a mastery-based (2-hour) learning model?
+- `what-is-curriculum-compacting.md` : What is curriculum compacting?
+- `enrichment-vs-acceleration.md` : Enrichment vs. acceleration
+
+**Where should they go to school?**
+- `online-gifted-school-vs-homeschooling-gifted-child.md` : Online gifted school vs. homeschooling
+- `use-texas-tefa-voucher-online-gifted-school.md` : Can I use my Texas TEFA voucher for an online gifted school?
+- `what-is-the-texas-education-freedom-account.md` : What is the Texas Education Freedom Account (ESA)?
+
+**House rules (enforced):** sources live in front matter + the end Sources list only (no inline citations; the builder strips them). Never name or cite a competitor (the build fails if one appears). No em dashes.
+
+17 articles across all 7 archetypes.
