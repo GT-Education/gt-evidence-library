@@ -8,8 +8,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet"/>
 <style>
-  :root{--cream:oklch(97.5% .014 75);--paper:oklch(99.6% .004 85);--ink:oklch(23% .025 45);--muted:oklch(46% .03 45);--faint:oklch(62% .025 55);--line:oklch(89% .02 60);
-    --accent:oklch(64% .16 45);--deep:oklch(50% .14 40);--soft:oklch(94% .05 55);
+  :root{--cream:oklch(97.5% 0.014 75);--paper:oklch(99.2% 0.006 85);--ink:oklch(24% 0.025 45);--muted:oklch(46% 0.03 45);--faint:oklch(63% 0.025 50);--line:oklch(89% 0.02 60);
+    --accent:oklch(68% 0.15 45);--deep:oklch(52% 0.14 38);--soft:oklch(94% 0.045 55);
     --serif:"Fraunces",Georgia,serif;--sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
   *{box-sizing:border-box}
   body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
@@ -27,9 +27,10 @@
       radial-gradient(42% 64% at 100% 96%, oklch(89% .04 240/.28), transparent 70%),
       radial-gradient(60% 90% at 48% 132%, oklch(91% .07 330/.5), transparent 70%),
       linear-gradient(120deg, oklch(96.5% .035 55), oklch(98.6% .015 80));}
-  .kick{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--deep);background:var(--paper);padding:6px 12px;border-radius:999px;margin:0 0 14px;box-shadow:0 1px 0 rgba(0,0,0,.02)}
+  /* matches the article "kicker" eyebrow (mono 12px, 0.08em tracking, 10px rounded rectangle) */
+  .kick{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--deep);background:var(--paper);padding:7px 14px 7px 12px;border-radius:10px;margin:0 0 18px}
   .kick::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
-  .h1{font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.12;letter-spacing:-.01em;margin:0 0 8px;text-wrap:balance}
+  .h1{font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.16;letter-spacing:-.01em;margin:0 0 8px;text-wrap:balance}
   .sub{font-family:var(--serif);color:var(--muted);font-size:16px;margin:0 0 16px;max-width:none}
   .rev{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);margin:0 0 18px}
   .rev svg{width:15px;height:15px;flex:none}
@@ -43,7 +44,7 @@
   .pill{font-family:var(--sans);font-size:13px;color:var(--ink);background:var(--paper);border:1px solid oklch(87% .04 50);border-radius:9px;padding:7px 14px;text-decoration:none}
   .pill:hover{border-color:var(--accent);color:var(--deep)}
   .sec{margin:26px 0 0}
-  .qh{font-family:var(--serif);font-weight:600;font-size:19px;margin:0 0 6px;color:var(--ink)}
+  .qh{font-family:var(--serif);font-weight:600;font-size:19px;line-height:1.3;letter-spacing:-.01em;margin:0 0 6px;color:var(--ink)}
   .row{display:flex;gap:15px;padding:13px 12px;border-radius:12px;text-decoration:none;color:inherit;transition:background .13s ease}
   .row:hover{background:oklch(97.5% .022 var(--h))}
   .row .mark{font-family:var(--serif);font-weight:700;font-size:18px;line-height:1.35;color:oklch(72% .11 var(--h));flex:none;width:18px;text-align:center}
