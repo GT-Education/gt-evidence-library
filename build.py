@@ -42,6 +42,9 @@ BLOG_DIR = Path(__file__).resolve().parent
 OUT_DIR = BLOG_DIR / "site"
 TEMPLATE = BLOG_DIR / "template.html"
 SITE_URL = "https://www.gt.school"
+# The library is hosted on Firebase for now, so the "Blog" breadcrumb points there.
+# Swap to SITE_URL + "/blog" once the library moves onto the main gt.school site.
+BLOG_INDEX_URL = "https://gt-school-blog.web.app/"
 
 FM_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n?(.*)$", re.S)
 
@@ -314,7 +317,7 @@ def build_jsonld(fm: dict, canonical: str, content_html: str) -> str:
         "@type": "BreadcrumbList",
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL + "/"},
-            {"@type": "ListItem", "position": 2, "name": "Blog", "item": SITE_URL + "/blog"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": BLOG_INDEX_URL},
             {"@type": "ListItem", "position": 3, "name": title, "item": canonical},
         ],
     })
@@ -328,7 +331,7 @@ def breadcrumb_html(title: str) -> str:
     return (
         '<nav class="crumbs" aria-label="Breadcrumb">'
         f'<a href="{SITE_URL}/">Home</a><span class="sep">/</span>'
-        f'<a href="{SITE_URL}/blog">Blog</a><span class="sep">/</span>'
+        f'<a href="{BLOG_INDEX_URL}">Blog</a><span class="sep">/</span>'
         f'<span class="current">{html.escape(title)}</span></nav>'
     )
 
