@@ -51,9 +51,11 @@ status: ready
 Twice-exceptional, usually shortened to 2e, means a child is gifted and also has a disability or learning difference at the same time. The pairing is real and more common than people expect: a child can be genuinely gifted and have ADHD, dyslexia, autism, an anxiety or processing difference, or another challenge. The formal definition, from the National Commission on Twice-Exceptional Students, is a learner who shows the potential for high achievement and also has one or more disabilities as defined by state or federal criteria.
 
 ## Gifted and challenged at the same time
+
 It can feel contradictory to hear "gifted" and "learning disability" in the same sentence, but that is exactly the point. A 2e child might read years ahead and still struggle to write a paragraph. They might invent elaborate worlds and lose their homework on the way to class. The strengths are real. The challenges are real. Both are true at once, and both need attention.
 
 ## Why 2e kids get missed
+
 This is the heartbreaking part, and the reason the term exists. The two sides tend to mask each other:
 
 - The giftedness hides the disability: the child is bright enough to compensate, so they look "fine" and no one screens for the struggle underneath.
@@ -63,25 +65,35 @@ This is the heartbreaking part, and the reason the term exists. The two sides te
 That is why so many 2e kids get labeled underachievers instead of getting identified and supported. If you have ever felt like your child is clearly capable of more but keeps hitting a specific wall, 2e is worth asking about. In one survey of parents of gifted children, more than half reported a 2e diagnosis, so if this is you, you are far from alone.
 
 ## What actually helps
-The mistake is treating a 2e child as only gifted (all enrichment, no support) or only disabled (all remediation, no challenge). What works is doing both at once: keep the bar high and interest-led where they are strong, and put specific accommodations around the challenge. A setting that lets a child race ahead in their strengths while taking more time where they need it fits 2e learners especially well.
+
+The mistake is treating a 2e child as only gifted (all enrichment, no support) or only struggling (all remediation, no challenge). What works is doing both at once: keep the bar high and interest-led where they are strong, and put specific accommodations around the challenge. A setting that lets a child race ahead in their strengths while taking more time where they need it fits 2e learners especially well.
 
 ## A few related terms
+
 - [Signs your child is gifted](signs-my-child-is-gifted): the strengths side of the 2e picture.
 - [Gifted vs. high achiever](gifted-vs-high-achiever): why capable kids get read as average.
 - [Under-challenge](is-my-gifted-child-under-challenged): what happens when the gift goes unfed.
 
+
+
 ## Frequently asked questions
 
+
+
 ### What does twice-exceptional (2e) mean?
+
 Twice-exceptional, or 2e, means a child is gifted and also has one or more disabilities or learning differences, such as ADHD, dyslexia, or autism. They have real strengths and real challenges at the same time.
 
 ### Can a gifted child have ADHD or dyslexia?
+
 Yes. Giftedness and a disability can co-occur. That combination is exactly what twice-exceptional describes, and ADHD, dyslexia, and autism are among the most common pairings.
 
 ### Why are twice-exceptional kids often missed?
+
 Because the two sides mask each other. Giftedness can hide the disability (the child compensates and looks fine), or the disability can hide the giftedness (struggles get read as laziness). Many end up labeled underachievers instead of 2e.
 
 ### How do you support a twice-exceptional child?
+
 Feed the strengths and support the challenge at the same time. That usually means a challenging, interest-led curriculum plus specific accommodations, rather than only remediation or only enrichment.
 
 ---
@@ -89,6 +101,8 @@ Feed the strengths and support the challenge at the same time. That usually mean
 Twice-exceptional kids do best when their strengths are fed and their challenges are supported at the same time. See how [GT School's mastery-based model](https://www.gt.school/academics) lets a child move ahead where they are strong and take the time they need everywhere else.
 
 ## Sources
-- Reis, S. M., Baum, S. M., & Burke, E. (2014). *An Operational Definition of Twice-Exceptional Learners.* Gifted Child Quarterly, 58(3), 217–230 (summary via University of Iowa). https://iro.uiowa.edu/esploro/fulltext/report/Twice-Exceptional-Learners/9984655812902771 (accessed 2026-07-24)
-- National Association for Gifted Children. *Twice-Exceptional (2e) resources.* https://www.nagc.org/ (accessed 2026-07-24)
-- Post & Fedor. *What Worries Parents: A Research Study.* Gifted Development Center. https://gifteddevelopment.org/newsletter/worries-of-parents-of-gifted-and-twice-exceptional-children-a-research-study (accessed 2026-07-24)
+
+- Reis, S. M., Baum, S. M., & Burke, E. (2014). *An Operational Definition of Twice-Exceptional Learners.* Gifted Child Quarterly, 58(3), 217–230 (summary via University of Iowa). [https://iro.uiowa.edu/esploro/fulltext/report/Twice-Exceptional-Learners/9984655812902771](https://iro.uiowa.edu/esploro/fulltext/report/Twice-Exceptional-Learners/9984655812902771) (accessed 2026-07-24)
+- National Association for Gifted Children. *Twice-Exceptional (2e) resources.* [https://www.nagc.org/](https://www.nagc.org/) (accessed 2026-07-24)
+- Post & Fedor. *What Worries Parents: A Research Study.* Gifted Development Center. [https://gifteddevelopment.org/newsletter/worries-of-parents-of-gifted-and-twice-exceptional-children-a-research-study](https://gifteddevelopment.org/newsletter/worries-of-parents-of-gifted-and-twice-exceptional-children-a-research-study) (accessed 2026-07-24)
+
