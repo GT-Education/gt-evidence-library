@@ -21,15 +21,12 @@ faq:
   - q: "Can a child be both gifted and a high achiever?"
     a: "Yes, and many are. The two often overlap. The point is that they do not have to: a gifted child is not always the top of the class, and the top of the class is not always gifted."
   - q: "Why does my gifted child have average grades?"
-    a: "Grades measure output, not capability. A gifted child who is bored or unchallenged may coast, tune out, or underachieve. Davidson notes studies suggest roughly 40% of gifted students may underachieve."
+    a: "Grades measure output, not capability. A gifted child who is bored or unchallenged may coast, tune out, or underachieve, so a report card alone can hide giftedness."
   - q: "Does it matter which one my child is?"
     a: "It matters for how you help. A high achiever usually thrives with rigor and encouragement. A gifted child needs the pace and depth matched to how they actually learn, or they can quietly disengage."
 sources:
   - label: "NAGC, What Is Giftedness? (capability, not achievement)"
     url: "https://www.nagc.org/what-is-giftedness"
-    accessed: 2026-07-24
-  - label: "Davidson Institute, Differentiating Giftedness from Achievement"
-    url: "https://www.davidsongifted.org/gifted-blog/tips-for-parents-differentiating-giftedness-from-achievement-and-mitigating-the-risks-of-each/"
     accessed: 2026-07-24
 internal_links:
   - signs-my-child-is-gifted
@@ -58,10 +55,10 @@ A rough, friendly comparison (no child fits a column perfectly):
 | Consistent top marks | May shine, coast, or even underperform when bored |
 
 ## Why the difference matters
-Because it changes how you help. NAGC defines giftedness as the "capability to perform at higher levels compared to others of the same age," which is about potential, not the grade earned that week ([NAGC](https://www.nagc.org/what-is-giftedness)). Davidson makes the same point plainly: giftedness describes innate potential, while achievement reflects what a child has produced, and the two "don't always align" ([Davidson Institute](https://www.davidsongifted.org/gifted-blog/tips-for-parents-differentiating-giftedness-from-achievement-and-mitigating-the-risks-of-each/)). A high achiever usually thrives on more rigor and encouragement. A gifted child needs the pace and depth matched to how they actually learn, or the boredom sets in.
+Because it changes how you help. NAGC defines giftedness as the "capability to perform at higher levels compared to others of the same age," which is about potential, not the grade earned that week ([NAGC](https://www.nagc.org/what-is-giftedness)). Put simply: giftedness describes innate potential, while achievement reflects what a child has actually produced, and the two do not always line up. A high achiever usually thrives on more rigor and encouragement. A gifted child needs the pace and depth matched to how they actually learn, or the boredom sets in.
 
 ## The trap: assuming grades tell the story
-This is where good students get overlooked in both directions. A hardworking child with top grades may not be gifted, and that is completely fine. And a clearly gifted child can have unremarkable grades because school never asked much of them. Davidson notes studies suggesting around 40% of gifted students may be underachievers ([Davidson Institute](https://www.davidsongifted.org/prospective-families/gifted-traits-and-characteristics/)). So if your gut says your child is capable of far more than the grades show, trust it enough to look closer.
+This is where good students get overlooked in both directions. A hardworking child with top grades may not be gifted, and that is completely fine. And a clearly gifted child can have unremarkable grades because school never asked much of them. So if your gut says your child is capable of far more than the grades show, trust it enough to look closer.
 
 ## A few related terms
 - [Signs your child is gifted](signs-my-child-is-gifted): the traits worth watching for.
@@ -77,7 +74,7 @@ A high achiever works hard, follows structure, and earns top grades. A gifted ch
 Yes, and many are. The two often overlap. The point is that they do not have to: a gifted child is not always the top of the class, and the top of the class is not always gifted.
 
 ### Why does my gifted child have average grades?
-Grades measure output, not capability. A gifted child who is bored or unchallenged may coast, tune out, or underachieve. Davidson notes studies suggest roughly 40% of gifted students may underachieve.
+Grades measure output, not capability. A gifted child who is bored or unchallenged may coast, tune out, or underachieve, so a report card alone can hide giftedness.
 
 ### Does it matter which one my child is?
 It matters for how you help. A high achiever usually thrives with rigor and encouragement. A gifted child needs the pace and depth matched to how they actually learn, or they can quietly disengage.
@@ -88,4 +85,3 @@ If your child is capable of more than their grades show, a mastery-based classro
 
 ## Sources
 - National Association for Gifted Children. *What Is Giftedness?* https://www.nagc.org/what-is-giftedness (accessed 2026-07-24)
-- Davidson Institute. *Differentiating Giftedness from Achievement* and *Characteristics and Traits of Gifted Children.* https://www.davidsongifted.org/gifted-blog/tips-for-parents-differentiating-giftedness-from-achievement-and-mitigating-the-risks-of-each/ (accessed 2026-07-24)

@@ -31,9 +31,6 @@ sources:
   - label: "NAGC, Assessments & Tests (IQ tests, percentiles, 2e caveat)"
     url: "https://www.nagc.org/assessments-and-tests"
     accessed: 2026-07-24
-  - label: "Davidson Institute, Traits of Gifted Children (profoundly gifted ~99.9th percentile)"
-    url: "https://www.davidsongifted.org/prospective-families/gifted-traits-and-characteristics/"
-    accessed: 2026-07-24
 internal_links:
   - signs-my-child-is-gifted
   - gifted-vs-high-achiever
@@ -55,7 +52,7 @@ IQ scores are built so that 100 is average, and most people fall in the middle. 
 
 - Around 120 and up sits near the top 10%, the guide NAGC mentions for identification and services ([NAGC](https://www.nagc.org/what-is-giftedness)).
 - Around 130 sits near the 98th percentile, the bar many gifted programs use.
-- Around the 99.9th percentile is "profoundly gifted," the top 1 in 1,000 on IQ and achievement tests ([Davidson Institute](https://www.davidsongifted.org/prospective-families/gifted-traits-and-characteristics/)).
+- Around the 99.9th percentile is "profoundly gifted," the top 1 in 1,000 on IQ and achievement tests.
 
 Percentile is often the clearer way to think about it: the 98th percentile means your child scored higher than 98 out of 100 same-age peers.
 
@@ -86,4 +83,3 @@ A number on a test matters far less than whether your child gets to learn at the
 ## Sources
 - National Association for Gifted Children. *What Is Giftedness?* https://www.nagc.org/what-is-giftedness (accessed 2026-07-24)
 - National Association for Gifted Children. *Assessments & Tests.* https://www.nagc.org/assessments-and-tests (accessed 2026-07-24)
-- Davidson Institute. *Characteristics and Traits of Gifted Children.* https://www.davidsongifted.org/prospective-families/gifted-traits-and-characteristics/ (accessed 2026-07-24)

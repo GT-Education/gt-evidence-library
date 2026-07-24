@@ -34,9 +34,6 @@ sources:
   - label: "Reis, Westberg et al., 1993, The Curriculum Compacting Study (NRC/GT)"
     url: "https://files.eric.ed.gov/fulltext/ED379847.pdf"
     accessed: 2026-07-23
-  - label: "Davidson Academy Online, Who We Serve"
-    url: "https://www.davidsononline.org/about-us/who-we-serve/"
-    accessed: 2026-07-23
   - label: "GT School, Academics"
     url: "https://www.gt.school/academics"
     accessed: 2026-07-23
@@ -63,7 +60,7 @@ Work up the ladder and stop when the fit feels right.
 - Grade acceleration. Moving up a full grade suits kids who are ahead across the board and ready for older classmates. The social worry is common but not what the research finds ([A Nation Empowered, 2015](https://www.accelerationinstitute.org/nation_empowered/)); more on that in [does grade-skipping hurt kids socially?](does-grade-skipping-hurt-kids-socially)
 - Gifted magnet or pull-out program. A dedicated gifted class, or a few enrichment hours a week, if your district has a strong one. Quality varies a lot, and a few hours may not touch the other 90% of the week.
 - Homeschooling. The most flexibility to tailor everything to your child, if you have the time to lead it and can arrange socialization through co-ops, clubs, and sports.
-- A full-time gifted school, in person or online. Built so an advanced pace is the default, not the exception. Online solves geography, but check the grade range first: some well-known online gifted schools serve only older students (Davidson Academy Online, for instance, doesn't serve K–5) ([Davidson Academy Online](https://www.davidsononline.org/about-us/who-we-serve/)).
+- A full-time gifted school, in person or online. Built so an advanced pace is the default, not the exception. Online solves geography, but check the grade range first, since some well-known online gifted schools only start in middle or high school.
 
 ## How to choose
 Whatever you're weighing, the same few questions cut through it. Parents tend to trust what they can see and measure; in one national survey, in-person visits and school-rating data were the top research methods, and 57% went with strong data even over a trusted person's negative opinion ([EdChoice, 2024](https://www.edchoice.org/wp-content/uploads/2024/03/Parent-Preferences.pdf)). Ask any option:
@@ -100,5 +97,4 @@ Want to see what an uncapped school day actually looks like? GT School's [master
 - EdChoice / Morning Consult (2024). *What Do Parents Want? Information, Choices, and Constraints.* https://www.edchoice.org/wp-content/uploads/2024/03/Parent-Preferences.pdf (accessed 2026-07-23)
 - Belin-Blank Center, University of Iowa (2015). *A Nation Empowered: Evidence Trumps the Excuses Holding Back America's Brightest Students.* https://www.accelerationinstitute.org/nation_empowered/ (accessed 2026-07-23)
 - Reis, S., Westberg, K., et al. (1993). *The Curriculum Compacting Study* (NRC/GT Research Monograph 93106). https://files.eric.ed.gov/fulltext/ED379847.pdf (accessed 2026-07-23)
-- Davidson Academy Online. *Who We Serve.* https://www.davidsononline.org/about-us/who-we-serve/ (accessed 2026-07-23)
 - GT School. *Academics.* https://www.gt.school/academics (accessed 2026-07-23)

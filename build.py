@@ -192,8 +192,8 @@ def convert_cta(html_str: str) -> str:
     return html_str[:m.start()] + card + html_str[m.end():]
 
 
-# --- House style: attribution lives in the bottom Sources list, not inline footnotes. Parenthesized
-# links to known sources are stripped from the body; non-source (navigation) links stay inline.
+# --- House style: attribution lives in the bottom Sources list, not inline footnotes. Every
+# parenthesized link is stripped from the body; inline (navigation) links stay inline.
 _SOURCES_BLOCK_RE = re.compile(
     r"<h([23])[^>]*>\s*(?:Sources?|References?)(?:\s*&amp;\s*[Rr]eferences?)?\s*</h\1>\s*"
     r"(?:<(?:ul|ol|p)[^>]*>.*?</(?:ul|ol|p)>)",
@@ -208,15 +208,10 @@ def strip_sources_block(html_str: str) -> str:
 
 
 def convert_citations(html_str: str, sources: list[dict]) -> tuple[str, list[str]]:
-    """Strip parenthesized links to known sources from the body; attribution lives in the bottom
-    Sources list. Non-source (navigation) links stay inline. Returns an empty order so the Sources
-    list is built from the full front-matter source list, not just the ones cited inline."""
-    urls = {s["url"] for s in sources if s.get("url")}
-
-    def repl(m: "re.Match[str]") -> str:
-        return "" if m.group("href") in urls else m.group(0)
-
-    return _CITE_RE.sub(repl, html_str), []
+    """Strip every parenthesized link from the body; attribution lives in the bottom Sources list.
+    Inline (non-parenthesized) navigation links are left untouched. Returns an empty order so the
+    Sources list is built from the full front-matter source list."""
+    return _CITE_RE.sub("", html_str), []
 
 
 def build_sources_details(order: list[str], sources: list[dict]) -> str:

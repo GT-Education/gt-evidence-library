@@ -31,8 +31,8 @@ sources:
   - label: "NAGC, twice-exceptional (2e) resources"
     url: "https://www.nagc.org/"
     accessed: 2026-07-24
-  - label: "Davidson Institute, Twice Exceptional: Definition, Characteristics & Identification"
-    url: "https://www.davidsongifted.org/gifted-blog/twice-exceptional-definition-characteristics-identification/"
+  - label: "Post & Fedor, What Worries Parents (Gifted Development Center survey)"
+    url: "https://gifteddevelopment.org/newsletter/worries-of-parents-of-gifted-and-twice-exceptional-children-a-research-study"
     accessed: 2026-07-24
 internal_links:
   - signs-my-child-is-gifted
@@ -60,7 +60,7 @@ This is the heartbreaking part, and the reason the term exists. The two sides te
 - The disability hides the giftedness: the visible struggle gets read as laziness or a behavior problem, and no one looks for the gift.
 - Sometimes they cancel out: the child lands in the "average" middle and gets overlooked entirely.
 
-That is why so many 2e kids get labeled underachievers instead of getting identified and supported ([Davidson Institute](https://www.davidsongifted.org/gifted-blog/twice-exceptional-definition-characteristics-identification/)). If you have ever felt like your child is clearly capable of more but keeps hitting a specific wall, 2e is worth asking about. In one survey of parents of gifted children, more than half reported a 2e diagnosis, so if this is you, you are far from alone ([Gifted Development Center](https://gifteddevelopment.org/newsletter/worries-of-parents-of-gifted-and-twice-exceptional-children-a-research-study)).
+That is why so many 2e kids get labeled underachievers instead of getting identified and supported. If you have ever felt like your child is clearly capable of more but keeps hitting a specific wall, 2e is worth asking about. In one survey of parents of gifted children, more than half reported a 2e diagnosis, so if this is you, you are far from alone ([Gifted Development Center](https://gifteddevelopment.org/newsletter/worries-of-parents-of-gifted-and-twice-exceptional-children-a-research-study)).
 
 ## What actually helps
 The mistake is treating a 2e child as only gifted (all enrichment, no support) or only disabled (all remediation, no challenge). What works is doing both at once: keep the bar high and interest-led where they are strong, and put specific accommodations around the challenge. A setting that lets a child race ahead in their strengths while taking more time where they need it fits 2e learners especially well.
@@ -91,5 +91,4 @@ Twice-exceptional kids do best when their strengths are fed and their challenges
 ## Sources
 - Reis, S. M., Baum, S. M., & Burke, E. (2014). *An Operational Definition of Twice-Exceptional Learners.* Gifted Child Quarterly, 58(3), 217–230 (summary via University of Iowa). https://iro.uiowa.edu/esploro/fulltext/report/Twice-Exceptional-Learners/9984655812902771 (accessed 2026-07-24)
 - National Association for Gifted Children. *Twice-Exceptional (2e) resources.* https://www.nagc.org/ (accessed 2026-07-24)
-- Davidson Institute. *Twice Exceptional: Definition, Characteristics & Identification.* https://www.davidsongifted.org/gifted-blog/twice-exceptional-definition-characteristics-identification/ (accessed 2026-07-24)
 - Post & Fedor. *What Worries Parents: A Research Study.* Gifted Development Center. https://gifteddevelopment.org/newsletter/worries-of-parents-of-gifted-and-twice-exceptional-children-a-research-study (accessed 2026-07-24)
