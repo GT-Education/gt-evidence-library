@@ -484,7 +484,9 @@ _LIB_CSS = """<style>
     --serif:"Fraunces",Georgia,serif;--sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
   *{box-sizing:border-box}
   body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
-  .page{max-width:840px;margin:0 auto;padding:56px 24px 96px}
+  /* 888 = article reading width (840) + wrap padding (2x24), so the content column
+     lines up exactly with the article pages (border-box includes the 24px padding). */
+  .page{max-width:888px;margin:0 auto;padding:56px 24px 96px}
   a{color:inherit}
   /* richer multi-hue ombre hero */
   .top{position:relative;overflow:hidden;border:1px solid oklch(90% .04 55);border-radius:16px;padding:30px 30px 26px;margin-bottom:24px;
