@@ -14,6 +14,11 @@ Usage:
 Output: blog/site/<slug>.html  (+ blog/site/index.html)
 The generated pages are standalone (CSS inlined) and portable to any host/CMS.
 Do not edit files in blog/site/ by hand - edit the .md or the template, then rebuild.
+
+House rules enforced here:
+  - Sources live in the bottom Sources list only; inline parenthesized citations in the body are
+    stripped automatically (see convert_citations).
+  - Competitors are never named or cited; the build fails if a competitor name appears (COMPETITORS).
 """
 from __future__ import annotations
 
@@ -571,6 +576,27 @@ def build_index(articles: list[dict]) -> str:
     )
 
 
+# House rule: never name or cite a competitor. Attribution is bottom-list only (inline citations are
+# stripped automatically by convert_citations), but competitor *names* can't be auto-removed safely,
+# so the build hard-fails if one appears. Add new competitor names here as needed.
+COMPETITORS = ("davidson",)
+
+
+def check_no_competitors(paths: list[Path]) -> None:
+    offenders = []
+    for p in paths:
+        low = p.read_text(encoding="utf-8").lower()
+        found = sorted({c for c in COMPETITORS if c in low})
+        if found:
+            offenders.append(f"  - {p.name}: {', '.join(found)}")
+    if offenders:
+        sys.exit(
+            "BUILD FAILED - competitor name(s) found in article source.\n"
+            "House rule (see source-library.md): never name or cite a competitor; "
+            "keep comparisons to general categories.\n" + "\n".join(offenders)
+        )
+
+
 def main() -> None:
     if not TEMPLATE.exists():
         sys.exit(f"Template not found: {TEMPLATE}")
@@ -578,6 +604,7 @@ def main() -> None:
     OUT_DIR.mkdir(exist_ok=True)
 
     paths = [p for p in BLOG_DIR.glob("*.md") if p.name.lower() != "readme.md"]
+    check_no_competitors(paths)
     articles = []
     titles: dict[str, str] = {}
     for p in paths:

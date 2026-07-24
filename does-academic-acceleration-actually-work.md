@@ -51,7 +51,7 @@ status: draft
 If you've been told that accelerating your child is risky or unproven, take a breath, because the research is genuinely reassuring. Academic acceleration is one of the best-evidenced and lowest-cost things we know how to do in education. The definitive review, A Nation Empowered, calls it a "reliable and robust evidence-based intervention" that's effective and inexpensive, and it's endorsed by the National Association for Gifted Children. Grade-skipping alone shows an academic effect size of about +0.67 versus comparable kids who weren't accelerated, which is a large, positive effect.
 
 ## What the research shows
-A Nation Empowered (the University of Iowa's Belin-Blank Center, 2015) gathers decades of studies into one place ([A Nation Empowered, 2015](https://www.accelerationinstitute.org/nation_empowered/)). The headline findings, grouped:
+A Nation Empowered (the University of Iowa's Belin-Blank Center, 2015) gathers decades of studies into one place. The headline findings, grouped:
 
 - The academic gains are large. Grade-skipping is linked to an effect size of roughly +0.67 versus similar, non-accelerated kids. For context, in education 0.2 is small, 0.5 moderate, and 0.8 large, so this lands well above "meaningful."
 - The social and psychological outcomes are positive too, about +0.34 and +0.42. That's the opposite of the harm parents often fear.
@@ -59,7 +59,7 @@ A Nation Empowered (the University of Iowa's Belin-Blank Center, 2015) gathers d
 
 [CHART: bar chart of acceleration effect sizes, grade-skip academic +0.67, social +0.34, psychological +0.42; AP +0.60; IB +0.70 (A Nation Empowered, 2015)]
 
-There's a flip side worth knowing, too. In the NRC/GT [Curriculum Compacting Study](what-is-curriculum-compacting), teachers removed 40 to 50% of the regular curriculum for high-ability students with no loss in achievement, and the compacted math and science groups actually scored higher ([NRC/GT, 1993](https://files.eric.ed.gov/fulltext/ED379847.pdf)). In other words, a lot of the standard pace is review for these kids in the first place.
+There's a flip side worth knowing, too. In the NRC/GT [Curriculum Compacting Study](what-is-curriculum-compacting), teachers removed 40 to 50% of the regular curriculum for high-ability students with no loss in achievement, and the compacted math and science groups actually scored higher. In other words, a lot of the standard pace is review for these kids in the first place.
 
 ## The objection parents raise
 The usual pushback is social: won't a younger child struggle among older classmates? It's the reason acceleration stays underused, but it isn't what the data show. A Nation Empowered is direct that the intervention is held back by "excuses," not evidence, while capable kids "languish in our classrooms, bored and unchallenged." For a well-matched child, the measured social effect is positive, not negative. (For a closer look at just the social side, see [does grade-skipping hurt kids socially?](does-grade-skipping-hurt-kids-socially))
@@ -73,7 +73,7 @@ The quiet reframe: staying still isn't the safe choice it feels like. It just tr
 - Consider mastery-based settings, where advancement follows demonstrated mastery instead of age. That builds acceleration right into the design.
 
 ## Where GT fits
-That last idea is the operating principle at GT School, the gifted academy of the Alpha School family. Its K–8 model is mastery-based: kids advance the moment they've mastered material, so pace is personal by default. GT reports students average roughly the 94th–98th national percentiles, with many working several grade levels above their age ([GT School, Academics](https://www.gt.school/academics)). It's one way to make the research's core finding, that matched pace helps, the everyday norm rather than the exception, online through GT Anywhere or in person in Georgetown, TX.
+That last idea is the operating principle at GT School, the gifted academy of the Alpha School family. Its K–8 model is mastery-based: kids advance the moment they've mastered material, so pace is personal by default. GT reports students average roughly the 94th–98th national percentiles, with many working several grade levels above their age. It's one way to make the research's core finding, that matched pace helps, the everyday norm rather than the exception, online through GT Anywhere or in person in Georgetown, TX.
 
 ## Frequently asked questions
 

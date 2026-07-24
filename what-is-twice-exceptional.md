@@ -48,19 +48,19 @@ status: ready
 
 # What Does Twice-Exceptional (2e) Mean?
 
-Twice-exceptional, usually shortened to 2e, means a child is gifted and also has a disability or learning difference at the same time. The pairing is real and more common than people expect: a child can be genuinely gifted and have ADHD, dyslexia, autism, an anxiety or processing difference, or another challenge. The formal definition, from the National Commission on Twice-Exceptional Students, is a learner who shows the potential for high achievement and also has one or more disabilities as defined by state or federal criteria ([Reis et al., 2014](https://iro.uiowa.edu/esploro/fulltext/report/Twice-Exceptional-Learners/9984655812902771)).
+Twice-exceptional, usually shortened to 2e, means a child is gifted and also has a disability or learning difference at the same time. The pairing is real and more common than people expect: a child can be genuinely gifted and have ADHD, dyslexia, autism, an anxiety or processing difference, or another challenge. The formal definition, from the National Commission on Twice-Exceptional Students, is a learner who shows the potential for high achievement and also has one or more disabilities as defined by state or federal criteria.
 
 ## Gifted and challenged at the same time
 It can feel contradictory to hear "gifted" and "learning disability" in the same sentence, but that is exactly the point. A 2e child might read years ahead and still struggle to write a paragraph. They might invent elaborate worlds and lose their homework on the way to class. The strengths are real. The challenges are real. Both are true at once, and both need attention.
 
 ## Why 2e kids get missed
-This is the heartbreaking part, and the reason the term exists. The two sides tend to mask each other ([NAGC](https://www.nagc.org/)):
+This is the heartbreaking part, and the reason the term exists. The two sides tend to mask each other:
 
 - The giftedness hides the disability: the child is bright enough to compensate, so they look "fine" and no one screens for the struggle underneath.
 - The disability hides the giftedness: the visible struggle gets read as laziness or a behavior problem, and no one looks for the gift.
 - Sometimes they cancel out: the child lands in the "average" middle and gets overlooked entirely.
 
-That is why so many 2e kids get labeled underachievers instead of getting identified and supported. If you have ever felt like your child is clearly capable of more but keeps hitting a specific wall, 2e is worth asking about. In one survey of parents of gifted children, more than half reported a 2e diagnosis, so if this is you, you are far from alone ([Gifted Development Center](https://gifteddevelopment.org/newsletter/worries-of-parents-of-gifted-and-twice-exceptional-children-a-research-study)).
+That is why so many 2e kids get labeled underachievers instead of getting identified and supported. If you have ever felt like your child is clearly capable of more but keeps hitting a specific wall, 2e is worth asking about. In one survey of parents of gifted children, more than half reported a 2e diagnosis, so if this is you, you are far from alone.
 
 ## What actually helps
 The mistake is treating a 2e child as only gifted (all enrichment, no support) or only disabled (all remediation, no challenge). What works is doing both at once: keep the bar high and interest-led where they are strong, and put specific accommodations around the challenge. A setting that lets a child race ahead in their strengths while taking more time where they need it fits 2e learners especially well.

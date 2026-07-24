@@ -49,7 +49,7 @@ status: draft
 If you've heard that Texas now has education savings accounts and you're wondering whether one could pay for an online gifted school, the short answer is yes. An approved Texas Education Freedom Account (TEFA) can go toward tuition at a participating accredited private school, and that includes an online K–8 gifted program like GT Anywhere. The one thing to keep front of mind: who qualifies, and when the window opens, are decided by the state, not the school. So treat the official Texas Education Freedom site as your source of truth, and this article as the plain-English overview.
 
 ## What a Texas Education Freedom Account is
-A Texas Education Freedom Account is the state's education savings account (ESA) program: eligible families get state funds they can put toward approved education expenses, including private-school tuition. It's part of a national shift, with more than 1.5 million students now in 75 private school-choice programs across 34 states, D.C., and Puerto Rico ([EdChoice, 2026](https://www.edchoice.org/wp-content/uploads/2025/01/2026-ABCs.pdf)). For 2026-27, the award is $10,474 per eligible student ([Texas Education Freedom](https://educationfreedom.texas.gov/)).
+A Texas Education Freedom Account is the state's education savings account (ESA) program: eligible families get state funds they can put toward approved education expenses, including private-school tuition. It's part of a national shift, with more than 1.5 million students now in 75 private school-choice programs across 34 states, D.C., and Puerto Rico. For 2026-27, the award is $10,474 per eligible student.
 
 ## Step by step: using TEFA for an online gifted school
 1. Confirm you're eligible. Check who qualifies for the current cycle on the official [Texas Education Freedom](https://educationfreedom.texas.gov/) site, since the rules can change year to year.
@@ -68,7 +68,7 @@ Because eligibility is set by the state and not the school, a few honest caution
 The single reliable source for all of this is the official [Texas Education Freedom](https://educationfreedom.texas.gov/) site.
 
 ## How this applies to GT Anywhere
-GT Anywhere is the online version of GT School (the gifted academy of the Alpha School family), an accredited K–8 program on the same mastery-based platform used at the Georgetown campus. Tuition is $10,400/year, deliberately priced at or under the TEFA award so that, for eligible Texas families, it can be effectively free ([GT Anywhere](https://anywhere.gt.school/)). If you don't have an award, you can still enroll and pay directly, then apply in a future window.
+GT Anywhere is the online version of GT School (the gifted academy of the Alpha School family), an accredited K–8 program on the same mastery-based platform used at the Georgetown campus. Tuition is $10,400/year, deliberately priced at or under the TEFA award so that, for eligible Texas families, it can be effectively free. If you don't have an award, you can still enroll and pay directly, then apply in a future window.
 
 ## Frequently asked questions
 

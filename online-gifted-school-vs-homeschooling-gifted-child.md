@@ -69,11 +69,11 @@ Three honest questions usually settle it:
 Still figuring out the bigger picture? See [my gifted child is bored, what are my options?](gifted-child-bored-what-are-my-options)
 
 ## Where GT Anywhere fits
-If an online gifted school sounds like your direction, GT Anywhere is one option worth a look: the online K–8 program from GT School (the gifted academy of the Alpha School family), built on a mastery-based model where kids advance the moment they've mastered something. GT reports students average roughly the 94th–98th national percentiles ([GT School, Academics](https://www.gt.school/academics)).
+If an online gifted school sounds like your direction, GT Anywhere is one option worth a look: the online K–8 program from GT School (the gifted academy of the Alpha School family), built on a mastery-based model where kids advance the moment they've mastered something. GT reports students average roughly the 94th–98th national percentiles.
 
 [VISUAL: simple bar chart of GT Anywhere's reported percentiles (reading ~94th, math/science ~98th) vs. the 50th-percentile national average]
 
-Tuition is $10,400/year, at or under the 2026-27 Texas Education Freedom Account award of $10,474 ([Texas Education Freedom](https://educationfreedom.texas.gov/)), so it can be effectively $0 net for eligible Texas families ([GT Anywhere](https://anywhere.gt.school/)). Eligibility is set by the state, so confirm the current rules first. GT also reports [STAT: a specific GT Anywhere outcome to insert, e.g., share of students working multiple grade levels above age].
+Tuition is $10,400/year, at or under the 2026-27 Texas Education Freedom Account award of $10,474, so it can be effectively $0 net for eligible Texas families. Eligibility is set by the state, so confirm the current rules first. GT also reports [STAT: a specific GT Anywhere outcome to insert, e.g., share of students working multiple grade levels above age].
 
 ## Frequently asked questions
 

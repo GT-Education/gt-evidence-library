@@ -56,14 +56,14 @@ If your child races through the worksheet and then stares out the window, you're
 ## Your options, easiest first
 Work up the ladder and stop when the fit feels right.
 
-- Adjust in the current classroom. Ask about curriculum compacting (skipping what your child has already mastered) and single-subject acceleration (moving up in just one subject, like math). Both are low-cost and well-supported: in the landmark Curriculum Compacting Study, teachers cut 40 to 50% of the regular curriculum for high-ability kids with no drop in achievement ([NRC/GT, 1993](https://files.eric.ed.gov/fulltext/ED379847.pdf)).
-- Grade acceleration. Moving up a full grade suits kids who are ahead across the board and ready for older classmates. The social worry is common but not what the research finds ([A Nation Empowered, 2015](https://www.accelerationinstitute.org/nation_empowered/)); more on that in [does grade-skipping hurt kids socially?](does-grade-skipping-hurt-kids-socially)
+- Adjust in the current classroom. Ask about curriculum compacting (skipping what your child has already mastered) and single-subject acceleration (moving up in just one subject, like math). Both are low-cost and well-supported: in the landmark Curriculum Compacting Study, teachers cut 40 to 50% of the regular curriculum for high-ability kids with no drop in achievement.
+- Grade acceleration. Moving up a full grade suits kids who are ahead across the board and ready for older classmates. The social worry is common but not what the research finds; more on that in [does grade-skipping hurt kids socially?](does-grade-skipping-hurt-kids-socially)
 - Gifted magnet or pull-out program. A dedicated gifted class, or a few enrichment hours a week, if your district has a strong one. Quality varies a lot, and a few hours may not touch the other 90% of the week.
 - Homeschooling. The most flexibility to tailor everything to your child, if you have the time to lead it and can arrange socialization through co-ops, clubs, and sports.
 - A full-time gifted school, in person or online. Built so an advanced pace is the default, not the exception. Online solves geography, but check the grade range first, since some well-known online gifted schools only start in middle or high school.
 
 ## How to choose
-Whatever you're weighing, the same few questions cut through it. Parents tend to trust what they can see and measure; in one national survey, in-person visits and school-rating data were the top research methods, and 57% went with strong data even over a trusted person's negative opinion ([EdChoice, 2024](https://www.edchoice.org/wp-content/uploads/2024/03/Parent-Preferences.pdf)). Ask any option:
+Whatever you're weighing, the same few questions cut through it. Parents tend to trust what they can see and measure; in one national survey, in-person visits and school-rating data were the top research methods, and 57% went with strong data even over a trusted person's negative opinion. Ask any option:
 
 - How is my child's level set, by mastery or by age?
 - How much of the day is genuinely new learning versus review?
@@ -73,7 +73,7 @@ Whatever you're weighing, the same few questions cut through it. Parents tend to
 Not sure boredom is really the issue? See the [signs a gifted child is under-challenged](is-my-gifted-child-under-challenged).
 
 ## Where GT fits
-If the through-line of your problem is pace, a capable kid stuck waiting, a mastery-based school is worth a look. GT School, the gifted academy of the Alpha School family, is a K–8 program where kids advance once they've mastered material, not by age or the calendar. Core academics happen in a focused morning block, with afternoons for projects and academic competitions. GT reports students average roughly the 94th–98th national percentiles ([GT School, Academics](https://www.gt.school/academics)). It comes in two forms, GT Anywhere online and an in-person day school in Georgetown, TX, so it can fit whether or not there's a campus nearby. It's one honest option among the ones above; the right choice is whichever matches the challenge to your child.
+If the through-line of your problem is pace, a capable kid stuck waiting, a mastery-based school is worth a look. GT School, the gifted academy of the Alpha School family, is a K–8 program where kids advance once they've mastered material, not by age or the calendar. Core academics happen in a focused morning block, with afternoons for projects and academic competitions. GT reports students average roughly the 94th–98th national percentiles. It comes in two forms, GT Anywhere online and an in-person day school in Georgetown, TX, so it can fit whether or not there's a campus nearby. It's one honest option among the ones above; the right choice is whichever matches the challenge to your child.
 
 ## Frequently asked questions
 

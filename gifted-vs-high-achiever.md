@@ -55,7 +55,7 @@ A rough, friendly comparison (no child fits a column perfectly):
 | Consistent top marks | May shine, coast, or even underperform when bored |
 
 ## Why the difference matters
-Because it changes how you help. NAGC defines giftedness as the "capability to perform at higher levels compared to others of the same age," which is about potential, not the grade earned that week ([NAGC](https://www.nagc.org/what-is-giftedness)). Put simply: giftedness describes innate potential, while achievement reflects what a child has actually produced, and the two do not always line up. A high achiever usually thrives on more rigor and encouragement. A gifted child needs the pace and depth matched to how they actually learn, or the boredom sets in.
+Because it changes how you help. NAGC defines giftedness as the "capability to perform at higher levels compared to others of the same age," which is about potential, not the grade earned that week. Put simply: giftedness describes innate potential, while achievement reflects what a child has actually produced, and the two do not always line up. A high achiever usually thrives on more rigor and encouragement. A gifted child needs the pace and depth matched to how they actually learn, or the boredom sets in.
 
 ## The trap: assuming grades tell the story
 This is where good students get overlooked in both directions. A hardworking child with top grades may not be gifted, and that is completely fine. And a clearly gifted child can have unremarkable grades because school never asked much of them. So if your gut says your child is capable of far more than the grades show, trust it enough to look closer.

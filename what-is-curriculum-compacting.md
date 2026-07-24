@@ -53,7 +53,7 @@ It really comes down to three moves:
 It's easy to hear "compacting" and picture a kid getting less. It's the opposite. You're just refusing to make them relearn what they already know, and spending that time on work that's actually worth it.
 
 ## Why it matters for gifted kids
-Here's the part that catches a lot of parents off guard: for many bright kids, a big slice of the school year is review they simply don't need. In the 1993 Curriculum Compacting Study, a national study of about 436 teachers across 27 districts, teachers removed up to half of the regular curriculum for high-ability students with no drop in achievement, and the compacted math and science groups actually scored higher. In that same study, 78 to 88% of the strongest 5th and 6th grade readers passed tests on skills before those skills had even been taught ([NRC/GT, 1993](https://files.eric.ed.gov/fulltext/ED379847.pdf)).
+Here's the part that catches a lot of parents off guard: for many bright kids, a big slice of the school year is review they simply don't need. In the 1993 Curriculum Compacting Study, a national study of about 436 teachers across 27 districts, teachers removed up to half of the regular curriculum for high-ability students with no drop in achievement, and the compacted math and science groups actually scored higher. In that same study, 78 to 88% of the strongest 5th and 6th grade readers passed tests on skills before those skills had even been taught.
 
 [CHART: two research numbers side by side, "40 to 50% of the curriculum trimmed with no loss in achievement" and "78 to 88% of top readers passed pretests before instruction" (NRC/GT, 1993)]
 

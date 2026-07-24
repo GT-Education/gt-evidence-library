@@ -50,12 +50,12 @@ status: draft
 If you're picturing your child as the youngest kid in the room, a little lost among older classmates, that worry makes complete sense. Here's the reassuring part: for most well-matched gifted kids, grade-skipping doesn't hurt them socially. It's one of the most studied questions in gifted education, and the biggest research review on it, A Nation Empowered, calls acceleration a "reliable and robust evidence-based intervention" that helps kids academically, socially, and emotionally. For a child who's a good fit, skipping is linked to better outcomes, not worse.
 
 ## Where the worry comes from
-The fear is intuitive, and you're far from alone in feeling it. Picture a 9-year-old in a class of 11-year-olds and it's easy to imagine them on the outside. In a survey of 847 parents of gifted and twice-exceptional kids, "fitting in" and social skills ranked among the most common worries, right alongside boredom ([Gifted Development Center](https://gifteddevelopment.org/newsletter/worries-of-parents-of-gifted-and-twice-exceptional-children-a-research-study)). So if this is the thing keeping you up, you're asking exactly the right question.
+The fear is intuitive, and you're far from alone in feeling it. Picture a 9-year-old in a class of 11-year-olds and it's easy to imagine them on the outside. In a survey of 847 parents of gifted and twice-exceptional kids, "fitting in" and social skills ranked among the most common worries, right alongside boredom. So if this is the thing keeping you up, you're asking exactly the right question.
 
 The catch is that intuition and the evidence point in opposite directions, and that gap is costly. Acceleration stays underused mostly because of social fears the research doesn't back up. Only about [STAT: share of academically eligible students who ever skip a grade] of the kids who could benefit ever do, so if it feels like a road less traveled, that's why.
 
 ## What the research actually shows
-A Nation Empowered (the University of Iowa's Belin-Blank Center, 2015) pulls together decades of studies ([A Nation Empowered, 2015](https://www.accelerationinstitute.org/nation_empowered/)), and a few things stand out:
+A Nation Empowered (the University of Iowa's Belin-Blank Center, 2015) pulls together decades of studies, and a few things stand out:
 
 - Acceleration just means matching the pace and level of school to a child's readiness. It isn't about pushing; it's about letting a ready kid move.
 - It comes in about 20 forms, so the real question isn't "skip or don't skip," it's "which kind of acceleration, if any, fits my child?"
@@ -75,7 +75,7 @@ Here's the reframe worth sitting with. When the whole conversation is "is skippi
 - Look at mastery-based settings, where kids advance by showing mastery instead of by age. That quietly dissolves the skip-or-stay dilemma, because pace is personal by design.
 
 ## Where GT fits
-That last idea is worth a look if the skip-or-stay binary feels wrong for your family. GT School, the gifted academy of the Alpha School family, runs a mastery-based K–8 model: kids move ahead when they've mastered something, not by grade or the calendar, so a child can race ahead in their strengths without being socially "skipped" out of their group. GT reports students average roughly the 94th–98th national percentiles ([GT School, Academics](https://www.gt.school/academics)). It's available online through GT Anywhere, or in person in Georgetown, TX.
+That last idea is worth a look if the skip-or-stay binary feels wrong for your family. GT School, the gifted academy of the Alpha School family, runs a mastery-based K–8 model: kids move ahead when they've mastered something, not by grade or the calendar, so a child can race ahead in their strengths without being socially "skipped" out of their group. GT reports students average roughly the 94th–98th national percentiles. It's available online through GT Anywhere, or in person in Georgetown, TX.
 
 ## Frequently asked questions
 

@@ -59,10 +59,10 @@ No single trait settles it, and no child shows all of them. What matters is a co
 - Big feelings: emotional depth, a strong sense of fairness, sensitivity.
 
 ## Why grades can be misleading
-Here is the part that trips up a lot of loving, attentive parents. NAGC defines giftedness as the "capability to perform at higher levels compared to others of the same age, experience, and environment," which is about potential, not the grade on the page ([NAGC](https://www.nagc.org/what-is-giftedness)). A gifted child who is bored can quietly coast, do the minimum, or even act out, and their report card can look perfectly average. So "good grades" is not the test, and neither is "struggling."
+Here is the part that trips up a lot of loving, attentive parents. NAGC defines giftedness as the "capability to perform at higher levels compared to others of the same age, experience, and environment," which is about potential, not the grade on the page. A gifted child who is bored can quietly coast, do the minimum, or even act out, and their report card can look perfectly average. So "good grades" is not the test, and neither is "struggling."
 
 ## When a formal evaluation helps
-If you keep seeing the cluster above, especially paired with boredom or a gap between what your child can do and what school asks of them, an evaluation is worth it. A psychologist who knows gifted profiles can give a cognitive test (often the WISC-V) and read the results in context ([NAGC, Assessments](https://www.nagc.org/assessments-and-tests)). Testing does two things: it confirms giftedness, and it points to what kind of challenge or support your child needs next.
+If you keep seeing the cluster above, especially paired with boredom or a gap between what your child can do and what school asks of them, an evaluation is worth it. A psychologist who knows gifted profiles can give a cognitive test (often the WISC-V) and read the results in context. Testing does two things: it confirms giftedness, and it points to what kind of challenge or support your child needs next.
 
 ## What to do in the meantime
 You do not have to wait for a test to start helping. Feed the curiosity at home, and talk to your child's teacher about [curriculum compacting](what-is-curriculum-compacting) or a bit of acceleration in their strongest subject. The real goal is not a label. It is making sure your child gets to learn at their actual level every day.
