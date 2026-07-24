@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GT School: Gifted Education Evidence Library</title>
+<meta name="description" content="Calm, clear, primary-source answers to the questions parents of gifted and twice-exceptional K-8 students actually ask."/>
+<link rel="canonical" href="https://www.gt.school/blog"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root{--cream:oklch(97.5% .014 75);--paper:oklch(99.6% .004 85);--ink:oklch(23% .025 45);--muted:oklch(46% .03 45);--faint:oklch(62% .025 55);--line:oklch(89% .02 60);
+    --accent:oklch(64% .16 45);--deep:oklch(50% .14 40);--soft:oklch(94% .05 55);
+    --serif:"Fraunces",Georgia,serif;--sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,monospace}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  .page{max-width:840px;margin:0 auto;padding:56px 24px 96px}
+  a{color:inherit}
+  /* richer multi-hue ombre hero */
+  .top{position:relative;overflow:hidden;border:1px solid oklch(90% .04 55);border-radius:16px;padding:30px 30px 26px;margin-bottom:24px;
+    background:
+      radial-gradient(62% 95% at 6% 6%, oklch(90% .09 22/.92), transparent 72%),
+      radial-gradient(58% 90% at 40% -12%, oklch(92% .078 55/.88), transparent 72%),
+      radial-gradient(60% 92% at 84% 4%, oklch(92% .085 90/.88), transparent 72%),
+      radial-gradient(64% 94% at 108% 55%, oklch(92% .072 150/.6), transparent 72%),
+      radial-gradient(42% 64% at 100% 96%, oklch(89% .04 240/.28), transparent 70%),
+      radial-gradient(60% 90% at 48% 132%, oklch(91% .07 330/.5), transparent 70%),
+      linear-gradient(120deg, oklch(96.5% .035 55), oklch(98.6% .015 80));}
+  .kick{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--deep);background:var(--paper);padding:6px 12px;border-radius:999px;margin:0 0 14px;box-shadow:0 1px 0 rgba(0,0,0,.02)}
+  .kick::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .h1{font-family:var(--serif);font-weight:600;font-size:30px;line-height:1.12;letter-spacing:-.01em;margin:0 0 8px;text-wrap:balance}
+  .sub{font-family:var(--serif);color:var(--muted);font-size:16px;margin:0 0 16px;max-width:none}
+  .rev{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);margin:0 0 18px}
+  .rev svg{width:15px;height:15px;flex:none}
+  .rev svg .s{fill:none;stroke:var(--deep);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .search{display:flex;align-items:center;gap:10px;width:100%;background:var(--paper);border:1px solid oklch(88% .03 55);border-radius:12px;padding:13px 16px;margin:0 0 16px}
+  .search svg{width:16px;height:16px;flex:none;stroke:var(--faint);fill:none;stroke-width:2}
+  .search input{border:none;background:transparent;outline:none;width:100%;font-family:var(--sans);font-size:14px;color:var(--ink)}
+  .search input::placeholder{color:var(--faint)}
+  .starthere{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
+  .starthere .lbl{font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--deep)}
+  .pill{font-family:var(--sans);font-size:13px;color:var(--ink);background:var(--paper);border:1px solid oklch(87% .04 50);border-radius:9px;padding:7px 14px;text-decoration:none}
+  .pill:hover{border-color:var(--accent);color:var(--deep)}
+  .sec{margin:26px 0 0}
+  .qh{font-family:var(--serif);font-weight:600;font-size:19px;margin:0 0 6px;color:var(--ink)}
+  .row{display:flex;gap:15px;padding:13px 12px;border-radius:12px;text-decoration:none;color:inherit;transition:background .13s ease}
+  .row:hover{background:oklch(97.5% .022 var(--h))}
+  .row .mark{font-family:var(--serif);font-weight:700;font-size:18px;line-height:1.35;color:oklch(72% .11 var(--h));flex:none;width:18px;text-align:center}
+  .row .tx{flex:1;min-width:0}
+  .row h4{font-family:var(--serif);font-weight:600;font-size:17px;line-height:1.25;margin:0 0 3px}
+  .row:hover h4{color:oklch(54% .12 var(--h))}
+  .row p{font-size:13.5px;line-height:1.5;color:var(--muted);margin:0}
+  .row .ar{color:oklch(72% .11 var(--h));flex:none;align-self:center;font-size:15px}
+  .noresults{font-family:var(--serif);color:var(--muted);font-size:16px;padding:20px 12px;display:none}
+  footer.site{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-family:var(--sans);font-size:13px;color:var(--faint)}
+  @media (max-width:640px){.page{padding:40px 20px 80px}.h1{font-size:26px}.top{padding:24px 22px 22px}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top">
+    <p class="kick">Evidence Library</p>
+    <h1 class="h1">Feeling lost with your gifted kid?<br>Let’s figure it out together.</h1>
+    <p class="sub">Calm, clear answers to the questions gifted parents ask, grounded in real research.</p>
+    <p class="rev"><svg viewBox="0 0 24 24"><path class="s" d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path class="s" d="M9 12l2 2 4-4"/></svg> Written &amp; reviewed by GT School’s gifted-education team</p>
+    <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg><input id="lib-search" type="search" placeholder="Search the library&hellip;" aria-label="Search the library"/></div>
+    <div class="starthere"><span class="lbl">New here? Start with</span><a class="pill" href="is-my-gifted-child-under-challenged.html">Under-challenged?</a><a class="pill" href="does-academic-acceleration-actually-work.html">Does acceleration work?</a><a class="pill" href="what-is-mastery-based-learning.html">How kids learn</a></div>
+  </div>
+<div class="sec" style="--h:28"><h3 class="qh">Is my child bored or under-challenged?</h3><a class="row" href="is-my-gifted-child-under-challenged.html"><span class="mark">Q</span><div class="tx"><h4>Is my gifted child under-challenged?</h4><p>The signs a gifted child isn’t being stretched, and what to do.</p></div><span class="ar">→</span></a><a class="row" href="gifted-child-bored-what-are-my-options.html"><span class="mark">Q</span><div class="tx"><h4>My gifted child is bored, what are my options?</h4><p>The real options when a bright kid is coasting, and how to choose.</p></div><span class="ar">→</span></a></div>
+<div class="sec" style="--h:50"><h3 class="qh">Should we let them move ahead?</h3><a class="row" href="does-academic-acceleration-actually-work.html"><span class="mark">Q</span><div class="tx"><h4>Does academic acceleration actually work?</h4><p>Decades of research on whether moving faster actually helps.</p></div><span class="ar">→</span></a><a class="row" href="does-grade-skipping-hurt-kids-socially.html"><span class="mark">Q</span><div class="tx"><h4>Does grade-skipping hurt kids socially?</h4><p>What the research says about the social worry every parent has.</p></div><span class="ar">→</span></a></div>
+<div class="sec" style="--h:80"><h3 class="qh">How do gifted kids learn best?</h3><a class="row" href="what-is-mastery-based-learning.html"><span class="mark">Q</span><div class="tx"><h4>What is a mastery-based (2-hour) model?</h4><p>Advance by mastery, not age or seat-time.</p></div><span class="ar">→</span></a><a class="row" href="what-is-curriculum-compacting.html"><span class="mark">Q</span><div class="tx"><h4>What is curriculum compacting?</h4><p>Skip what’s already mastered so class time buys something new.</p></div><span class="ar">→</span></a></div>
+<div class="sec" style="--h:96"><h3 class="qh">Where should they go to school?</h3><a class="row" href="online-gifted-school-vs-homeschooling-gifted-child.html"><span class="mark">Q</span><div class="tx"><h4>Online gifted school vs. homeschooling</h4><p>A neutral guide to pace, parent time, cost, and funding.</p></div><span class="ar">→</span></a><a class="row" href="use-texas-tefa-voucher-online-gifted-school.html"><span class="mark">Q</span><div class="tx"><h4>Can I use my Texas TEFA voucher online?</h4><p>How an approved Texas ESA can fund an accredited online school.</p></div><span class="ar">→</span></a></div>
+  <p class="noresults" id="noresults">No guides match that yet. Try a different word.</p>
+  <footer class="site">Published by GT School, the gifted academy of the Alpha School family. &copy; 2026 GT School.</footer>
+</div>
+<script>
+(function(){
+  var q=document.getElementById('lib-search');
+  if(!q) return;
+  var rows=[].slice.call(document.querySelectorAll('.row'));
+  var secs=[].slice.call(document.querySelectorAll('.sec'));
+  var none=document.getElementById('noresults');
+  q.addEventListener('input',function(){
+    var t=q.value.trim().toLowerCase(); var hits=0;
+    rows.forEach(function(r){var m=r.textContent.toLowerCase().indexOf(t)>-1; r.style.display=m?'':'none'; if(m)hits++;});
+    secs.forEach(function(s){var vis=[].slice.call(s.querySelectorAll('.row')).some(function(r){return r.style.display!=='none';}); s.style.display=vis?'':'none';});
+    if(none) none.style.display=hits?'none':'block';
+  });
+})();
+</script>
+</body>
+</html>

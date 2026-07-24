@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<!--
+  GT School - reusable AI-citable (GEO) article template.
+  Do not edit generated pages directly; edit this template + blog/build.py, then rebuild.
+  Placeholder tokens are filled by build.py from each article's YAML front matter.
+  Each commented block below maps to a GEO lever from the gt-school-blog skill's geo-checklist.md.
+
+  REDESIGN NOTE: warm "parent guide" visual system, loosely inspired by the GT Anywhere
+  site (terracotta accent, confident serif headlines, rounded warm cards). All tokens
+  below are unchanged from the previous version - only markup structure additions are the
+  optional rich-content blocks documented near the CONTENT block.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- GEO Lever 2 (semantic head) + snippet freedom for AI answer engines -->
+  <title>Does Grade-Skipping Hurt Kids Socially? What the Research Says</title>
+  <meta name="description" content="Worried grade-skipping will hurt your child socially? Decades of research find acceleration usually helps gifted kids, academically and socially." />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <link rel="canonical" href="https://www.gt.school/blog/does-grade-skipping-hurt-kids-socially" />
+  <meta name="author" content="GT School" />
+  <meta name="keywords" content="does grade skipping hurt kids socially, is grade skipping bad for my child, grade skipping social development, is acceleration bad for gifted kids" />
+
+  <!-- GEO Lever 1 (freshness): machine-readable publish/update timestamps -->
+  <meta property="article:published_time" content="2026-07-22" />
+  <meta property="article:modified_time" content="2026-07-24" />
+
+  <!-- Social / sharing (helps distribution + some engines read OG) -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="GT School" />
+  <meta property="og:title" content="Does Grade-Skipping Hurt Kids Socially? What the Research Says" />
+  <meta property="og:description" content="Worried grade-skipping will hurt your child socially? Decades of research find acceleration usually helps gifted kids, academically and socially." />
+  <meta property="og:url" content="https://www.gt.school/blog/does-grade-skipping-hurt-kids-socially" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Does Grade-Skipping Hurt Kids Socially? What the Research Says" />
+  <meta name="twitter:description" content="Worried grade-skipping will hurt your child socially? Decades of research find acceleration usually helps gifted kids, academically and socially." />
+  
+
+  <!-- GEO Lever 3 (structured data): Article/BlogPosting + FAQPage (+ HowTo) + BreadcrumbList.
+       This is the single biggest AI-citation signal. Generated from front matter. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://www.gt.school/blog/does-grade-skipping-hurt-kids-socially#article",
+      "headline": "Does Grade-Skipping Hurt Kids Socially? What the Research Says",
+      "description": "Worried grade-skipping will hurt your child socially? Decades of research find acceleration usually helps gifted kids, academically and socially.",
+      "datePublished": "2026-07-22",
+      "dateModified": "2026-07-24",
+      "inLanguage": "en",
+      "author": {
+        "@type": "Organization",
+        "name": "GT School",
+        "url": "https://www.gt.school/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GT School",
+        "url": "https://www.gt.school/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.gt.school/logo.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.gt.school/blog/does-grade-skipping-hurt-kids-socially"
+      },
+      "url": "https://www.gt.school/blog/does-grade-skipping-hurt-kids-socially",
+      "keywords": "does grade skipping hurt kids socially, is grade skipping bad for my child, grade skipping social development, is acceleration bad for gifted kids",
+      "about": {
+        "@type": "Thing",
+        "name": "Does grade-skipping hurt gifted kids socially?"
+      },
+      "citation": [
+        {
+          "@type": "CreativeWork",
+          "name": "Belin-Blank Center, 2015, A Nation Empowered",
+          "url": "https://www.accelerationinstitute.org/nation_empowered/"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "Post & Fedor, What Worries Parents (Gifted Development Center)",
+          "url": "https://gifteddevelopment.org/newsletter/worries-of-parents-of-gifted-and-twice-exceptional-children-a-research-study"
+        },
+        {
+          "@type": "CreativeWork",
+          "name": "GT School, Academics",
+          "url": "https://www.gt.school/academics"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.gt.school/blog/does-grade-skipping-hurt-kids-socially#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does grade-skipping hurt kids socially?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For most well-matched gifted students, no. The largest research synthesis on acceleration, A Nation Empowered, found grade-skipping is associated with positive social and psychological outcomes, not harm, with a social effect size around +0.34 versus comparable non-accelerated peers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do people think acceleration is socially harmful?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The worry is intuitive (a younger child among older classmates) and widely shared. But researchers describe it as a persistent myth: acceleration stays underused precisely because of social-emotional fears the evidence does not support."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is grade-skipping right for every gifted child?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. Acceleration is one of roughly 20 forms, and the right fit depends on the child's readiness, motivation, and maturity. The evidence says it's a safe, effective option to consider, not that every child should skip a grade."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are alternatives to skipping a whole grade?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Single-subject acceleration (moving up in just math, say), curriculum compacting, early entrance, and mastery-based programs let a child move at their own pace without necessarily skipping an entire grade."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.gt.school/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://www.gt.school/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Does Grade-Skipping Hurt Kids Socially? What the Research Says",
+          "item": "https://www.gt.school/blog/does-grade-skipping-hurt-kids-socially"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --cream:oklch(97.5% 0.014 75);
+      --paper:oklch(99.2% 0.006 85);
+      --ink:oklch(24% 0.025 45);
+      --muted:oklch(46% 0.03 45);
+      --faint:oklch(63% 0.025 50);
+      --line:oklch(89% 0.02 60);
+      --surface:oklch(95% 0.02 65);
+      --accent:oklch(68% 0.15 45);
+      --accent-deep:oklch(52% 0.14 38);
+      --accent-soft:oklch(94% 0.045 55);
+      --charcoal:oklch(27% 0.02 45);
+      --charcoal-ink:oklch(93% 0.012 60);
+      --maxw:1160px;
+      --readw:840px;
+      --serif:"Fraunces",Georgia,"Times New Roman",serif;
+      --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      --mono:"IBM Plex Mono",ui-monospace,"SF Mono","Cascadia Code",Consolas,monospace;
+    }
+    *{box-sizing:border-box}
+    html{-webkit-text-size-adjust:100%}
+    body{
+      margin:0; background:var(--cream); color:var(--ink);
+      font-family:var(--serif);
+      font-size:18px; line-height:1.7;
+      -webkit-font-smoothing:antialiased;
+    }
+    ::selection{background:var(--accent-soft); color:var(--accent-deep)}
+    h1,h2,h3,p{text-wrap:pretty}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:44px 24px 96px}
+    /* The reading column is always centered (equal margins). The sticky "In this guide" rail only
+       appears on very wide screens, where it tucks into the right gutter without shifting the column
+       off-center (see the min-width media query below). */
+    .article-grid{display:grid; grid-template-columns:minmax(0,var(--readw)); justify-content:center; align-items:start}
+    .article-grid > article{min-width:0}
+    aside.toc{display:none; max-width:250px; position:sticky; top:32px}
+    aside.toc .toc-title{font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); margin:0 0 14px}
+    aside.toc ul{list-style:none; margin:0; padding:0; border-left:2px solid var(--line)}
+    aside.toc a{display:block; padding:7px 0 7px 16px; margin-left:-2px; border-left:2px solid transparent; color:var(--muted); text-decoration:none; font-family:var(--sans); font-size:13.5px; line-height:1.4}
+    aside.toc a:hover{color:var(--accent-deep); border-left-color:var(--accent)}
+    nav.crumbs, header.article, nav.related, footer.site{max-width:var(--readw); margin-left:auto; margin-right:auto}
+    a{color:var(--accent-deep); text-underline-offset:3px}
+    a:hover{text-decoration-color:currentColor}
+    /* Inline citations render as small superscript footnotes linking to the sources at the bottom */
+    sup.fn{font-size:0.68em; line-height:0}
+    sup.fn a{color:var(--accent-deep); font-weight:600; text-decoration:none; padding:0 1px}
+    sup.fn a:hover{text-decoration:underline}
+
+    /* Breadcrumb (also emitted as BreadcrumbList JSON-LD) */
+    nav.crumbs{font-family:var(--sans); font-size:13.5px; color:var(--faint); margin-bottom:28px}
+    nav.crumbs a{color:var(--muted); text-decoration:none}
+    nav.crumbs a:hover{color:var(--accent-deep)}
+    nav.crumbs .sep{margin:0 8px; color:var(--faint)}
+    nav.crumbs .current{color:var(--muted)}
+
+    /* Category kicker - frames each page as an entry in a topical library, not a personal blog post */
+    .kicker{
+      display:inline-flex; align-items:center; gap:7px;
+      font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+      color:var(--accent-deep); background:var(--accent-soft);
+      padding:7px 14px 7px 12px; border-radius:10px; margin:0 0 18px;
+    }
+    .kicker::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--accent); flex:none}
+
+    header.article h1{
+      font-family:var(--serif); font-weight:700; font-size:44px; line-height:1.15; letter-spacing:-0.01em;
+      margin:0 0 18px; color:var(--ink);
+    }
+    /* GEO Lever 1: dates rendered VISIBLY on the page, not just in meta */
+    .meta{display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center;
+      font-family:var(--sans); font-size:14px; color:var(--faint);
+      margin-bottom:36px; padding-bottom:28px; border-bottom:1px solid var(--line)}
+    .meta time{color:var(--muted); font-weight:600}
+    .meta .dot{color:var(--line)}
+
+    /* GEO Lever 2: the answer-first paragraph an AI can lift verbatim - styled as a warm "Quick Answer" callout */
+    /* Quick Answer: a soft wash tinted to the article's theme (--h) with a slim accent rule, instead of
+       a flat orange block. Answer-first, but calm and coordinated with the hero ombre. */
+    p.answer{
+      position:relative;
+      font-family:var(--serif); font-size:16.5px; line-height:1.62; color:var(--ink);
+      background:oklch(97.4% 0.033 84); border:1px solid oklch(90% 0.038 84); border-left:3px solid var(--accent);
+      margin:0 0 30px; padding:16px 20px; border-radius:12px;
+    }
+    p.answer::before{
+      content:"Quick Answer"; display:block;
+      font-family:var(--sans); font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+      color:var(--accent-deep); margin-bottom:9px;
+    }
+
+    article h2{
+      position:relative; font-family:var(--serif); font-weight:600; font-size:23px; line-height:1.32;
+      letter-spacing:-0.01em; color:var(--ink); margin:44px 0 14px; padding-left:18px;
+    }
+    article h2::before{
+      content:""; position:absolute; left:0; top:0.3em; width:8px; height:8px; border-radius:2px; background:var(--accent);
+    }
+    article h3{
+      font-family:var(--sans); font-weight:700; font-size:14.5px; letter-spacing:0.04em; text-transform:uppercase;
+      color:var(--accent-deep); margin:30px 0 10px;
+    }
+    article p{margin:0 0 20px}
+    article ul{padding-left:22px; margin:0 0 20px}
+    article ul li{margin:8px 0; padding-left:4px}
+    article ul li::marker{color:var(--accent)}
+    article strong{font-weight:700; color:var(--ink)}
+
+    /* Numbered steps get warm circular numeral badges instead of default markers */
+    article ol{list-style:none; padding-left:0; margin:0 0 28px; counter-reset:step}
+    article ol li{counter-increment:step; position:relative; padding:3px 0 3px 46px; margin:16px 0; min-height:32px}
+    article ol li::before{
+      content:counter(step); position:absolute; left:0; top:-3px; width:32px; height:32px; border-radius:50%;
+      background:var(--accent-soft); color:var(--accent-deep); font-family:var(--sans); font-weight:700; font-size:15px;
+      display:flex; align-items:center; justify-content:center;
+    }
+
+    /* Comparison tables (Comparison archetype) - scannable + AI-parseable */
+    .table-scroll{overflow-x:auto; margin:0 0 28px; border:1px solid var(--line); border-radius:14px}
+    article table{border-collapse:collapse; width:100%; font-family:var(--sans); font-size:15.5px}
+    article th,article td{padding:12px 16px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line)}
+    article thead th{background:var(--surface); font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:0.03em}
+    article tbody tr:last-child td{border-bottom:none}
+
+    article blockquote{
+      font-family:var(--serif); font-style:italic; font-size:21px; line-height:1.55; color:var(--ink);
+      margin:28px 0; padding:4px 0 4px 22px; border-left:3px solid var(--accent);
+    }
+    hr{border:none; border-top:1px solid var(--line); margin:40px 0}
+
+    /* Placeholders: visible, unmissable markers for data/visuals to fill before publishing.
+       Inline [STAT]/[NUMBER]/[%] -> amber monospace chip; block [CHART:/VISUAL:/DATA: ...] -> dashed box. */
+    .ph-stat{background:var(--accent-soft); color:var(--accent-deep); font-family:var(--mono); font-weight:700;
+      padding:2px 8px; border:1px dashed var(--accent); border-radius:6px; font-size:0.82em;
+      white-space:normal; box-decoration-break:clone; -webkit-box-decoration-break:clone}
+    figure.ph-visual{margin:32px 0; padding:32px 26px; border:2px dashed color-mix(in oklch, var(--accent) 55%, transparent);
+      border-radius:16px; background:var(--surface); text-align:center}
+    .ph-visual-tag{font-family:var(--mono); font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+      color:var(--accent-deep); margin-bottom:8px}
+    .ph-visual-desc{font-family:var(--mono); color:var(--muted); font-size:14px; margin:0}
+
+    /* Hero: warm multi-color ombre panel with the breadcrumb, kicker, title and dates overlaid in
+       dark ink (matches the library hero). Sized to the reading column so it aligns with the body. */
+    /* Per-theme ombre: --h from the article's section hue, blended with warm neighbors (+34 / -16)
+       for a soft, glowing gradient like the library cards (coral, terracotta, warm yellow-green). */
+    .hero{--h:45; position:relative; overflow:hidden; max-width:var(--readw); margin:0 auto 34px;
+      border:1px solid color-mix(in oklch, oklch(70% 0.1 var(--h)) 20%, var(--line)); border-radius:16px; padding:26px 28px 30px;
+      background:
+        radial-gradient(56% 86% at 12% 16%, oklch(89% 0.095 var(--h)/.92), transparent 72%),
+        radial-gradient(56% 88% at 90% 24%, oklch(91% 0.075 calc(var(--h) + 34)/.85), transparent 74%),
+        radial-gradient(68% 94% at 72% 120%, oklch(90% 0.085 calc(var(--h) - 16)/.82), transparent 72%),
+        linear-gradient(120deg, oklch(95.5% 0.04 var(--h)), oklch(98% 0.02 var(--h)));}
+    .hero .crumbs{margin:0 0 16px; max-width:none; color:var(--faint)}
+    .hero .crumbs a{color:var(--muted)}
+    .hero .crumbs a:hover{color:var(--accent-deep)}
+    .hero .crumbs .sep{color:var(--faint)}
+    .hero .crumbs .current{color:var(--muted)}
+    .hero header.article{margin:0; max-width:none}
+    .hero .kicker{background:var(--paper); color:var(--accent-deep)}
+    .hero header.article h1{color:var(--ink); font-weight:600; font-size:28px; line-height:1.18; margin:0 0 12px}
+    .hero .meta{margin:0; padding:0; border:none; color:var(--muted)}
+    .hero .meta time{color:var(--ink); font-weight:600}
+    .hero .meta .dot{color:var(--faint)}
+
+    /* --- Optional rich content blocks, available to article authors via raw HTML in markdown ---
+       .stat-band  > .stat > .stat-num + .stat-label     (headline research numbers)
+       .qa-list    > .qa-item > p.q + p.a                (FAQ archetype, pairs with FAQPage JSON-LD)
+       .term-grid  > .term-card > span.term + p.def      (short glossary)
+       .cta-card   > p.eyebrow + h3 + p + .cta-actions>a.btn.btn-primary/.btn-ghost  (closing GT School pitch) */
+    .stat-band{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+      margin:36px 0 12px; padding:6px; border-radius:18px; background:var(--surface); border:1px solid var(--line)}
+    .stat-band .stat{padding:22px 20px; text-align:center}
+    .stat-band .stat + .stat{border-left:1px solid var(--line)}
+    .stat-band .stat-num{display:block; font-family:var(--serif); font-weight:700; font-size:34px; color:var(--accent-deep); line-height:1.1}
+    .stat-band .stat-label{display:block; margin-top:8px; font-family:var(--sans); font-size:13px; color:var(--muted); line-height:1.45}
+    .stat-source{font-family:var(--sans); font-size:12.5px; color:var(--faint); margin:10px 0 32px; text-align:center}
+
+    .qa-list{margin:8px 0 32px; display:flex; flex-direction:column; gap:16px}
+    .qa-item{padding:22px 24px; background:var(--paper); border:1px solid var(--line); border-radius:14px}
+    .qa-item .q{font-family:var(--serif); font-weight:700; font-size:18px; color:var(--ink); margin:0 0 8px}
+    .qa-item .a{font-family:var(--serif); font-size:17px; color:var(--muted); margin:0; line-height:1.6}
+
+    .term-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin:20px 0 32px}
+    .term-card{padding:18px; background:var(--surface); border-radius:12px}
+    .term-card .term{display:block; font-family:var(--sans); font-weight:700; font-size:14px; color:var(--accent-deep); margin-bottom:4px}
+    .term-card .def{font-family:var(--serif); font-size:15.5px; color:var(--muted); line-height:1.5; margin:0}
+
+    .cta-card{position:relative; overflow:hidden; margin:44px 0 8px; padding:40px 36px; border-radius:22px;
+      background:var(--charcoal); color:var(--charcoal-ink)}
+    .cta-card::after{content:""; position:absolute; right:-60px; top:-60px; width:220px; height:220px; border-radius:50%;
+      background:radial-gradient(circle, var(--accent) 0%, transparent 70%); opacity:0.35}
+    .cta-card .eyebrow{position:relative; font-family:var(--mono); font-size:12px; font-weight:600; text-transform:uppercase;
+      letter-spacing:0.08em; color:color-mix(in oklch, var(--accent) 78%, white); margin:0 0 12px}
+    .cta-card h3{position:relative; font-family:var(--serif); font-weight:700; font-size:26px; letter-spacing:normal;
+      text-transform:none; color:var(--charcoal-ink); margin:0 0 14px}
+    .cta-card p{position:relative; font-family:var(--serif); font-size:17.5px; line-height:1.65;
+      color:color-mix(in oklch, var(--charcoal-ink) 82%, transparent); margin:0 0 26px; max-width:56ch}
+    .cta-actions{position:relative; display:flex; flex-wrap:wrap; gap:12px}
+    .btn{font-family:var(--mono); font-weight:600; font-size:13px; letter-spacing:0.08em; text-transform:uppercase;
+      text-decoration:none !important; padding:14px 22px; border-radius:9px; display:inline-flex; align-items:center; gap:8px;
+      transition:transform .15s ease, background .15s ease, border-color .15s ease}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-primary{background:var(--accent-deep); color:#fff}
+    .btn-primary::after{content:"\2192"; font-family:var(--sans); font-weight:700; font-size:15px; margin-left:2px}
+    .btn-primary:hover{background:color-mix(in oklch, var(--accent-deep) 88%, black)}
+    .btn-ghost{background:transparent; color:var(--charcoal-ink); border:1.5px solid color-mix(in oklch, var(--charcoal-ink) 40%, transparent)}
+    .btn-ghost:hover{border-color:var(--charcoal-ink)}
+
+    /* Sources reads as a real article section (matching the H2 style) but starts collapsed,
+       so it's clearly part of the page while staying out of the way. Still in the DOM + JSON-LD. */
+    details.references{margin-top:48px; border-top:1px solid var(--line)}
+    details.references summary{cursor:pointer; list-style:none; display:flex; align-items:center; gap:10px;
+      font-family:var(--serif); font-weight:700; font-size:19px; line-height:1.3; color:var(--ink); padding:16px 0 4px}
+    details.references summary::-webkit-details-marker{display:none}
+    details.references summary::before{content:""; width:8px; height:8px; border-radius:2px; background:var(--accent); flex:none}
+    details.references summary::after{content:"Show"; margin-left:auto; font-family:var(--mono); font-size:12px;
+      font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:var(--faint)}
+    details.references[open] summary::after{content:"Hide"}
+    details.references ul, details.references ol{margin:14px 0 0; padding-left:22px; font-family:var(--sans); font-size:15px}
+    details.references li{margin:10px 0; color:var(--muted)}
+    details.references a{color:var(--accent-deep); word-break:break-word}
+
+    /* Related articles = internal links (GEO Lever 4: topical authority) */
+    nav.related{margin-top:52px; padding-top:28px; border-top:1px solid var(--line)}
+    nav.related h2{font-family:var(--sans); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;
+      color:var(--faint); margin:0 0 16px}
+    nav.related ul{list-style:none; margin:0; padding:0; display:grid; gap:12px}
+    nav.related a{display:block; padding:16px 18px; background:var(--paper); border:1px solid var(--line); border-radius:14px;
+      text-decoration:none; color:var(--ink); font-family:var(--serif); font-weight:600; font-size:16px;
+      transition:border-color .15s ease, transform .15s ease}
+    nav.related a:hover{border-color:var(--accent); transform:translateY(-1px)}
+
+    footer.site{margin-top:64px; padding-top:24px; border-top:1px solid var(--line);
+      font-family:var(--sans); font-size:13px; color:var(--faint)}
+
+    /* Only on very wide screens: reveal the sticky "In this guide" rail in the right gutter while the
+       reading column stays centered (equal empty gutters left/right), so nothing looks off-center. */
+    @media (min-width:1390px){
+      .wrap{max-width:1440px}
+      .article-grid{grid-template-columns:minmax(0,1fr) var(--readw) minmax(0,1fr)}
+      .article-grid > article{grid-column:2}
+      aside.toc{display:block; grid-column:3; justify-self:start; align-self:start; padding-left:44px}
+    }
+    @media (max-width:640px){
+      body{font-size:17.5px}
+      .wrap{padding:32px 20px 72px}
+      .hero{margin:0 auto 26px; padding:22px 20px 26px}
+      .hero header.article h1{font-size:26px}
+      article h2{font-size:22px; margin:40px 0 14px}
+      p.answer{font-size:16.5px; padding:16px 18px}
+      .cta-card{padding:30px 24px}
+      .cta-card h3{font-size:22px}
+      .stat-band{grid-template-columns:1fr}
+      .stat-band .stat + .stat{border-left:none; border-top:1px solid var(--line)}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" style="--h:50">
+    <!-- GEO Lever 2: ONE H1 = the exact question this page answers; visible freshness dates.
+         The header sits on a warm ombre panel. One page = one question; sourced to GT School. -->
+    <section class="hero" style="--h:50">
+      <nav class="crumbs" aria-label="Breadcrumb"><a href="https://www.gt.school/">Home</a><span class="sep">/</span><a href="https://www.gt.school/blog">Blog</a><span class="sep">/</span><span class="current">Does Grade-Skipping Hurt Kids Socially? What the Research Says</span></nav>
+      <header class="article">
+        <p class="kicker">Gifted Education</p>
+        <h1>Does Grade-Skipping Hurt Kids Socially? What the Research Says</h1>
+        <div class="meta">
+          <span>Published <time datetime="2026-07-22">July 22, 2026</time></span>
+          <span class="dot">&middot;</span>
+          <span>Updated <time datetime="2026-07-24">July 24, 2026</time></span>
+          <span class="dot">&middot;</span>
+          <span>5 min read</span>
+        </div>
+      </header>
+    </section>
+
+    <!-- Article body: answer-first, question sub-headings, key takeaways, FAQ, sources.
+         Rendered from the article markdown; first paragraph is auto-classed .answer. -->
+    <div class="article-grid">
+      <article>
+        <p class="answer">If you're picturing your child as the youngest kid in the room, a little lost among older classmates, that worry makes complete sense. Here's the reassuring part: for most well-matched gifted kids, grade-skipping doesn't hurt them socially. It's one of the most studied questions in gifted education, and the biggest research review on it, A Nation Empowered, calls acceleration a "reliable and robust evidence-based intervention" that helps kids academically, socially, and emotionally. For a child who's a good fit, skipping is linked to better outcomes, not worse.</p>
+<h2 id="where-the-worry-comes-from">Where the worry comes from</h2>
+<p>The fear is intuitive, and you're far from alone in feeling it. Picture a 9-year-old in a class of 11-year-olds and it's easy to imagine them on the outside. In a survey of 847 parents of gifted and twice-exceptional kids, "fitting in" and social skills ranked among the most common worries, right alongside boredom<sup class="fn"><a href="#src1">1</a></sup>. So if this is the thing keeping you up, you're asking exactly the right question.</p>
+<p>The catch is that intuition and the evidence point in opposite directions, and that gap is costly. Acceleration stays underused mostly because of social fears the research doesn't back up. Only about <mark class="ph-stat" title="Insert a primary-source-cited figure">[STAT: share of academically eligible students who ever skip a grade]</mark> of the kids who could benefit ever do, so if it feels like a road less traveled, that's why.</p>
+<h2 id="what-the-research-actually-shows">What the research actually shows</h2>
+<p>A Nation Empowered (the University of Iowa's Belin-Blank Center, 2015) pulls together decades of studies<sup class="fn"><a href="#src2">2</a></sup>, and a few things stand out:</p>
+<ul>
+<li>Acceleration just means matching the pace and level of school to a child's readiness. It isn't about pushing; it's about letting a ready kid move.</li>
+<li>It comes in about 20 forms, so the real question isn't "skip or don't skip," it's "which kind of acceleration, if any, fits my child?"</li>
+<li>The outcomes are positive across the board. Grade-skipping shows effect sizes of about +0.67 academic, +0.34 social, and +0.42 psychological compared with similar kids who stayed in place.</li>
+</ul>
+<figure class="ph-visual" role="img" aria-label="Placeholder for Chart: bar chart of grade-skipping effect sizes vs. comparable non-accelerated peers, academic +0.67, social +0.34, psychological +0.42 (A Nation Empowered, 2015)"><div class="ph-visual-tag">Chart placeholder &middot; to add</div><div class="ph-visual-desc">bar chart of grade-skipping effect sizes vs. comparable non-accelerated peers, academic +0.67, social +0.34, psychological +0.42 (A Nation Empowered, 2015)</div></figure>
+<p>In plain terms, in education a 0.2 effect is small, 0.5 is moderate, and 0.8 is large. So that +0.34 social number means accelerated kids tended to do a little better socially than comparable peers, not worse. The approach is also endorsed by the National Association for Gifted Children.</p>
+<h2 id="the-risk-parents-miss">The risk parents miss</h2>
+<p>Here's the reframe worth sitting with. When the whole conversation is "is skipping safe?", you're guarding against a downside the evidence says is unlikely, while a quieter risk goes unwatched. For a gifted kid who's already coasting, staying put has its own cost: boredom, checking out, and a ceiling set too low. The honest choice usually isn't safe versus risky. It's capped versus uncapped, and standing still isn't the neutral option it can feel like.</p>
+<h2 id="what-you-can-do">What you can do</h2>
+<ul>
+<li>Reframe the question from "should we skip?" to "how do we match the challenge to our child?" Skipping is one tool among many.</li>
+<li>If a whole grade feels like a lot, start lighter: single-subject acceleration (move up in math only), curriculum compacting (skip what's already mastered), or early entrance.</li>
+<li>Ask for a structured assessment. Good schools use tools like the Iowa Acceleration Scale to weigh readiness, so it's a considered decision, not a guess.</li>
+<li>Look at mastery-based settings, where kids advance by showing mastery instead of by age. That quietly dissolves the skip-or-stay dilemma, because pace is personal by design.</li>
+</ul>
+<h2 id="where-gt-fits">Where GT fits</h2>
+<p>That last idea is worth a look if the skip-or-stay binary feels wrong for your family. GT School, the gifted academy of the Alpha School family, runs a mastery-based K–8 model: kids move ahead when they've mastered something, not by grade or the calendar, so a child can race ahead in their strengths without being socially "skipped" out of their group. GT reports students average roughly the 94th–98th national percentiles<sup class="fn"><a href="#src3">3</a></sup>. It's available online through GT Anywhere, or in person in Georgetown, TX.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2><div class="qa-list"><div class="qa-item"><p class="q">Does grade-skipping hurt kids socially?</p><p class="a">For most well-matched gifted students, no. A Nation Empowered found grade-skipping is associated with positive social and psychological outcomes (a social effect size around +0.34 versus comparable non-accelerated peers), not harm.</p></div><div class="qa-item"><p class="q">Why do people think acceleration is socially harmful?</p><p class="a">The worry is intuitive (a younger child among older classmates) and widely shared. But the research describes it as a persistent myth: acceleration stays underused precisely because of social-emotional fears the evidence doesn't support.</p></div><div class="qa-item"><p class="q">Is grade-skipping right for every gifted child?</p><p class="a">No. Acceleration comes in about 20 forms, and the right fit depends on the child's readiness, motivation, and maturity. The evidence says it's a safe, effective option to consider, not that every child should skip.</p></div><div class="qa-item"><p class="q">What are alternatives to skipping a whole grade?</p><p class="a">Single-subject acceleration, curriculum compacting, early entrance, and mastery-based programs all let a child move at their own pace without necessarily skipping an entire grade.</p></div></div><div class="cta-card"><p class="eyebrow">See it in action</p><h3>Want your child to move at their own pace without the "skip or stay" dilemma?</h3><p>See how GT School's mastery-based model individualizes pace by design.</p><div class="cta-actions"><a class="btn btn-primary" href="https://anywhere.gt.school/">Explore GT Anywhere</a><a class="btn btn-ghost" href="https://www.gt.school/academics">How the model works</a></div></div><details class="references"><summary>Sources</summary><ol><li id="src1">Post &amp; Fedor, What Worries Parents (Gifted Development Center). <a href="https://gifteddevelopment.org/newsletter/worries-of-parents-of-gifted-and-twice-exceptional-children-a-research-study" rel="noopener">https://gifteddevelopment.org/newsletter/worries-of-parents-of-gifted-and-twice-exceptional-children-a-research-study</a> (accessed 2026-07-22)</li><li id="src2">Belin-Blank Center, 2015, A Nation Empowered. <a href="https://www.accelerationinstitute.org/nation_empowered/" rel="noopener">https://www.accelerationinstitute.org/nation_empowered/</a> (accessed 2026-07-22)</li><li id="src3">GT School, Academics. <a href="https://www.gt.school/academics" rel="noopener">https://www.gt.school/academics</a> (accessed 2026-07-22)</li></ol></details>
+      </article>
+      <aside class="toc" aria-label="On this page"><p class="toc-title">In this guide</p><ul><li><a href="#where-the-worry-comes-from">Where the worry comes from</a></li><li><a href="#what-the-research-actually-shows">What the research actually shows</a></li><li><a href="#the-risk-parents-miss">The risk parents miss</a></li><li><a href="#what-you-can-do">What you can do</a></li><li><a href="#where-gt-fits">Where GT fits</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ul></aside>
+    </div>
+
+    <nav class="related" aria-label="Related articles"><h2>Related reading</h2><ul><li><a href="is-my-gifted-child-under-challenged.html">Is My Gifted Child Under-Challenged? Signs and What to Do</a></li><li><a href="what-is-curriculum-compacting.html">What Is Curriculum Compacting?</a></li></ul></nav>
+
+    <footer class="site">
+      <p>Published by GT School, the gifted academy of the Alpha School family. &copy; 2026 GT School.</p>
+    </footer>
+  </div>
+</body>
+</html>
