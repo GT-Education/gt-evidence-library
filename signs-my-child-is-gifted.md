@@ -45,40 +45,50 @@ status: ready
 
 # How Do I Know If My Child Is Gifted? Signs to Look For
 
-There is no at-home test for giftedness, but there is a pattern you can learn to recognize. Gifted kids tend to pick up new things fast with very little repetition, ask surprisingly deep questions, remember a lot, lock onto the topics they love, and often feel things more intensely than other kids their age. One thing that catches parents off guard: giftedness is about capability, not report cards, so a child can be gifted even when their grades look ordinary. If you keep noticing a cluster of these signs over time, a formal evaluation can confirm it and, more usefully, tell you what your child actually needs.
+There is no at-home test for giftedness, but there is a pattern you can learn to recognize. Gifted kids tend to pick up new things quickly with very little repetition, ask surprisingly deep questions, remember a lot, lock onto the topics they love, and often feel things more intensely than other kids their age. One thing that catches parents off guard: giftedness is about capability, not report cards, so a child can be gifted even when their grades look ordinary. If you keep noticing a cluster of these signs over time, a formal evaluation can confirm it and, more usefully, tell you what your child actually needs.
 
 ## Signs to look for
-No single trait settles it, and no child shows all of them. What matters is a consistent pattern across weeks and settings. Common signs (drawn from NAGC and gifted-education research) include:
+
+No single trait settles it, and no child shows all of them. What matters is a consistent pattern across weeks and settings. Common signs include:
 
 - Learns and absorbs new ideas quickly, with few repetitions.
 - Endless, genuinely curious questions that go deeper than a simple answer.
 - Dives into a favorite subject in surprising depth for their age.
-- Advanced vocabulary and reasoning; connects ideas other kids don't yet.
+- Advanced vocabulary and reasoning, connects ideas other kids don't yet.
 - Strong memory and long attention for things that interest them.
 - Understands material several grade levels above their age.
 - Big feelings: emotional depth, a strong sense of fairness, sensitivity.
 
 ## Why grades can be misleading
-Here is the part that trips up a lot of loving, attentive parents. NAGC defines giftedness as the "capability to perform at higher levels compared to others of the same age, experience, and environment," which is about potential, not the grade on the page. A gifted child who is bored can quietly coast, do the minimum, or even act out, and their report card can look perfectly average. So "good grades" is not the test, and neither is "struggling."
+
+Here is the part that trips up a lot of loving, attentive parents. The National Association for Gifted Children (NAGC) defines giftedness as the "capability to perform at higher levels compared to others of the same age, experience, and environment," which is about potential, not the grade on the page. A gifted child who is bored can quietly coast, do the minimum, or even act out, and their report card can look perfectly average. So "good grades" is not the test, and neither is "struggling."
 
 ## When a formal evaluation helps
-If you keep seeing the cluster above, especially paired with boredom or a gap between what your child can do and what school asks of them, an evaluation is worth it. A psychologist who knows gifted profiles can give a cognitive test (often the WISC-V) and read the results in context. Testing does two things: it confirms giftedness, and it points to what kind of challenge or support your child needs next.
+
+If you keep seeing the cluster above, especially paired with boredom or a gap between what your child can do and what school asks of them, you may consider a formal evaluation. A psychologist who knows gifted profiles can give a cognitive test (often the WISC-V) and read the results in context. Testing does two things: it confirms giftedness, and it points to what kind of challenge or support your child needs next.
 
 ## What to do in the meantime
+
 You do not have to wait for a test to start helping. Feed the curiosity at home, and talk to your child's teacher about [curriculum compacting](what-is-curriculum-compacting) or a bit of acceleration in their strongest subject. The real goal is not a label. It is making sure your child gets to learn at their actual level every day.
 
 ## Frequently asked questions
 
+
+
 ### How do I know if my child is gifted?
+
 Look for a consistent cluster of traits over time: learning quickly with little repetition, intense curiosity and deep questions, an advanced vocabulary, strong memory, deep focus on favorite topics, and often big emotions. A formal evaluation by a qualified professional confirms it.
 
 ### Can my child be gifted with average or bad grades?
+
 Yes. Giftedness is about capability, not grades. NAGC defines it as the capability to perform at higher levels than same-age peers. Some gifted kids coast or underachieve when school is not challenging, so grades alone can hide giftedness.
 
 ### At what age can a child be tested for giftedness?
+
 Signs can show up as early as toddlerhood, but cognitive tests like the WISC-V are generally most reliable from around age 6. A psychologist can advise on timing for your child.
 
 ### Do I need a formal test to support a gifted child?
+
 Not always. Testing helps confirm giftedness and guide school decisions, but you can start feeding your child's curiosity and asking the teacher about compacting or acceleration right away.
 
 ---
@@ -86,5 +96,7 @@ Not always. Testing helps confirm giftedness and guide school decisions, but you
 If those signs sound like your child, the next question is usually what to do with all that capability. See how [GT School's mastery-based model](https://www.gt.school/academics) lets kids move as fast as they can master the material, instead of waiting on the calendar.
 
 ## Sources
-- National Association for Gifted Children. *What Is Giftedness?* https://www.nagc.org/what-is-giftedness (accessed 2026-07-24)
-- National Association for Gifted Children. *Assessments & Tests.* https://www.nagc.org/assessments-and-tests (accessed 2026-07-24)
+
+- National Association for Gifted Children. *What Is Giftedness?* [https://www.nagc.org/what-is-giftedness](https://www.nagc.org/what-is-giftedness) (accessed 2026-07-24)
+- National Association for Gifted Children. *Assessments & Tests.* [https://www.nagc.org/assessments-and-tests](https://www.nagc.org/assessments-and-tests) (accessed 2026-07-24)
+

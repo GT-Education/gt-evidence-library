@@ -45,7 +45,7 @@ status: draft
 
 # What Is a Mastery-Based (2-Hour) Learning Model?
 
-Mastery-based learning is a simple idea with a big payoff: a child moves on once they've actually mastered something, not because a certain amount of time has passed. Master it quickly and you go ahead. Need more time and you get it. GT School's "2-hour learning" model is one specific version of this where core academics fit into a focused block of about two hours a day. instead of making kids relearn what they know, a lot of the school day frees up.
+Mastery-based learning is a simple idea with a big payoff: a child moves on once they've actually mastered something, not because a certain amount of time has passed. Master it quickly and you go ahead. Need more time and you get it. GT School's "2-hour learning" model is one specific version of this where core academics fit into a focused block of about two hours a day. Instead of making kids relearn what they know, a lot of the school day frees up.
 
 ## How it works
 
