@@ -245,7 +245,7 @@
     p.answer{
       position:relative;
       font-family:var(--serif); font-size:16.5px; line-height:1.62; color:var(--ink);
-      background:oklch(97.4% 0.033 84); border:1px solid oklch(90% 0.038 84); border-left:3px solid var(--accent);
+      background:var(--answer-bg); border:1px solid color-mix(in oklch, var(--answer-bg) 62%, var(--line)); border-left:3px solid var(--accent);
       margin:0 0 30px; padding:16px 20px; border-radius:12px;
     }
     p.answer::before{
@@ -421,7 +421,7 @@
   </style>
 </head>
 <body>
-  <div class="wrap" style="--h:50">
+  <div class="wrap" style="--h:50; --answer-bg:oklch(95.5% 0.04 55)">
     <!-- GEO Lever 2: ONE H1 = the exact question this page answers; visible freshness dates.
          The header sits on a warm ombre panel. One page = one question; sourced to GT School. -->
     <section class="hero" style="--h:50">

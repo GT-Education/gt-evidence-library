@@ -394,6 +394,7 @@ def render(fm: dict, body: str, titles: dict[str, str], template: str) -> str:
         "{{KEYWORDS}}": html.escape(", ".join(fm.get("target_queries") or [])),
         "{{CATEGORY}}": html.escape(fm.get("category", "Gifted Education")),
         "{{HUE}}": str(SLUG_HUE.get(slug, 45)),
+        "{{ANSWER_BG}}": _answer_bg(SLUG_HUE.get(slug, 45)),
         "{{DATE_PUBLISHED_ISO}}": iso(fm["date_published"]),
         "{{DATE_MODIFIED_ISO}}": iso(fm["date_modified"]),
         "{{DATE_PUBLISHED_HUMAN}}": human(fm["date_published"]),
@@ -425,11 +426,21 @@ LIBRARY_INTRO = {
     "reviewed": "Written &amp; reviewed by GT School\u2019s gifted-education team",
 }
 LIBRARY_START_HERE = [
+    ("Is my child gifted?", "signs-my-child-is-gifted"),
     ("Under-challenged?", "is-my-gifted-child-under-challenged"),
     ("Does acceleration work?", "does-academic-acceleration-actually-work"),
-    ("How kids learn", "what-is-mastery-based-learning"),
 ]
 LIBRARY_GROUPS = [
+    {"q": "Is my child actually gifted?", "h": 14, "items": [
+        ("signs-my-child-is-gifted", "How do I know if my child is gifted?",
+         "The traits that actually signal giftedness, and when to seek an evaluation."),
+        ("gifted-vs-high-achiever", "Gifted or just a high achiever?",
+         "Why a straight-A kid and a gifted kid are not always the same thing."),
+        ("what-iq-is-considered-gifted", "What IQ score is considered gifted?",
+         "There is no single cutoff. Here is what the numbers really mean."),
+        ("what-is-twice-exceptional", "What does twice-exceptional (2e) mean?",
+         "When a child is gifted and has a learning difference at the same time."),
+    ]},
     {"q": "Is my child bored or under-challenged?", "h": 28, "items": [
         ("is-my-gifted-child-under-challenged", "Is my gifted child under-challenged?",
          "The signs a gifted child isn\u2019t being stretched, and what to do."),
@@ -458,6 +469,12 @@ LIBRARY_GROUPS = [
 
 # Map each article slug to its theme hue (drives the per-article ombre hero + library markers).
 SLUG_HUE = {slug: g["h"] for g in LIBRARY_GROUPS for (slug, _t, _b) in g["items"]}
+
+
+def _answer_bg(hue: int) -> str:
+    # Quick Answer harmonizes with the hero ombre: warm orange for the coral/terracotta themes,
+    # soft yellow for the yellow-green themes (orange on a yellow-green page looks off).
+    return "oklch(97.4% 0.033 84)" if hue >= 65 else "oklch(95.5% 0.04 55)"
 
 _LIB_CSS = """<style>
   :root{--cream:oklch(97.5% .014 75);--paper:oklch(99.6% .004 85);--ink:oklch(23% .025 45);--muted:oklch(46% .03 45);--faint:oklch(62% .025 55);--line:oklch(89% .02 60);
