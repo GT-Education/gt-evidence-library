@@ -311,11 +311,9 @@
       <header class="article">
         <p class="kicker">{{CATEGORY}}</p>
         <h1>{{H1}}</h1>
+        <!-- Dates are intentionally NOT shown to readers, but kept in the JSON-LD
+             (datePublished/dateModified) above for AI-citation freshness/recency. -->
         <div class="meta">
-          <span>Published <time datetime="{{DATE_PUBLISHED_ISO}}">{{DATE_PUBLISHED_HUMAN}}</time></span>
-          <span class="dot">&middot;</span>
-          <span>Updated <time datetime="{{DATE_MODIFIED_ISO}}">{{DATE_MODIFIED_HUMAN}}</time></span>
-          <span class="dot">&middot;</span>
           <span>{{READING_TIME}} min read</span>
         </div>
       </header>
