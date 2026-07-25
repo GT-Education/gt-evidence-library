@@ -1,5 +1,7 @@
 # GT School Blog — draft library
 
+> **Live site (view it now): https://gt-school-blog.web.app** — the full library is deployed here on Firebase Hosting.
+
 This folder is where GT School blog / FAQ articles are **drafted** before they're transferred to the gt.school website. It's the "evidence library" / "Ceiling Report" from the Marketing-Direction BrainLift: a growing set of primary-source-cited pages that answer gifted parents' specific questions and get GT cited by AI answer engines.
 
 ## Why draft here (Markdown-first)
