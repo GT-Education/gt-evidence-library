@@ -75,6 +75,12 @@ def human(v) -> str:
     return f"{d.strftime('%B')} {d.day}, {d.year}"
 
 
+def month_year(v) -> str:
+    # Coarse "Month Year" shown to readers (freshness without exposing an exact same-day publish).
+    d = to_date(v)
+    return f"{d.strftime('%B')} {d.year}"
+
+
 def strip_h1_and_dates(body: str) -> tuple[str, str]:
     """Return (h1_text_or_empty, body_without_h1_and_dates_line)."""
     h1 = ""
@@ -397,6 +403,7 @@ def render(fm: dict, body: str, titles: dict[str, str], template: str) -> str:
         "{{DATE_MODIFIED_ISO}}": iso(fm["date_modified"]),
         "{{DATE_PUBLISHED_HUMAN}}": human(fm["date_published"]),
         "{{DATE_MODIFIED_HUMAN}}": human(fm["date_modified"]),
+        "{{DATE_MODIFIED_MONTHYEAR}}": month_year(fm["date_modified"]),
         "{{READING_TIME}}": str(reading),
         "{{OG_IMAGE_TAGS}}": og_img,
         "{{JSON_LD}}": build_jsonld(fm, canonical, content),
