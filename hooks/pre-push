@@ -1,0 +1,16 @@
+#!/bin/sh
+# GT blog pre-push gate: blocks a push if any article has conflicting facts or a competitor name.
+#
+# Install (one time):
+#   cp hooks/pre-push .git/hooks/pre-push && chmod +x .git/hooks/pre-push
+#
+# It runs check_facts.py, which validates every article's stats against the vetted canonical
+# values and flags conflicts within or across articles. In a true emergency you can bypass with:
+#   git push --no-verify
+root="$(git rev-parse --show-toplevel)"
+echo "GT blog: checking articles for conflicting facts before push..."
+if ! python3 "$root/check_facts.py"; then
+  echo ""
+  echo "Push blocked: resolve the conflicts listed above, then push again."
+  exit 1
+fi

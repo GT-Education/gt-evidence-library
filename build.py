@@ -45,6 +45,10 @@ SITE_URL = "https://www.gt.school"
 # The library is hosted on Firebase for now, so the "Blog" breadcrumb points there.
 # Swap to SITE_URL + "/blog" once the library moves onto the main gt.school site.
 BLOG_INDEX_URL = "https://gt-school-blog.web.app/"
+# Where the pages actually live right now (Firebase). Canonical URLs, OG URLs, the sitemap, and the
+# JSON-LD page URLs all point here, so the LIVE pages are what Google indexes and AI engines cite.
+# When the library moves onto gt.school, update this to the new home (and 301 the old URLs).
+CANONICAL_BASE = "https://gt-school-blog.web.app"
 
 FM_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n?(.*)$", re.S)
 
@@ -282,6 +286,9 @@ def build_jsonld(fm: dict, canonical: str, content_html: str) -> str:
         },
         "mainEntityOfPage": {"@type": "WebPage", "@id": canonical},
         "url": canonical,
+        "isAccessibleForFree": True,
+        # Mark the answer-first parts so voice/AI answer engines know what to lift verbatim.
+        "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["h1", "p.answer"]},
     }
     if fm.get("target_queries"):
         blogposting["keywords"] = ", ".join(fm["target_queries"])
@@ -369,7 +376,7 @@ def build_toc(content_html: str) -> str:
 
 def render(fm: dict, body: str, titles: dict[str, str], template: str) -> str:
     slug = fm["slug"]
-    canonical = f"{SITE_URL}/blog/{slug}"
+    canonical = f"{CANONICAL_BASE}/{slug}"
     h1_from_body, body_clean = strip_h1_and_dates(body)
     h1 = fm.get("title") or h1_from_body
 
@@ -553,6 +560,37 @@ _LIB_SEARCH_JS = """<script>
 </script>"""
 
 
+def build_index_jsonld(articles: list[dict]) -> str:
+    """WebSite + CollectionPage/ItemList + BreadcrumbList for the library hub, so search + AI
+    engines understand the hub page and every article it links to."""
+    url = CANONICAL_BASE + "/"
+    items = []
+    pos = 1
+    for g in LIBRARY_GROUPS:
+        for slug, title, _blurb in g["items"]:
+            items.append({"@type": "ListItem", "position": pos,
+                          "url": f"{CANONICAL_BASE}/{slug}", "name": title})
+            pos += 1
+    graph = [
+        {"@type": "WebSite", "@id": url + "#website", "url": url,
+         "name": "GT School Evidence Library",
+         "description": "Primary-source answers to the questions parents of gifted and "
+                        "twice-exceptional K-8 students ask.",
+         "inLanguage": "en",
+         "publisher": {"@type": "Organization", "name": "GT School", "url": SITE_URL + "/"}},
+        {"@type": "CollectionPage", "@id": url + "#library", "url": url,
+         "name": "GT School: Gifted Education Evidence Library",
+         "isPartOf": {"@id": url + "#website"},
+         "mainEntity": {"@type": "ItemList", "itemListElement": items}},
+        {"@type": "BreadcrumbList", "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": url}]},
+    ]
+    payload = {"@context": "https://schema.org", "@graph": graph}
+    blob = json.dumps(payload, ensure_ascii=False, indent=2).replace("</", "<\\/")
+    return f'<script type="application/ld+json">\n{blob}\n</script>'
+
+
 def build_index(articles: list[dict]) -> str:
     secs = []
     for g in LIBRARY_GROUPS:
@@ -577,7 +615,14 @@ def build_index(articles: list[dict]) -> str:
         '<meta name="viewport" content="width=device-width, initial-scale=1"/>\n'
         '<title>GT School: Gifted Education Evidence Library</title>\n'
         '<meta name="description" content="Calm, clear, primary-source answers to the questions parents of gifted and twice-exceptional K-8 students actually ask."/>\n'
-        f'<link rel="canonical" href="{SITE_URL}/blog"/>\n'
+        '<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"/>\n'
+        f'<link rel="canonical" href="{CANONICAL_BASE}/"/>\n'
+        '<meta property="og:type" content="website"/>\n'
+        '<meta property="og:site_name" content="GT School"/>\n'
+        '<meta property="og:title" content="GT School: Gifted Education Evidence Library"/>\n'
+        '<meta property="og:description" content="Primary-source answers to the questions parents of gifted and twice-exceptional K-8 students ask."/>\n'
+        f'<meta property="og:url" content="{CANONICAL_BASE}/"/>\n'
+        + build_index_jsonld(articles) + '\n'
         '<link rel="preconnect" href="https://fonts.googleapis.com"/>\n'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>\n'
         '<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet"/>\n'
@@ -620,6 +665,26 @@ def check_no_competitors(paths: list[Path]) -> None:
         )
 
 
+def write_sitemap(articles: list[dict]) -> None:
+    urls = [(CANONICAL_BASE + "/", date.today().isoformat())]
+    for fm in articles:
+        urls.append((f"{CANONICAL_BASE}/{fm['slug']}", iso(fm["date_modified"])))
+    body = "".join(
+        f"  <url>\n    <loc>{u}</loc>\n    <lastmod>{lm}</lastmod>\n  </url>\n" for u, lm in urls
+    )
+    (OUT_DIR / "sitemap.xml").write_text(
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + body + "</urlset>\n",
+        encoding="utf-8",
+    )
+
+
+def write_robots() -> None:
+    (OUT_DIR / "robots.txt").write_text(
+        f"User-agent: *\nAllow: /\n\nSitemap: {CANONICAL_BASE}/sitemap.xml\n", encoding="utf-8"
+    )
+
+
 def main() -> None:
     if not TEMPLATE.exists():
         sys.exit(f"Template not found: {TEMPLATE}")
@@ -649,6 +714,9 @@ def main() -> None:
     if not only:
         (OUT_DIR / "index.html").write_text(build_index(articles), encoding="utf-8")
         print("  built site/index.html")
+        write_sitemap(articles)
+        write_robots()
+        print("  built site/sitemap.xml + site/robots.txt")
 
     print(f"Done. {built} article page(s) -> {OUT_DIR}")
 
