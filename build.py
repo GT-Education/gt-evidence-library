@@ -461,7 +461,7 @@ def render(fm: dict, body: str, titles: dict[str, str], template: str) -> str:
 LIBRARY_INTRO = {
     "kicker": "Evidence Library",
     "h1": "Feeling lost with your gifted kid?<br><span class=\"l2\">Let\u2019s figure it out together.</span>",
-    "sub": "Calm, clear answers to the questions gifted parents ask, grounded in real research.",
+    "sub": "Calm, clear answers to the questions gifted parents ask,<br>grounded in real research.",
     "reviewed": "Written &amp; reviewed by GT School\u2019s gifted-education team",
 }
 LIBRARY_START_HERE = [
