@@ -87,27 +87,37 @@ Five parent-question sections (same order on the site). Each shows its **kicker 
 - `what-iq-is-considered-gifted.md` : What IQ score is considered gifted?
 - `what-is-twice-exceptional.md` : What does twice-exceptional (2e) mean?
 - `how-are-gifted-children-tested.md` : How are children tested for giftedness?
+- `signs-of-giftedness-in-toddlers-and-preschoolers.md` : Signs of giftedness in toddlers and preschoolers
+- `giftedness-vs-adhd.md` : Is it giftedness or ADHD?
 
 **Is my child bored or under-challenged?** — kicker `Staying Challenged`, color `#d0765a` (terracotta)
 - `is-my-gifted-child-under-challenged.md` : Is my gifted child under-challenged?
 - `gifted-child-bored-what-are-my-options.md` : My gifted child is bored, what are my options?
 - `how-to-advocate-for-your-gifted-child-at-school.md` : How do I advocate for my gifted child at school?
+- `why-is-my-gifted-child-getting-bad-grades.md` : Why is my gifted child getting bad grades?
+
+**How is my child doing emotionally?** — kicker `Social & Emotional`, color `#d3897e` (coral rose)
+- `why-is-my-gifted-child-so-intense.md` : Why is my gifted child so intense or emotional?
+- `how-to-help-a-gifted-perfectionist.md` : How do I help a gifted perfectionist?
 
 **Should we let them move ahead?** — kicker `Acceleration`, color `#c77a88` (dusty rose)
 - `does-academic-acceleration-actually-work.md` : Does academic acceleration actually work?
 - `does-grade-skipping-hurt-kids-socially.md` : Does grade-skipping hurt kids socially?
 - `what-is-single-subject-acceleration.md` : What is single-subject acceleration?
+- `is-my-child-ready-to-skip-a-grade.md` : Is my child ready to skip a grade?
 
 **How do gifted kids learn best?** — kicker `Learning Models`, color `#b65e78` (berry-rose)
 - `what-is-mastery-based-learning.md` : What is a mastery-based (2-hour) learning model?
 - `what-is-curriculum-compacting.md` : What is curriculum compacting?
 - `enrichment-vs-acceleration.md` : Enrichment vs. acceleration
+- `what-is-the-2-hour-school-day.md` : What is the 2-hour school day, and does it work?
 
 **Where should they go to school?** — kicker `School Options`, color `#aa5570` (deep berry)
 - `online-gifted-school-vs-homeschooling-gifted-child.md` : Online gifted school vs. homeschooling
 - `use-texas-tefa-voucher-online-gifted-school.md` : Can I use my Texas TEFA voucher for an online gifted school?
 - `what-is-the-texas-education-freedom-account.md` : What is the Texas Education Freedom Account (ESA)?
+- `how-to-apply-for-the-texas-education-freedom-account.md` : How do I apply for the Texas ESA (eligibility + steps)?
 
 **House rules (enforced):** sources live in front matter + the end Sources list only (no inline citations; the builder strips them). Never name or cite a competitor (the build fails if one appears). No em dashes.
 
-17 articles across all 7 archetypes.
+25 articles across the 7 archetypes and 6 sections.

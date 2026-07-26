@@ -481,6 +481,10 @@ LIBRARY_GROUPS = [
          "When a child is gifted and has a learning difference at the same time."),
         ("how-are-gifted-children-tested", "How are children tested for giftedness?",
          "What an evaluation involves, the tests used, and what the scores mean."),
+        ("signs-of-giftedness-in-toddlers-and-preschoolers", "Signs of giftedness in toddlers and preschoolers",
+         "The early signs that show up before school, and what they do and don\u2019t mean."),
+        ("giftedness-vs-adhd", "Is it giftedness or ADHD?",
+         "Why the two can look alike, when it\u2019s both (2e), and how to get clarity."),
     ]},
     {"q": "Is my child bored or under-challenged?", "c": "#d0765a", "label": "Staying Challenged", "items": [
         ("is-my-gifted-child-under-challenged", "Is my gifted child under-challenged?",
@@ -489,6 +493,14 @@ LIBRARY_GROUPS = [
          "The real options when a bright kid is coasting, and how to choose."),
         ("how-to-advocate-for-your-gifted-child-at-school", "How do I advocate for my child at school?",
          "What to ask for, the evidence to bring, and what to do if they say no."),
+        ("why-is-my-gifted-child-getting-bad-grades", "Why is my gifted child getting bad grades?",
+         "How a capable kid ends up with average grades, and what actually helps."),
+    ]},
+    {"q": "How is my child doing emotionally?", "c": "#d3897e", "label": "Social & Emotional", "items": [
+        ("why-is-my-gifted-child-so-intense", "Why is my gifted child so intense or emotional?",
+         "Big feelings are common in gifted kids. What\u2019s normal, and how to help."),
+        ("how-to-help-a-gifted-perfectionist", "How do I help a gifted perfectionist?",
+         "Turning fear of failure into healthy striving, at home and at school."),
     ]},
     {"q": "Should we let them move ahead?", "c": "#c77a88", "label": "Acceleration", "items": [
         ("does-academic-acceleration-actually-work", "Does academic acceleration actually work?",
@@ -497,6 +509,8 @@ LIBRARY_GROUPS = [
          "What the research says about the social worry every parent has."),
         ("what-is-single-subject-acceleration", "What is single-subject acceleration?",
          "Move a child up in one subject while they stay with age peers."),
+        ("is-my-child-ready-to-skip-a-grade", "Is my child ready to skip a grade?",
+         "A whole-child way to decide, and what the research says about the risk."),
     ]},
     {"q": "How do gifted kids learn best?", "c": "#b65e78", "label": "Learning Models", "items": [
         ("what-is-mastery-based-learning", "What is a mastery-based (2-hour) model?",
@@ -505,6 +519,8 @@ LIBRARY_GROUPS = [
          "Skip what\u2019s already mastered so class time buys something new."),
         ("enrichment-vs-acceleration", "Enrichment vs. acceleration",
          "Deeper at grade level, or further ahead? When to use each."),
+        ("what-is-the-2-hour-school-day", "What is the 2-hour school day?",
+         "How a focused, mastery-based block covers more in less time, and whether it works."),
     ]},
     {"q": "Where should they go to school?", "c": "#aa5570", "label": "School Options", "items": [
         ("online-gifted-school-vs-homeschooling-gifted-child", "Online gifted school vs. homeschooling",
@@ -513,6 +529,8 @@ LIBRARY_GROUPS = [
          "How an approved Texas ESA can fund an accredited online school."),
         ("what-is-the-texas-education-freedom-account", "What is the Texas Education Freedom Account?",
          "What the Texas ESA is, how much it\u2019s worth, and who may qualify."),
+        ("how-to-apply-for-the-texas-education-freedom-account", "How do I apply for the Texas ESA?",
+         "Who qualifies, what it covers, and the steps to apply for 2026-27."),
     ]},
 ]
 
