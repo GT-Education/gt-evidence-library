@@ -1,6 +1,7 @@
 ---
 title: "What Is Single-Subject Acceleration?"
 slug: what-is-single-subject-acceleration
+data_light: true  # intentional narrative guide; numbers optional (see check_style.py)
 description: "Single-subject acceleration moves a child up in just one subject while they stay with age peers for the rest. Here is how it works, whether it helps, and how to ask for it."
 archetype: definition-explainer
 primary_question: "What is single-subject acceleration?"

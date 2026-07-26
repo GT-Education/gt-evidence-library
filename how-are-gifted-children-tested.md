@@ -1,6 +1,7 @@
 ---
 title: "How Are Children Tested for Giftedness?"
 slug: how-are-gifted-children-tested
+data_light: true  # intentional narrative guide; numbers optional (see check_style.py)
 description: "How gifted testing works: who does it, what tests are used (like the WISC-V), what the scores mean, and what to expect at each step of an evaluation."
 archetype: eligibility-howto
 primary_question: "How are children tested for giftedness?"

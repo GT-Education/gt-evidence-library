@@ -1,6 +1,7 @@
 ---
 title: "How Do I Know If My Child Is Gifted? Signs to Look For"
 slug: signs-my-child-is-gifted
+data_light: true  # intentional narrative guide; numbers optional (see check_style.py)
 description: "Wondering if your child is gifted? Here are the traits that actually signal giftedness, why grades can mislead, and when an evaluation is worth it."
 archetype: diagnostic-checklist
 primary_question: "How do I know if my child is gifted?"

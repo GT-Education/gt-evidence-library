@@ -12,9 +12,10 @@ committed to, across every article, so nothing drifts as the library grows:
   SOFT (reported as warnings; does not block):
     3. Inline citations in the body - a parenthetical naming a source org/author (e.g. "(NAGC)",
        "(Reis, 1993)"). House rule: attribution lives in the bottom Sources list, never inline.
-    4. Data/visual coverage - articles with NO stat/chart placeholders and no figures. It's a guide,
-       not a data dump, but every article should carry at least one credibility number or a
-       [STAT]/[CHART:...] placeholder for one. Lists which articles need a data point added.
+    4. Data/visual coverage - articles that truly lack numbers (no [STAT]/[CHART] placeholder AND
+       fewer than 2 figures). It's a guide, not a data dump - too much data is poison - so this is
+       only a nudge: add a number where it strengthens the point, or set `data_light: true` in the
+       article's front matter to mark it an intentional narrative piece (which clears the advisory).
 
 Usage:
     python3 blog/check_style.py            # check every article
@@ -56,8 +57,14 @@ _INLINE_AUTHORYEAR_RE = re.compile(r"\([A-Z][A-Za-z.&,\s]+,\s*(?:19|20)\d\d[a-z]
 # Placeholder markers understood by build.py (block visuals + inline stats).
 _PH_BLOCK_RE = re.compile(r"\[(?:VISUAL|CHART|GRAPH|DATA|IMAGE|INFOGRAPHIC|TABLE)\b", re.I)
 _PH_INLINE_RE = re.compile(r"\[(?:STAT|NUMBER|PERCENT|%|\$)(?::[^\]]*)?\]", re.I)
-# A "real" figure already in the prose (percent, dollar, "94th", "1.5 million", etc.).
-_FIGURE_RE = re.compile(r"\b\d[\d,]*(?:\.\d+)?\s*(?:%|percent|million|billion|st|nd|rd|th)\b|\$\s?\d")
+# A "real" figure already in the prose (percent, dollar, "94th", "1.5 million", effect size +0.67).
+_FIGURE_RE = re.compile(
+    r"\d[\d,]*(?:\.\d+)?\s*%"                              # 57%  (no trailing \b - '%' is non-word)
+    r"|\b\d[\d,]*(?:\.\d+)?\s*(?:percent|million|billion)\b"  # 1.5 million, 57 percent
+    r"|\b\d+(?:st|nd|rd|th)\b"                              # 94th
+    r"|\$\s?\d"                                             # $10,474
+    r"|[+\-\u2212]\d+(?:\.\d+)?\b",                         # +0.67 effect size
+    re.I)
 
 
 def load_article(path: Path) -> tuple[dict, str]:
@@ -99,15 +106,17 @@ def check(slugs: list[str], strict: bool) -> int:
         for c in cites:
             warn.append(f"[{slug}] inline citation in body: \"{c.strip()}\" - move attribution to the bottom Sources list.")
 
-        # 4. Data/visual coverage (SOFT) - flag only articles that truly lack numbers: no
-        #    stat/chart placeholder AND fewer than 2 figures already in the prose. Articles that
-        #    already carry several figures have their credibility numbers; we don't nag them.
+        # 4. Data/visual coverage (SOFT) - not every article needs data (too much is poison); this
+        #    only flags articles that truly lack numbers (no placeholder AND < 2 figures) AND are
+        #    NOT explicitly marked `data_light: true` in the front matter. Mark a piece data_light
+        #    to say "this one is intentionally a narrative guide" and clear the advisory.
         n_block = len(_PH_BLOCK_RE.findall(body))
         n_inline = len(_PH_INLINE_RE.findall(body))
         n_figures = len(_FIGURE_RE.findall(body))
-        if n_block == 0 and n_inline == 0 and n_figures < 2:
-            note = f"only {n_figures} figure(s) in prose and no [STAT]/[CHART] placeholder"
-            warn.append(f"[{slug}] {note} - add a credibility number or a [CHART: ...] placeholder.")
+        if not fm.get("data_light") and n_block == 0 and n_inline == 0 and n_figures < 1:
+            note = "no figures in prose and no [STAT]/[CHART] placeholder"
+            warn.append(f"[{slug}] {note} - add a number if it strengthens the point, "
+                        f"or set `data_light: true` in the front matter to mark it an intentional narrative piece.")
 
     print(f"GT blog style check - {len(slugs)} article(s)\n")
 

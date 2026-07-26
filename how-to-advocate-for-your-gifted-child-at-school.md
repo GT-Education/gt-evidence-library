@@ -57,7 +57,7 @@ Advocating for a gifted child works best when you come specific, calm, and backe
 - Acceleration is described in major research reviews as effective and low-cost, and it is endorsed by NAGC, which strengthens your case.
 
 ## Start with what you actually want
-Before the meeting, get clear on the need in concrete terms. "She finishes the math worksheet in five minutes and then waits" lands better than "he seems bored." Gather a few examples: work samples, a book far above grade level, any test scores. Parents tend to trust what they can see and measure, and so do schools, so specifics move the conversation.
+Before the meeting, get clear on the need in concrete terms. "She finishes the math worksheet in five minutes and then waits" lands better than "he seems bored." Gather a few examples: work samples, a book far above grade level, any test scores. Parents tend to trust what they can see and measure. In one national survey, 57% of parents said they would go with strong data even over a trusted person's negative opinion, and schools respond to specifics the same way, so concrete examples move the conversation.
 
 If you are not sure the problem is really a pace problem, the [signs a gifted child is under-challenged](is-my-gifted-child-under-challenged) can help you name it first.
 
@@ -69,7 +69,7 @@ If you are not sure the problem is really a pace problem, the [signs a gifted ch
 5. Escalate kindly if needed. If the teacher can't help, move up to the counselor, gifted coordinator, or principal, staying collaborative the whole way.
 
 ## What the research gives you
-You are not asking for a special favor. You are asking for practices with strong evidence behind them. Major reviews describe acceleration as a reliable, effective, and inexpensive intervention, endorsed by NAGC. And in a landmark study of curriculum compacting, teachers removed up to about half of the already-mastered curriculum for high-ability students with no drop in achievement. Bringing those facts (sources are listed at the end) reframes your request from "my child deserves extra" to "here is a well-supported way to meet my child's needs."
+You are not asking for a special favor. You are asking for practices with strong evidence behind them. Major reviews describe acceleration as a reliable, effective, and inexpensive intervention, endorsed by NAGC. And in a landmark study of curriculum compacting, teachers removed 40 to 50% of the already-mastered curriculum for high-ability students with no drop in achievement. Bringing those facts (sources are listed at the end) reframes your request from "my child deserves extra" to "here is a well-supported way to meet my child's needs."
 
 ## If the school can't flex
 Sometimes a regular classroom genuinely can't change the pace enough, and that is not a failure on anyone's part. If you keep hitting a ceiling, it is worth looking at other paths: a dedicated gifted program, homeschooling, or a [mastery-based school](gifted-child-bored-what-are-my-options) built so an advanced pace is the default. The goal is the same either way: match the challenge to your child.

@@ -1,6 +1,7 @@
 ---
 title: "Gifted or Just a High Achiever? The Real Difference"
 slug: gifted-vs-high-achiever
+data_light: true  # intentional narrative guide; numbers optional (see check_style.py)
 description: "A high achiever and a gifted child are not the same thing. Here is the real difference, and why a gifted kid can still have ordinary grades."
 archetype: definition-explainer
 primary_question: "What is the difference between a gifted child and a high achiever?"

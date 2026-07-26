@@ -1,6 +1,7 @@
 ---
 title: "What Does Twice-Exceptional (2e) Mean?"
 slug: what-is-twice-exceptional
+data_light: true  # intentional narrative guide; numbers optional (see check_style.py)
 description: "Twice-exceptional (2e) means a child is gifted and also has a disability or learning difference, like ADHD or dyslexia. Here is what that means and why 2e kids get missed."
 archetype: definition-explainer
 primary_question: "What does twice-exceptional (2e) mean?"
