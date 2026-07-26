@@ -5,10 +5,14 @@
   Placeholder tokens are filled by build.py from each article's YAML front matter.
   Each commented block below maps to a GEO lever from the gt-school-blog skill's geo-checklist.md.
 
-  REDESIGN NOTE: warm "parent guide" visual system, loosely inspired by the GT Anywhere
-  site (terracotta accent, confident serif headlines, rounded warm cards). All tokens
-  below are unchanged from the previous version - only markup structure additions are the
-  optional rich-content blocks documented near the CONTENT block.
+  COLOR SYSTEM: warm "parent guide" palette. Global tokens live in :root (primary orange
+  #e48b53, ink #2f343c, cream #fcf8f2, border #e8ded2, accent rose #b65e78). Each article ALSO
+  gets a per-section color via --theme, set on .wrap from {{THEME}}, which build.py derives from
+  the article's LIBRARY_GROUP. --theme colors only the section-specific parts: the hero-card ombre
+  corner + the Quick Answer bar, so the hero, the bar, and the home markers read as one
+  coordinated color per section. The kicker ({{CATEGORY}}) is the section's short label.
+  To retheme a section, edit its color in build.py's LIBRARY_GROUPS - never hardcode a
+  per-article color here.
 -->
 <html lang="{{LANG}}">
 <head>
@@ -20,6 +24,8 @@
   <meta name="description" content="{{DESCRIPTION}}" />
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
   <link rel="canonical" href="{{CANONICAL}}" />
+  <link rel="icon" type="image/png" href="assets/gt-icon.png" />
+  <link rel="apple-touch-icon" href="assets/gt-icon.png" />
   <meta name="author" content="GT School" />
   <meta name="keywords" content="{{KEYWORDS}}" />
 
@@ -44,27 +50,30 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,300..600&family=Inter+Tight:wght@400;500;600;700&family=Inconsolata:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root{
-      --cream:oklch(97.5% 0.014 75);
-      --paper:oklch(99.2% 0.006 85);
-      --ink:oklch(24% 0.025 45);
-      --muted:oklch(46% 0.03 45);
-      --faint:oklch(63% 0.025 50);
-      --line:oklch(89% 0.02 60);
-      --surface:oklch(95% 0.02 65);
-      --accent:oklch(68% 0.15 45);
-      --accent-deep:oklch(52% 0.14 38);
-      --accent-soft:oklch(94% 0.045 55);
-      --charcoal:oklch(27% 0.02 45);
-      --charcoal-ink:oklch(93% 0.012 60);
+      --cream:#fcf8f2;                 /* background (locked token) */
+      --paper:#fffdfc;                 /* card */
+      --ink:#2f343c;                   /* text */
+      --muted:#6d7278;                 /* muted text */
+      --faint:#8c9198;                 /* faint text */
+      --line:#e8ded2;                  /* warm hairline / border */
+      --surface:#f6ede2;               /* soft warm fill (tables, kicker, chips) */
+      --accent:#e48b53;                /* Primary Orange */
+      --accent-deep:#b96b3d;           /* deep orange for links + headings */
+      --accent-soft:#f6e1d2;           /* light orange wash */
+      --navy:#2f343c;                  /* legacy alias -> ink */
+      --rose:#b65e78;                  /* accent rose-berry */
+      --theme:#e48b53;                 /* per-article theme color (set on .wrap) */
+      --charcoal:#28323d;              /* CTA panel (dark slate) */
+      --charcoal-ink:#fcf8f2;          /* off-white text on the dark panel */
       --maxw:1160px;
       --readw:840px;
-      --serif:"Fraunces",Georgia,"Times New Roman",serif;
-      --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      --mono:"IBM Plex Mono",ui-monospace,"SF Mono","Cascadia Code",Consolas,monospace;
+      --serif:"Literata",Georgia,"Times New Roman",serif;
+      --sans:"Inter Tight",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      --mono:"Inconsolata",ui-monospace,"SF Mono",monospace;
     }
     *{box-sizing:border-box}
     html{-webkit-text-size-adjust:100%}
@@ -77,6 +86,8 @@
     ::selection{background:var(--accent-soft); color:var(--accent-deep)}
     h1,h2,h3,p{text-wrap:pretty}
     .wrap{max-width:var(--maxw); margin:0 auto; padding:44px 24px 96px}
+    .site-header{max-width:var(--readw); margin:0 auto 26px}
+    .site-header .brand{height:30px; width:auto; display:block}
     /* The reading column is always centered (equal margins). The sticky "In this guide" rail only
        appears on very wide screens, where it tucks into the right gutter without shifting the column
        off-center (see the min-width media query below). */
@@ -128,7 +139,7 @@
     p.answer{
       font-family:var(--serif); font-size:18px; line-height:1.62; color:var(--ink);
       margin:0 0 30px; padding:2px 0 2px 20px;
-      border-left:3px solid oklch(62% 0.13 var(--h));
+      border-left:4px solid var(--theme);
     }
     p.answer::before{
       content:"Quick Answer"; display:block;
@@ -186,25 +197,31 @@
       color:var(--accent-deep); margin-bottom:8px}
     .ph-visual-desc{font-family:var(--mono); color:var(--muted); font-size:14px; margin:0}
 
-    /* Hero: warm multi-color ombre panel with the breadcrumb, kicker, title and dates overlaid in
-       dark ink (matches the library hero). Sized to the reading column so it aligns with the body. */
-    /* Per-theme ombre: --h from the article's section hue, blended with warm neighbors (+34 / -16)
-       for a soft, glowing gradient like the library cards (coral, terracotta, warm yellow-green). */
-    .hero{--h:45; position:relative; overflow:hidden; max-width:var(--readw); margin:0 auto 34px;
-      border:1px solid color-mix(in oklch, oklch(70% 0.1 var(--h)) 20%, var(--line)); border-radius:16px; padding:26px 28px 30px;
+    /* Hero: signature multi-color soft-glow ombre (pink, yellow, orange-by-the-logo, green, purple,
+       blue, pink) + a faint GT atom top-right. Shared across articles for a warm, inviting feel;
+       per-theme identity comes from the accent color (--h) on the Quick Answer + markers. */
+    /* Article header sits on a calm warm ombre (orange + the group's theme color). It starts BELOW
+       the logo and fades in at the top + out at the bottom, so it never cuts into the logo and has
+       no hard edges. Softer than the library home's full multi-color blend. */
+    .hero{position:relative; overflow:hidden; max-width:var(--readw); margin:0 auto 34px;
+      border:1px solid color-mix(in srgb, var(--accent) 16%, var(--line)); border-radius:10px; padding:24px 28px 26px;
       background:
-        radial-gradient(56% 86% at 12% 16%, oklch(89% 0.095 var(--h)/.92), transparent 72%),
-        radial-gradient(56% 88% at 90% 24%, oklch(91% 0.075 calc(var(--h) + 34)/.85), transparent 74%),
-        radial-gradient(68% 94% at 72% 120%, oklch(90% 0.085 calc(var(--h) - 16)/.82), transparent 72%),
-        linear-gradient(120deg, oklch(95.5% 0.04 var(--h)), oklch(98% 0.02 var(--h)));}
+        radial-gradient(66% 120% at 6% 6%, color-mix(in srgb, var(--theme) 50%, transparent), transparent 72%),
+        radial-gradient(60% 112% at 40% -12%, oklch(93% .075 95/.58), transparent 72%),
+        radial-gradient(62% 120% at 92% 0%, oklch(92% .085 64/.78), transparent 72%),
+        radial-gradient(64% 130% at 108% 58%, color-mix(in srgb, var(--theme) 30%, transparent), transparent 72%),
+        radial-gradient(58% 110% at -2% 108%, oklch(92% .050 24/.40), transparent 72%),
+        linear-gradient(120deg, oklch(97% .03 60), oklch(98.6% .015 90));}
+    .hero .crumbs, .hero header.article{position:relative; z-index:1}
     .hero .crumbs{margin:0 0 16px; max-width:none; color:var(--faint)}
     .hero .crumbs a{color:var(--muted)}
     .hero .crumbs a:hover{color:var(--accent-deep)}
     .hero .crumbs .sep{color:var(--faint)}
     .hero .crumbs .current{color:var(--muted)}
     .hero header.article{margin:0; max-width:none}
-    .hero .kicker{background:var(--paper); color:var(--accent-deep)}
-    .hero header.article h1{color:var(--ink); font-weight:600; font-size:30px; line-height:1.16; margin:0 0 12px}
+    .hero .kicker{background:none; color:var(--accent-deep); padding:0; border-radius:0}
+    .hero .kicker::before{display:none}
+    .hero header.article h1{color:var(--ink); font-weight:600; font-size:31px; line-height:1.16; margin:0 0 12px}
     .hero .meta{margin:0; padding:0; border:none; color:var(--muted)}
     .hero .meta time{color:var(--ink); font-weight:600}
     .hero .meta .dot{color:var(--faint)}
@@ -244,12 +261,13 @@
       color:color-mix(in oklch, var(--charcoal-ink) 82%, transparent); margin:0 0 26px; max-width:56ch}
     .cta-actions{position:relative; display:flex; flex-wrap:wrap; gap:12px}
     .btn{font-family:var(--mono); font-weight:600; font-size:13px; letter-spacing:0.08em; text-transform:uppercase;
-      text-decoration:none !important; padding:14px 22px; border-radius:9px; display:inline-flex; align-items:center; gap:8px;
+      text-decoration:none !important; padding:14px 22px; display:inline-flex; align-items:center; gap:8px;
+      clip-path:polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%); /* brand clipped corner */
       transition:transform .15s ease, background .15s ease, border-color .15s ease}
     .btn:hover{transform:translateY(-1px)}
-    .btn-primary{background:var(--accent-deep); color:#fff}
+    .btn-primary{background:var(--accent); color:var(--ink)} /* brand: gold action on the navy panel */
     .btn-primary::after{content:"\2192"; font-family:var(--sans); font-weight:700; font-size:15px; margin-left:2px}
-    .btn-primary:hover{background:color-mix(in oklch, var(--accent-deep) 88%, black)}
+    .btn-primary:hover{background:color-mix(in oklch, var(--accent) 86%, black)}
     .btn-ghost{background:transparent; color:var(--charcoal-ink); border:1.5px solid color-mix(in oklch, var(--charcoal-ink) 40%, transparent)}
     .btn-ghost:hover{border-color:var(--charcoal-ink)}
 
@@ -303,10 +321,13 @@
   </style>
 </head>
 <body>
-  <div class="wrap" style="--h:{{HUE}}">
+  <div class="wrap" style="--theme:{{THEME}}">
+    <header class="site-header">
+      <a href="index.html" aria-label="GT School home"><img class="brand" src="assets/gt-school-logo.png" alt="GT School" height="30" loading="eager" /></a>
+    </header>
     <!-- GEO Lever 2: ONE H1 = the exact question this page answers; visible freshness dates.
          The header sits on a warm ombre panel. One page = one question; sourced to GT School. -->
-    <section class="hero" style="--h:{{HUE}}">
+    <section class="hero" style="--theme:{{THEME}}">
       {{BREADCRUMB}}
       <header class="article">
         <p class="kicker">{{CATEGORY}}</p>

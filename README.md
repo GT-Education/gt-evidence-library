@@ -58,32 +58,44 @@ python3 blog/check_facts.py && python3 blog/build.py && <deploy> && git push
 
 When a fact genuinely changes (e.g. next year's TEFA award), update it in ONE place, `CANONICAL_FACTS` in `check_facts.py` and the matching entry in `source-library.md`, then rebuild; the checker reports every article that still states the old value. Genuinely contested facts stay a human call; the checker surfaces the disagreement, a reviewer decides, and the decision is recorded in the source library.
 
-## Index (live library, grouped by theme)
-The live library groups articles into five parent-question themes (same order on the site).
+## Design system (colors + per-section theming)
+`LIBRARY_GROUPS` in `build.py` is the **single source of truth** for the look. Each section defines a
+`c` (theme color) and a short `label` (kicker), and everything else is derived, so **adding an article
+to a group auto-themes it** (home marker, hero ombre tint, Quick Answer bar, kicker).
 
-**Is my child actually gifted?**
+- **Palette (locked):** background `#fcf8f2`, card `#fffdfc`, ink `#2f343c`, muted `#6d7278`, border `#e8ded2`, primary orange `#e48b53`, accent rose `#b65e78`.
+- **Section color `c`** drives the home ring + hand-drawn underline + row arrow, AND each article's `--theme` (hero-card ombre corner + Quick Answer bar), so a section reads as one coordinated color.
+- **Section `label`** is the article kicker (e.g. `Acceleration`).
+- **Ombre:** home masthead and article hero share the same warm blend (pink → peach → soft yellow); `--theme` only tints the section-specific corner + bar. Home blend lives in `_LIB_CSS` (`.hero::before`); article version in `template.html` (`.hero`, a contained rounded card).
+- **Keep new section colors** in the warm→berry family (no blue, no green) and **not darker than `#aa5570`** — the ombre corner is ~50% opacity, so darker colors stop matching the solid bar and hurt header legibility.
+- Add `(slug, title, blurb)` to a group to publish; an unlisted article still builds but gets the default orange theme + no home row (the build prints a warning).
+
+## Index (live library, grouped by theme)
+Five parent-question sections (same order on the site). Each shows its **kicker label** and **color**.
+
+**Is my child actually gifted?** — kicker `Identifying Giftedness`, color `#e48b53` (orange)
 - `signs-my-child-is-gifted.md` : How do I know if my child is gifted?
 - `gifted-vs-high-achiever.md` : Gifted or just a high achiever?
 - `what-iq-is-considered-gifted.md` : What IQ score is considered gifted?
 - `what-is-twice-exceptional.md` : What does twice-exceptional (2e) mean?
 - `how-are-gifted-children-tested.md` : How are children tested for giftedness?
 
-**Is my child bored or under-challenged?**
+**Is my child bored or under-challenged?** — kicker `Staying Challenged`, color `#d0765a` (terracotta)
 - `is-my-gifted-child-under-challenged.md` : Is my gifted child under-challenged?
 - `gifted-child-bored-what-are-my-options.md` : My gifted child is bored, what are my options?
 - `how-to-advocate-for-your-gifted-child-at-school.md` : How do I advocate for my gifted child at school?
 
-**Should we let them move ahead?**
+**Should we let them move ahead?** — kicker `Acceleration`, color `#c77a88` (dusty rose)
 - `does-academic-acceleration-actually-work.md` : Does academic acceleration actually work?
 - `does-grade-skipping-hurt-kids-socially.md` : Does grade-skipping hurt kids socially?
 - `what-is-single-subject-acceleration.md` : What is single-subject acceleration?
 
-**How do gifted kids learn best?**
+**How do gifted kids learn best?** — kicker `Learning Models`, color `#b65e78` (berry-rose)
 - `what-is-mastery-based-learning.md` : What is a mastery-based (2-hour) learning model?
 - `what-is-curriculum-compacting.md` : What is curriculum compacting?
 - `enrichment-vs-acceleration.md` : Enrichment vs. acceleration
 
-**Where should they go to school?**
+**Where should they go to school?** — kicker `School Options`, color `#aa5570` (deep berry)
 - `online-gifted-school-vs-homeschooling-gifted-child.md` : Online gifted school vs. homeschooling
 - `use-texas-tefa-voucher-online-gifted-school.md` : Can I use my Texas TEFA voucher for an online gifted school?
 - `what-is-the-texas-education-freedom-account.md` : What is the Texas Education Freedom Account (ESA)?

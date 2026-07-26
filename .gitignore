@@ -3,3 +3,4 @@ node_modules/
 .firebase/
 *.log
 __pycache__/
+mockups/
