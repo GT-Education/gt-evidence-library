@@ -44,6 +44,20 @@ python3 blog/build.py <slug>     # build one article
 
 Generated pages are standalone (CSS inlined) and portable to any host/CMS. **Don't edit `blog/site/` by hand** — edit the `.md` or `template.html`, then rebuild. Platform-specific export (Webflow/WordPress/etc.) can be added once the gt.school platform is known.
 
+## Fact-conflict check (run before pushing)
+`check_facts.py` is the content safety net. It validates every article's recurring stats against the vetted canonical values in the skill's `source-library.md`, flags any that conflict (a single wrong article, or two articles that disagree), catches competitor names, and prints how to resolve each one. It exits non-zero on a conflict so it can gate a deploy/push.
+
+```
+pip install pyyaml
+python3 blog/check_facts.py            # check every article
+python3 blog/check_facts.py <slug>     # check one article
+
+# gate a push on it (nothing ships if a fact conflicts):
+python3 blog/check_facts.py && python3 blog/build.py && <deploy> && git push
+```
+
+When a fact genuinely changes (e.g. next year's TEFA award), update it in ONE place, `CANONICAL_FACTS` in `check_facts.py` and the matching entry in `source-library.md`, then rebuild; the checker reports every article that still states the old value. Genuinely contested facts stay a human call; the checker surfaces the disagreement, a reviewer decides, and the decision is recorded in the source library.
+
 ## Index (live library, grouped by theme)
 The live library groups articles into five parent-question themes (same order on the site).
 
