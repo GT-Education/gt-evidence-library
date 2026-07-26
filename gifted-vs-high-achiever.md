@@ -59,7 +59,7 @@ A rough, friendly comparison (no child fits a column perfectly):
 
 ## Why the difference matters
 
-Recognizing this distinction changes how you help your child. The National Association for Gifted Children (NAGC) defines giftedness as the "capability to perform at higher levels compared to others of the same age," which is about potential rather than grades. Giftedness describes innate potential, while achievement reflects what a child has actually produced, and the two do not always line up. A high achiever usually thrives on more rigor and encouragement. A gifted child needs the pace and depth matched to how they actually learn, or the boredom sets in.
+Recognizing this distinction changes how you help your child. The National Association for Gifted Children defines giftedness as the "capability to perform at higher levels compared to others of the same age," which is about potential rather than grades. Giftedness describes innate potential, while achievement reflects what a child has actually produced, and the two do not always line up. A high achiever usually thrives on more rigor and encouragement. A gifted child needs the pace and depth matched to how they actually learn, or the boredom sets in.
 
 ## The trap: assuming grades tell the story
 

@@ -61,7 +61,7 @@ No single trait settles it, and no child shows all of them. What matters is a co
 
 ## Why grades can be misleading
 
-Here is the part that trips up a lot of loving, attentive parents. The National Association for Gifted Children (NAGC) defines giftedness as the "capability to perform at higher levels compared to others of the same age, experience, and environment," which is about potential, not the grade on the page. A gifted child who is bored can quietly coast, do the minimum, or even act out, and their report card can look perfectly average. So "good grades" is not the test, and neither is "struggling."
+Here is the part that trips up a lot of loving, attentive parents. The National Association for Gifted Children defines giftedness as the "capability to perform at higher levels compared to others of the same age, experience, and environment," which is about potential, not the grade on the page. A gifted child who is bored can quietly coast, do the minimum, or even act out, and their report card can look perfectly average. So "good grades" is not the test, and neither is "struggling."
 
 ## When a formal evaluation helps
 

@@ -44,16 +44,24 @@ python3 blog/build.py <slug>     # build one article
 
 Generated pages are standalone (CSS inlined) and portable to any host/CMS. **Don't edit `blog/site/` by hand** — edit the `.md` or `template.html`, then rebuild. Platform-specific export (Webflow/WordPress/etc.) can be added once the gt.school platform is known.
 
-## Fact-conflict check (run before pushing)
-`check_facts.py` is the content safety net. It validates every article's recurring stats against the vetted canonical values in the skill's `source-library.md`, flags any that conflict (a single wrong article, or two articles that disagree), catches competitor names, and prints how to resolve each one. It exits non-zero on a conflict so it can gate a deploy/push.
+## Content checks (run before pushing)
+Two automated checkers guard the library; both are wired into the git **pre-push hook** (`hooks/pre-push`), so a push is blocked if either finds a hard problem. Bypass only in a true emergency with `git push --no-verify`.
+
+**`check_facts.py`** — validates every article's recurring stats against the vetted canonical values in the skill's `source-library.md`, flags conflicts (a single wrong article, or two that disagree), and catches competitor names. Exits non-zero on a conflict.
+
+**`check_style.py`** — enforces the writing house rules across every article:
+- **Hard (blocks the push):** competitor names (e.g. Davidson), em dashes in the body.
+- **Advisory (reported, non-blocking):** inline citations in the body (attribution belongs in the bottom Sources list), and thin data coverage — an article with no `[STAT]`/`[CHART]` placeholder and almost no figures ("it's a guide, but numbers back credibility"). Add `--strict` to make advisories fail too.
 
 ```
-pip install pyyaml
-python3 blog/check_facts.py            # check every article
-python3 blog/check_facts.py <slug>     # check one article
+pip install pyyaml markdown
+python3 blog/check_facts.py            # facts / canonical values
+python3 blog/check_style.py            # house rules + data coverage
+python3 blog/check_style.py <slug>     # one article
+python3 blog/check_style.py --strict   # advisories also fail
 
-# gate a push on it (nothing ships if a fact conflicts):
-python3 blog/check_facts.py && python3 blog/build.py && <deploy> && git push
+# full gate (nothing ships unless both pass):
+python3 blog/check_facts.py && python3 blog/check_style.py && python3 blog/build.py && <deploy> && git push
 ```
 
 When a fact genuinely changes (e.g. next year's TEFA award), update it in ONE place, `CANONICAL_FACTS` in `check_facts.py` and the matching entry in `source-library.md`, then rebuild; the checker reports every article that still states the old value. Genuinely contested facts stay a human call; the checker surfaces the disagreement, a reviewer decides, and the decision is recorded in the source library.
