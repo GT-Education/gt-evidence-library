@@ -458,8 +458,8 @@ def render(fm: dict, body: str, titles: dict[str, str], template: str) -> str:
 # An unlisted .md still builds (default orange theme, no home row) and the build prints a warning.
 LIBRARY_INTRO = {
     "kicker": "Evidence Library",
-    "h1": "Feeling lost with your gifted kid?<br><span class=\"l2\">Let\u2019s figure it out together.</span>",
-    "sub": "Calm, clear answers to the questions gifted parents ask,<br>grounded in real research.",
+    "h1": "The questions gifted parents ask, answered.",
+    "sub": "Assessment, acceleration, curriculum, and choosing a school.",
     "reviewed": "Written &amp; reviewed by GT School\u2019s gifted-education team",
 }
 LIBRARY_START_HERE = [
@@ -539,28 +539,30 @@ SLUG_KICKER = {slug: g["label"] for g in LIBRARY_GROUPS for (slug, _t, _b) in g[
 
 _LIB_CSS = """<style>
   :root{--bg:#FAF7F2;--ink:#002A3A;--muted:#4a6572;--faint:#7d8f98;--line:#DDD6CD;
-    --accent:#E48B53;--navy2:#004F71;
+    --accent:#E48B53;
+    --shell:1140px;   /* page shell: nav, indexes, question-group listings, footer */
+    --measure:700px;  /* long-form prose reading measure (articles; index subhead) */
     --serif:"Literata",Georgia,serif;--sans:"Inter Tight",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--mono:"Inconsolata",ui-monospace,monospace}
   *{box-sizing:border-box}
-  /* Graph-paper grid (from the results page) on the body, BEHIND the content column;
-     the content column (.page) is solid cream above it. */
+  /* Graph-paper grid (from the results page) runs UNBROKEN under the whole page - no solid
+     column fill (a fill makes a hard edge where the grid stops). The column is defined by type
+     alignment; the grid stays faint (~12% alpha) so text reads cleanly over it. */
   body{margin:0;background-color:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;
-    background-image:linear-gradient(#ebba9b2e 1px, transparent 1px),linear-gradient(90deg, #ebba9b2e 1px, transparent 1px);
+    background-image:linear-gradient(#ebba9b1f 1px, transparent 1px),linear-gradient(90deg, #ebba9b1f 1px, transparent 1px);
     background-size:24px 24px}
   a{color:inherit}
   a:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-  /* 888 = article reading width (840) + wrap padding (2x24), so the column lines up with articles. */
-  .page{max-width:888px;margin:0 auto;padding:0 22px 88px;position:relative;background:var(--bg)}
-  .hero{padding:38px 0 16px}
+  /* Shell matches the article pages' --shell + 24px padding, so columns line up across pages. */
+  .page{max-width:var(--shell);margin:0 auto;padding:40px 24px 88px;position:relative}
+  .hero{padding:0 0 16px}
   .lib-header{margin:0 0 22px}
   .lib-header .brand{height:30px;width:auto;display:block}
   /* section eyebrow: plain uppercase mono text, muted navy */
   .kick{display:block;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0}
   .h1{font-family:var(--serif);font-weight:400;font-size:36px;line-height:1.14;letter-spacing:-.03em;margin:12px 0 14px;text-wrap:balance}
-  .h1 .l2{color:var(--navy2)}
-  .sub{font-family:var(--serif);color:var(--muted);font-size:16.5px;line-height:1.5;margin:0 0 14px;max-width:560px}
+  .sub{font-family:var(--serif);color:var(--muted);font-size:16.5px;line-height:1.5;margin:0 0 14px;max-width:var(--measure)}
   .rev{display:block;font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;color:var(--muted);margin:0 0 20px}
-  .search{display:flex;align-items:center;gap:10px;width:100%;background:transparent;border:1px solid var(--line);border-radius:2px;padding:12px 15px;margin:0 0 16px}
+  .search{display:flex;align-items:center;gap:10px;width:100%;max-width:var(--measure);background:transparent;border:1px solid var(--line);border-radius:2px;padding:12px 15px;margin:0 0 16px}
   .search svg{width:16px;height:16px;flex:none;stroke:var(--faint);fill:none;stroke-width:2}
   .search input{border:none;background:transparent;outline:none;width:100%;font-family:var(--sans);font-size:14px;color:var(--ink)}
   .search input::placeholder{color:var(--faint)}
@@ -586,7 +588,7 @@ _LIB_CSS = """<style>
   .row .ar{color:var(--c);flex:none;align-self:center;font-size:16px}
   .noresults{font-family:var(--serif);color:var(--muted);font-size:16px;padding:20px 12px;display:none}
   footer.site{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;color:var(--faint)}
-  @media (max-width:640px){.page{padding:0 16px 64px}.hero{padding:30px 0 12px}.h1{font-size:28px}}
+  @media (max-width:640px){.page{padding:28px 16px 64px}.hero{padding:0 0 12px}.h1{font-size:28px}}
 </style>"""
 
 _LIB_SEARCH_JS = """<script>

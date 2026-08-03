@@ -74,7 +74,8 @@ to a group auto-themes it** (home marker, article header rule, Quick Answer bar,
 - **Palette (locked, matches the GT results page):** background (cream) `#FAF7F2`, ink (GT navy) `#002A3A`, muted navy `#4a6572`, hairline border `#DDD6CD`, gold accent `#E48B53` (rules, list markers, focus states only — never fills or large areas), navy variants `#003B5C` / `#004F71`. `#b65e78` (accent rose) was removed — it is not in GT's palette.
 - **Section color `c`** drives the home square marker + row arrow, AND each article's `--theme` (the thin rule on the article header + the Quick Answer bar), so a section reads as one coordinated color.
 - **Section `label`** is the article kicker (e.g. `Acceleration`).
-- **Background texture:** home page and articles draw the results-page graph-paper grid (`#ebba9b2e`, 24px) on the `body`, behind the solid-cream content column. Layout is hairline rules instead of cards — no gradients, no shadows, no rounded corners beyond 2px, no decorative illustration.
+- **Background texture:** home page and articles draw the results-page graph-paper grid (`#ebba9b1f`, ~12% alpha, 24px) on the `body`. The grid runs **unbroken** under the whole page — no solid column fill on top; the column is defined by type alignment. Layout is hairline rules instead of cards — no gradients, no shadows, no rounded corners beyond 2px, no decorative illustration.
+- **Two-tier width:** `--shell: 1140px` for the page shell (nav, indexes, question-group listings, footer) and `--measure: 700px` for long-form prose (article body copy). Both tokens live in `template.html` and `_LIB_CSS`.
 - Add `(slug, title, blurb)` to a group to publish; an unlisted article still builds but gets the default orange theme + no home row (the build prints a warning).
 
 ## Index (live library, grouped by theme)

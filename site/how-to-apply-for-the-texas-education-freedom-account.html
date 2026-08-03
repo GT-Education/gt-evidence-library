@@ -222,21 +222,22 @@
       --link:#004F71;                  /* light navy for links */
       --accent:#E48B53;                /* gold accent: rules, list markers, focus states ONLY */
       --theme:#E48B53;                 /* per-article theme color (set on .wrap) */
-      --maxw:1160px;
-      --readw:840px;
+      --shell:1140px;                  /* page shell: nav, footer, wide chrome */
+      --measure:700px;                 /* long-form prose reading measure */
       --serif:"Literata",Georgia,"Times New Roman",serif;
       --sans:"Inter Tight",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
       --mono:"Inconsolata",ui-monospace,"SF Mono",monospace;
     }
     *{box-sizing:border-box}
     html{-webkit-text-size-adjust:100%}
-    /* Graph-paper grid (from the results page) sits on the body, BEHIND the content column;
-       the content column (.wrap) is solid cream above it. */
+    /* Graph-paper grid (from the results page) runs UNBROKEN under the whole page - no solid
+       column fill on top (a fill makes a hard edge where the grid stops). The column is defined
+       by type alignment; the grid stays faint (~12% alpha) so text reads cleanly over it. */
     body{
       margin:0; background-color:var(--cream); color:var(--ink);
       background-image:
-        linear-gradient(#ebba9b2e 1px, transparent 1px),
-        linear-gradient(90deg, #ebba9b2e 1px, transparent 1px);
+        linear-gradient(#ebba9b1f 1px, transparent 1px),
+        linear-gradient(90deg, #ebba9b1f 1px, transparent 1px);
       background-size:24px 24px;
       font-family:var(--serif);
       font-size:18px; line-height:1.74;
@@ -245,12 +246,14 @@
     ::selection{background:var(--ink); color:var(--cream)}
     h1,h2,h3,p{text-wrap:pretty}
     a:focus-visible,summary:focus-visible,input:focus-visible,.btn:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
-    .wrap{max-width:var(--maxw); margin:0 auto; padding:48px 24px 112px; background:var(--cream)}
-    .site-header{max-width:var(--readw); margin:0 auto 26px}
+    /* Two-tier width: the shell (nav, footer) spans --shell; long-form body copy stays at
+       --measure. No background on .wrap - the grid runs through. */
+    .wrap{max-width:var(--shell); margin:0 auto; padding:48px 24px 112px}
+    .site-header{margin:0 0 26px}
     .site-header .brand{height:30px; width:auto; display:block}
     /* Subtle "back to the library" text link above the article header (no box). Replaces the visible
        breadcrumb; the BreadcrumbList still ships in JSON-LD for SEO. */
-    .backrow{max-width:var(--readw); margin:0 auto 18px}
+    .backrow{max-width:var(--measure); margin:0 auto 18px}
     .backlink{display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:12.5px;
       font-weight:500; letter-spacing:0.04em; color:var(--muted); text-decoration:none; transition:color .15s ease}
     .backlink svg{width:13px; height:13px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round}
@@ -258,14 +261,15 @@
     /* The reading column is always centered (equal margins). The sticky "In this guide" rail only
        appears on very wide screens, where it tucks into the right gutter without shifting the column
        off-center (see the min-width media query below). */
-    .article-grid{display:grid; grid-template-columns:minmax(0,var(--readw)); justify-content:center; align-items:start}
+    .article-grid{display:grid; grid-template-columns:minmax(0,var(--measure)); justify-content:center; align-items:start}
     .article-grid > article{min-width:0}
     aside.toc{display:none; max-width:250px; position:sticky; top:32px}
     aside.toc .toc-title{font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin:0 0 14px}
     aside.toc ul{list-style:none; margin:0; padding:0; border-left:1px solid var(--line)}
     aside.toc a{display:block; padding:7px 0 7px 16px; margin-left:-1px; border-left:1px solid transparent; color:var(--muted); text-decoration:none; font-family:var(--sans); font-size:13.5px; line-height:1.4}
     aside.toc a:hover{color:var(--link); border-left-color:var(--accent)}
-    nav.crumbs, header.article, nav.related, footer.site{max-width:var(--readw); margin-left:auto; margin-right:auto}
+    nav.crumbs, header.article, nav.related{max-width:var(--measure); margin-left:auto; margin-right:auto}
+    footer.site{max-width:none} /* nav + footer span the shell */
     a{color:var(--link); text-underline-offset:3px}
     a:hover{text-decoration-color:currentColor}
     /* Inline citations render as small superscript footnotes linking to the sources at the bottom */
@@ -300,7 +304,7 @@
 
     /* Article header: flat, no card. A thin rule in the section's theme color on top, a warm-grey
        hairline below. This (plus the Quick Answer bar) is where --theme shows on article pages. */
-    .hero{position:relative; max-width:var(--readw); margin:0 auto 52px;
+    .hero{position:relative; max-width:var(--measure); margin:0 auto 52px;
       border-top:2px solid var(--theme); border-bottom:1px solid var(--line);
       padding:36px 0 30px; background:none;}
     .hero .crumbs{margin:0 0 16px; max-width:none; color:var(--faint)}
@@ -447,13 +451,13 @@
     footer.site{margin-top:80px; padding-top:24px; border-top:1px solid var(--line);
       font-family:var(--mono); font-size:12.5px; letter-spacing:0.02em; color:var(--faint)}
 
-    /* Only on very wide screens: reveal the sticky "In this guide" rail in the right gutter while the
-       reading column stays centered (equal empty gutters left/right), so nothing looks off-center. */
-    @media (min-width:1390px){
-      .wrap{max-width:1440px}
-      .article-grid{grid-template-columns:minmax(0,1fr) var(--readw) minmax(0,1fr)}
+    /* On wide screens: reveal the sticky "In this guide" rail in the shell's right gutter while
+       the reading column stays centered (equal empty gutters left/right). The shell never grows -
+       nav and footer always span --shell. */
+    @media (min-width:1200px){
+      .article-grid{grid-template-columns:minmax(0,1fr) var(--measure) minmax(0,1fr)}
       .article-grid > article{grid-column:2}
-      aside.toc{display:block; grid-column:3; justify-self:start; align-self:start; padding-left:44px}
+      aside.toc{display:block; grid-column:3; justify-self:start; align-self:start; padding-left:28px}
     }
     @media (max-width:640px){
       body{font-size:17px}
