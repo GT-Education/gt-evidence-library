@@ -5,14 +5,15 @@
   Placeholder tokens are filled by build.py from each article's YAML front matter.
   Each commented block below maps to a GEO lever from the gt-school-blog skill's geo-checklist.md.
 
-  COLOR SYSTEM: warm "parent guide" palette. Global tokens live in :root (primary orange
-  #e48b53, ink #2f343c, cream #fcf8f2, border #e8ded2, accent rose #b65e78). Each article ALSO
+  COLOR SYSTEM: restrained "results page" palette. Global tokens live in :root (GT navy ink
+  #002A3A, cream #FAF7F2, warm-grey hairline #DDD6CD, gold accent #E48B53 used sparingly for
+  rules / list markers / focus states only - never fills or large areas). Each article ALSO
   gets a per-section color via --theme, set on .wrap from #e48b53, which build.py derives from
-  the article's LIBRARY_GROUP. --theme colors only the section-specific parts: the hero-card ombre
-  corner + the Quick Answer bar, so the hero, the bar, and the home markers read as one
-  coordinated color per section. The kicker (Identifying Giftedness) is the section's short label.
-  To retheme a section, edit its color in build.py's LIBRARY_GROUPS - never hardcode a
-  per-article color here.
+  the article's LIBRARY_GROUP. --theme colors only the section-specific parts: the thin rule at
+  the top of the article header + the Quick Answer bar, so the header rule, the bar, and the home
+  markers read as one coordinated color per section. The kicker (Identifying Giftedness) is the section's
+  short label. To retheme a section, edit its color in build.py's LIBRARY_GROUPS - never hardcode
+  a per-article color here.
 -->
 <html lang="en">
 <head>
@@ -179,21 +180,15 @@
 
   <style>
     :root{
-      --cream:#fcf8f2;                 /* background (locked token) */
-      --paper:#fffdfc;                 /* card */
-      --ink:#2f343c;                   /* text */
-      --muted:#6d7278;                 /* muted text */
-      --faint:#8c9198;                 /* faint text */
-      --line:#e8ded2;                  /* warm hairline / border */
-      --surface:#f6ede2;               /* soft warm fill (tables, kicker, chips) */
-      --accent:#e48b53;                /* Primary Orange */
-      --accent-deep:#b96b3d;           /* deep orange for links + headings */
-      --accent-soft:#f6e1d2;           /* light orange wash */
-      --navy:#2f343c;                  /* legacy alias -> ink */
-      --rose:#b65e78;                  /* accent rose-berry */
-      --theme:#e48b53;                 /* per-article theme color (set on .wrap) */
-      --charcoal:#28323d;              /* CTA panel (dark slate) */
-      --charcoal-ink:#fcf8f2;          /* off-white text on the dark panel */
+      --cream:#FAF7F2;                 /* background (locked token) */
+      --ink:#002A3A;                   /* text - GT navy */
+      --muted:#4a6572;                 /* muted navy text */
+      --faint:#7d8f98;                 /* faint text */
+      --line:#DDD6CD;                  /* warm grey hairline / border */
+      --navy-mid:#003B5C;              /* mid navy (theme variant) */
+      --link:#004F71;                  /* light navy for links */
+      --accent:#E48B53;                /* gold accent: rules, list markers, focus states ONLY */
+      --theme:#E48B53;                 /* per-article theme color (set on .wrap) */
       --maxw:1160px;
       --readw:840px;
       --serif:"Literata",Georgia,"Times New Roman",serif;
@@ -202,234 +197,222 @@
     }
     *{box-sizing:border-box}
     html{-webkit-text-size-adjust:100%}
+    /* Graph-paper grid (from the results page) sits on the body, BEHIND the content column;
+       the content column (.wrap) is solid cream above it. */
     body{
-      margin:0; background:var(--cream); color:var(--ink);
+      margin:0; background-color:var(--cream); color:var(--ink);
+      background-image:
+        linear-gradient(#ebba9b2e 1px, transparent 1px),
+        linear-gradient(90deg, #ebba9b2e 1px, transparent 1px);
+      background-size:24px 24px;
       font-family:var(--serif);
-      font-size:18px; line-height:1.72;
+      font-size:18px; line-height:1.74;
       -webkit-font-smoothing:antialiased;
     }
-    ::selection{background:var(--accent-soft); color:var(--accent-deep)}
+    ::selection{background:var(--ink); color:var(--cream)}
     h1,h2,h3,p{text-wrap:pretty}
-    .wrap{max-width:var(--maxw); margin:0 auto; padding:44px 24px 96px}
-    .site-header{max-width:var(--readw); margin:0 auto 22px}
+    a:focus-visible,summary:focus-visible,input:focus-visible,.btn:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+    .wrap{max-width:var(--maxw); margin:0 auto; padding:48px 24px 112px; background:var(--cream)}
+    .site-header{max-width:var(--readw); margin:0 auto 26px}
     .site-header .brand{height:30px; width:auto; display:block}
-    /* Subtle "back to the library" text link above the header card (no box). Replaces the visible
+    /* Subtle "back to the library" text link above the article header (no box). Replaces the visible
        breadcrumb; the BreadcrumbList still ships in JSON-LD for SEO. */
-    .backrow{max-width:var(--readw); margin:0 auto 14px}
-    .backlink{display:inline-flex; align-items:center; gap:6px; font-family:var(--sans); font-size:13.5px;
-      font-weight:500; color:var(--muted); text-decoration:none; transition:color .15s ease, transform .15s ease}
-    .backlink svg{width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round}
-    .backlink:hover{color:var(--accent-deep)}
-    .backlink:hover svg{transform:translateX(-2px); transition:transform .15s ease}
+    .backrow{max-width:var(--readw); margin:0 auto 18px}
+    .backlink{display:inline-flex; align-items:center; gap:6px; font-family:var(--mono); font-size:12.5px;
+      font-weight:500; letter-spacing:0.04em; color:var(--muted); text-decoration:none; transition:color .15s ease}
+    .backlink svg{width:13px; height:13px; fill:none; stroke:currentColor; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round}
+    .backlink:hover{color:var(--link)}
     /* The reading column is always centered (equal margins). The sticky "In this guide" rail only
        appears on very wide screens, where it tucks into the right gutter without shifting the column
        off-center (see the min-width media query below). */
     .article-grid{display:grid; grid-template-columns:minmax(0,var(--readw)); justify-content:center; align-items:start}
     .article-grid > article{min-width:0}
     aside.toc{display:none; max-width:250px; position:sticky; top:32px}
-    aside.toc .toc-title{font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint); margin:0 0 14px}
-    aside.toc ul{list-style:none; margin:0; padding:0; border-left:2px solid var(--line)}
-    aside.toc a{display:block; padding:7px 0 7px 16px; margin-left:-2px; border-left:2px solid transparent; color:var(--muted); text-decoration:none; font-family:var(--sans); font-size:13.5px; line-height:1.4}
-    aside.toc a:hover{color:var(--accent-deep); border-left-color:var(--accent)}
+    aside.toc .toc-title{font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); margin:0 0 14px}
+    aside.toc ul{list-style:none; margin:0; padding:0; border-left:1px solid var(--line)}
+    aside.toc a{display:block; padding:7px 0 7px 16px; margin-left:-1px; border-left:1px solid transparent; color:var(--muted); text-decoration:none; font-family:var(--sans); font-size:13.5px; line-height:1.4}
+    aside.toc a:hover{color:var(--link); border-left-color:var(--accent)}
     nav.crumbs, header.article, nav.related, footer.site{max-width:var(--readw); margin-left:auto; margin-right:auto}
-    a{color:var(--accent-deep); text-underline-offset:3px}
+    a{color:var(--link); text-underline-offset:3px}
     a:hover{text-decoration-color:currentColor}
     /* Inline citations render as small superscript footnotes linking to the sources at the bottom */
     sup.fn{font-size:0.68em; line-height:0}
-    sup.fn a{color:var(--accent-deep); font-weight:600; text-decoration:none; padding:0 1px}
+    sup.fn a{color:var(--link); font-weight:600; text-decoration:none; padding:0 1px}
     sup.fn a:hover{text-decoration:underline}
 
     /* Breadcrumb (also emitted as BreadcrumbList JSON-LD) */
     nav.crumbs{font-family:var(--sans); font-size:13.5px; color:var(--faint); margin-bottom:28px}
     nav.crumbs a{color:var(--muted); text-decoration:none}
-    nav.crumbs a:hover{color:var(--accent-deep)}
+    nav.crumbs a:hover{color:var(--link)}
     nav.crumbs .sep{margin:0 8px; color:var(--faint)}
     nav.crumbs .current{color:var(--muted)}
 
-    /* Category kicker - frames each page as an entry in a topical library, not a personal blog post */
+    /* Category kicker = section eyebrow: Inconsolata, uppercase, wide tracking, muted navy */
     .kicker{
-      display:inline-flex; align-items:center; gap:7px;
-      font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
-      color:var(--accent-deep); background:var(--accent-soft);
-      padding:7px 14px 7px 12px; border-radius:10px; margin:0 0 18px;
+      display:block; font-family:var(--mono); font-size:12px; font-weight:600;
+      letter-spacing:0.16em; text-transform:uppercase;
+      color:var(--muted); margin:0 0 20px;
     }
-    .kicker::before{content:""; width:6px; height:6px; border-radius:50%; background:var(--accent); flex:none}
 
     header.article h1{
-      font-family:var(--serif); font-weight:700; font-size:44px; line-height:1.15; letter-spacing:-0.01em;
-      margin:0 0 18px; color:var(--ink);
+      font-family:var(--serif); font-weight:400; font-size:42px; line-height:1.14; letter-spacing:-0.03em;
+      margin:0 0 22px; color:var(--ink);
     }
-    /* GEO Lever 1: dates rendered VISIBLY on the page, not just in meta */
-    .meta{display:flex; flex-wrap:wrap; gap:8px 14px; align-items:center;
-      font-family:var(--sans); font-size:14px; color:var(--faint);
-      margin-bottom:36px; padding-bottom:28px; border-bottom:1px solid var(--line)}
-    .meta time{color:var(--muted); font-weight:600}
+    /* GEO Lever 1: dates rendered VISIBLY on the page, not just in meta.
+       Monospace metadata line under the title: SOURCE ... / reading time / last updated. */
+    .meta{display:flex; flex-wrap:wrap; gap:6px 10px; align-items:baseline;
+      font-family:var(--mono); font-size:13px; letter-spacing:0.02em; color:var(--muted)}
+    .meta time{color:var(--ink); font-weight:600}
     .meta .dot{color:var(--line)}
 
-    /* GEO Lever 2: the answer-first paragraph an AI can lift verbatim - styled as a warm "Quick Answer" callout */
-    /* Quick Answer: no fill or box, just a slim accent line in the page's theme hue. Calm, and it
-       sidesteps background color-matching entirely (works on every ombre). */
+    /* Article header: flat, no card. A thin rule in the section's theme color on top, a warm-grey
+       hairline below. This (plus the Quick Answer bar) is where --theme shows on article pages. */
+    .hero{position:relative; max-width:var(--readw); margin:0 auto 52px;
+      border-top:2px solid var(--theme); border-bottom:1px solid var(--line);
+      padding:36px 0 30px; background:none;}
+    .hero .crumbs{margin:0 0 16px; max-width:none; color:var(--faint)}
+    .hero .crumbs a{color:var(--muted)}
+    .hero .crumbs a:hover{color:var(--link)}
+    .hero header.article{margin:0; max-width:none}
+    .hero header.article h1{margin:0 0 18px}
+    .hero .meta{margin:0; padding:0; border:none}
+
+    /* GEO Lever 2: the answer-first paragraph an AI can lift verbatim - a slim rule in the page's
+       theme hue, no fill, no box. */
     p.answer{
       font-family:var(--serif); font-size:18px; line-height:1.62; color:var(--ink);
-      margin:0 0 30px; padding:2px 0 2px 20px;
-      border-left:4px solid var(--theme);
+      margin:0 0 36px; padding:2px 0 2px 20px;
+      border-left:3px solid var(--theme);
     }
     p.answer::before{
       content:"Quick Answer"; display:block;
-      font-family:var(--sans); font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
-      color:var(--accent-deep); margin-bottom:8px;
+      font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase;
+      color:var(--muted); margin-bottom:8px;
     }
 
+    /* Section headings: Literata at regular weight, generous space above, a short gold rule as
+       the only ornament. */
     article h2{
-      position:relative; font-family:var(--serif); font-weight:600; font-size:22px; line-height:1.3;
-      letter-spacing:-0.01em; color:var(--ink); margin:38px 0 14px; padding-left:18px;
+      font-family:var(--serif); font-weight:400; font-size:26px; line-height:1.3;
+      letter-spacing:-0.02em; color:var(--ink); margin:64px 0 18px;
     }
     article h2::before{
-      content:""; position:absolute; left:0; top:0.3em; width:8px; height:8px; border-radius:2px; background:var(--accent);
+      content:""; display:block; width:40px; height:1px; background:var(--accent); margin:0 0 14px;
     }
     article h3{
-      font-family:var(--sans); font-weight:700; font-size:14.5px; letter-spacing:0.04em; text-transform:uppercase;
-      color:var(--accent-deep); margin:30px 0 10px;
+      font-family:var(--mono); font-weight:600; font-size:13px; letter-spacing:0.12em; text-transform:uppercase;
+      color:var(--muted); margin:38px 0 12px;
     }
-    article p{margin:0 0 20px}
-    article ul{padding-left:22px; margin:0 0 20px}
+    article p{margin:0 0 22px}
+    article ul{padding-left:22px; margin:0 0 22px}
     article ul li{margin:8px 0; padding-left:4px}
     article ul li::marker{color:var(--accent)}
     article strong{font-weight:700; color:var(--ink)}
 
-    /* Numbered steps get warm circular numeral badges instead of default markers */
-    article ol{list-style:none; padding-left:0; margin:0 0 28px; counter-reset:step}
-    article ol li{counter-increment:step; position:relative; padding:3px 0 3px 46px; margin:16px 0; min-height:32px}
+    /* Numbered steps: plain Inconsolata numerals in the margin - no badges, no fills */
+    article ol{list-style:none; padding-left:0; margin:0 0 30px; counter-reset:step}
+    article ol li{counter-increment:step; position:relative; padding:2px 0 2px 46px; margin:18px 0}
     article ol li::before{
-      content:counter(step); position:absolute; left:0; top:-3px; width:32px; height:32px; border-radius:50%;
-      background:var(--accent-soft); color:var(--accent-deep); font-family:var(--sans); font-weight:700; font-size:15px;
-      display:flex; align-items:center; justify-content:center;
+      content:counter(step,decimal-leading-zero); position:absolute; left:0; top:3px;
+      font-family:var(--mono); font-weight:600; font-size:15px; color:var(--accent); letter-spacing:0.02em;
     }
 
-    /* Comparison tables (Comparison archetype) - scannable + AI-parseable */
-    .table-scroll{overflow-x:auto; margin:0 0 28px; border:1px solid var(--line); border-radius:14px}
+    /* Comparison tables (Comparison archetype) - hairline grid, mono headers, AI-parseable */
+    .table-scroll{overflow-x:auto; margin:0 0 32px; border:1px solid var(--line); border-radius:2px}
     article table{border-collapse:collapse; width:100%; font-family:var(--sans); font-size:15.5px}
-    article th,article td{padding:12px 16px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line)}
-    article thead th{background:var(--surface); font-weight:700; font-size:13px; text-transform:uppercase; letter-spacing:0.03em}
+    article th,article td{padding:13px 16px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line)}
+    article thead th{background:none; font-family:var(--mono); font-weight:600; font-size:12px;
+      text-transform:uppercase; letter-spacing:0.08em; color:var(--muted)}
     article tbody tr:last-child td{border-bottom:none}
 
     article blockquote{
-      font-family:var(--serif); font-style:italic; font-size:21px; line-height:1.55; color:var(--ink);
-      margin:28px 0; padding:4px 0 4px 22px; border-left:3px solid var(--accent);
+      font-family:var(--serif); font-style:italic; font-size:20px; line-height:1.55; color:var(--ink);
+      margin:32px 0; padding:4px 0 4px 22px; border-left:2px solid var(--accent);
     }
-    hr{border:none; border-top:1px solid var(--line); margin:40px 0}
+    hr{border:none; border-top:1px solid var(--line); margin:56px 0}
 
     /* Placeholders: visible, unmissable markers for data/visuals to fill before publishing.
-       Inline [STAT]/[NUMBER]/[%] -> amber monospace chip; block [CHART:/VISUAL:/DATA: ...] -> dashed box. */
-    .ph-stat{background:var(--accent-soft); color:var(--accent-deep); font-family:var(--mono); font-weight:700;
-      padding:2px 8px; border:1px dashed var(--accent); border-radius:6px; font-size:0.82em;
+       Inline [STAT]/[NUMBER]/[%] -> dashed mono chip; block [CHART:/VISUAL:/DATA: ...] -> dashed box. */
+    .ph-stat{background:none; color:var(--ink); font-family:var(--mono); font-weight:600;
+      padding:1px 7px; border:1px dashed var(--accent); border-radius:2px; font-size:0.82em;
       white-space:normal; box-decoration-break:clone; -webkit-box-decoration-break:clone}
-    figure.ph-visual{margin:32px 0; padding:32px 26px; border:2px dashed color-mix(in oklch, var(--accent) 55%, transparent);
-      border-radius:16px; background:var(--surface); text-align:center}
-    .ph-visual-tag{font-family:var(--mono); font-size:12px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
-      color:var(--accent-deep); margin-bottom:8px}
+    figure.ph-visual{margin:36px 0; padding:34px 26px; border:1px dashed var(--line);
+      border-radius:2px; background:none; text-align:center}
+    .ph-visual-tag{font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
+      color:var(--muted); margin-bottom:8px}
     .ph-visual-desc{font-family:var(--mono); color:var(--muted); font-size:14px; margin:0}
-
-    /* Hero: signature multi-color soft-glow ombre (pink, yellow, orange-by-the-logo, green, purple,
-       blue, pink) + a faint GT atom top-right. Shared across articles for a warm, inviting feel;
-       per-theme identity comes from the accent color (--h) on the Quick Answer + markers. */
-    /* Article header sits on a calm warm ombre (orange + the group's theme color). It starts BELOW
-       the logo and fades in at the top + out at the bottom, so it never cuts into the logo and has
-       no hard edges. Softer than the library home's full multi-color blend. */
-    .hero{position:relative; overflow:hidden; max-width:var(--readw); margin:0 auto 34px;
-      border:1px solid color-mix(in srgb, var(--accent) 16%, var(--line)); border-radius:10px; padding:24px 28px 26px;
-      background:
-        radial-gradient(66% 120% at 6% 6%, color-mix(in srgb, var(--theme) 50%, transparent), transparent 72%),
-        radial-gradient(60% 112% at 40% -12%, oklch(93% .075 95/.58), transparent 72%),
-        radial-gradient(62% 120% at 92% 0%, oklch(92% .085 64/.78), transparent 72%),
-        radial-gradient(64% 130% at 108% 58%, color-mix(in srgb, var(--theme) 30%, transparent), transparent 72%),
-        radial-gradient(58% 110% at -2% 108%, oklch(92% .050 24/.40), transparent 72%),
-        linear-gradient(120deg, oklch(97% .03 60), oklch(98.6% .015 90));}
-    .hero .crumbs, .hero header.article{position:relative; z-index:1}
-    .hero .crumbs{margin:0 0 16px; max-width:none; color:var(--faint)}
-    .hero .crumbs a{color:var(--muted)}
-    .hero .crumbs a:hover{color:var(--accent-deep)}
-    .hero .crumbs .sep{color:var(--faint)}
-    .hero .crumbs .current{color:var(--muted)}
-    .hero header.article{margin:0; max-width:none}
-    .hero .kicker{background:none; color:var(--accent-deep); padding:0; border-radius:0}
-    .hero .kicker::before{display:none}
-    .hero header.article h1{color:var(--ink); font-weight:600; font-size:31px; line-height:1.16; margin:0 0 12px}
-    .hero .meta{margin:0; padding:0; border:none; color:var(--muted)}
-    .hero .meta time{color:var(--ink); font-weight:600}
-    .hero .meta .dot{color:var(--faint)}
 
     /* --- Optional rich content blocks, available to article authors via raw HTML in markdown ---
        .stat-band  > .stat > .stat-num + .stat-label     (headline research numbers)
        .qa-list    > .qa-item > p.q + p.a                (FAQ archetype, pairs with FAQPage JSON-LD)
        .term-grid  > .term-card > span.term + p.def      (short glossary)
        .cta-card   > p.eyebrow + h3 + p + .cta-actions>a.btn.btn-primary/.btn-ghost  (closing GT School pitch) */
+    /* Stat band: a bordered hairline grid with large Inconsolata numerals - no fills, no cards. */
     .stat-band{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-      margin:36px 0 12px; padding:6px; border-radius:18px; background:var(--surface); border:1px solid var(--line)}
-    .stat-band .stat{padding:22px 20px; text-align:center}
+      margin:44px 0 10px; border:1px solid var(--line); border-radius:2px; background:none}
+    .stat-band .stat{padding:26px 22px; text-align:left}
     .stat-band .stat + .stat{border-left:1px solid var(--line)}
-    .stat-band .stat-num{display:block; font-family:var(--serif); font-weight:700; font-size:34px; color:var(--accent-deep); line-height:1.1}
-    .stat-band .stat-label{display:block; margin-top:8px; font-family:var(--sans); font-size:13px; color:var(--muted); line-height:1.45}
-    .stat-source{font-family:var(--sans); font-size:12.5px; color:var(--faint); margin:10px 0 32px; text-align:center}
+    .stat-band .stat-num{display:block; font-family:var(--mono); font-weight:600; font-size:40px;
+      color:var(--ink); line-height:1.05; letter-spacing:-0.02em}
+    .stat-band .stat-label{display:block; margin-top:10px; font-family:var(--sans); font-size:13px; color:var(--muted); line-height:1.45}
+    .stat-source{font-family:var(--mono); font-size:12px; color:var(--faint); margin:10px 0 40px}
 
-    .qa-list{margin:8px 0 32px; display:flex; flex-direction:column; gap:16px}
-    .qa-item{padding:22px 24px; background:var(--paper); border:1px solid var(--line); border-radius:14px}
+    /* FAQ: hairline-separated list, no cards */
+    .qa-list{margin:8px 0 40px; border-top:1px solid var(--line)}
+    .qa-item{padding:22px 0; border-bottom:1px solid var(--line)}
     .qa-item .q{font-family:var(--serif); font-weight:600; font-size:18px; color:var(--ink); margin:0 0 7px}
     .qa-item .a{font-family:var(--serif); font-size:17.5px; color:var(--muted); margin:0; line-height:1.62}
 
-    .term-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin:20px 0 32px}
-    .term-card{padding:18px; background:var(--surface); border-radius:12px}
-    .term-card .term{display:block; font-family:var(--sans); font-weight:700; font-size:14px; color:var(--accent-deep); margin-bottom:4px}
-    .term-card .def{font-family:var(--serif); font-size:15.5px; color:var(--muted); line-height:1.5; margin:0}
+    .term-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px; margin:20px 0 36px}
+    .term-card{padding:18px; background:none; border:1px solid var(--line); border-radius:2px}
+    .term-card .term{display:block; font-family:var(--mono); font-weight:600; font-size:12px;
+      letter-spacing:0.08em; text-transform:uppercase; color:var(--muted); margin-bottom:6px}
+    .term-card .def{font-family:var(--serif); font-size:15.5px; color:var(--ink); line-height:1.5; margin:0}
 
-    .cta-card{position:relative; overflow:hidden; margin:44px 0 8px; padding:40px 36px; border-radius:22px;
-      background:var(--charcoal); color:var(--charcoal-ink)}
-    .cta-card::after{content:""; position:absolute; right:-60px; top:-60px; width:220px; height:220px; border-radius:50%;
-      background:radial-gradient(circle, var(--accent) 0%, transparent 70%); opacity:0.35}
-    .cta-card .eyebrow{position:relative; font-family:var(--mono); font-size:12px; font-weight:600; text-transform:uppercase;
-      letter-spacing:0.08em; color:color-mix(in oklch, var(--accent) 78%, white); margin:0 0 12px}
-    .cta-card h3{position:relative; font-family:var(--serif); font-weight:700; font-size:26px; letter-spacing:normal;
-      text-transform:none; color:var(--charcoal-ink); margin:0 0 14px}
-    .cta-card p{position:relative; font-family:var(--serif); font-size:17.5px; line-height:1.65;
-      color:color-mix(in oklch, var(--charcoal-ink) 82%, transparent); margin:0 0 26px; max-width:56ch}
-    .cta-actions{position:relative; display:flex; flex-wrap:wrap; gap:12px}
+    /* Closing CTA: a bordered panel on the page ground - no dark fill, no glow, no clipped corners */
+    .cta-card{margin:56px 0 8px; padding:36px 32px; border:1px solid var(--ink); border-radius:2px;
+      background:none; color:var(--ink)}
+    .cta-card .eyebrow{font-family:var(--mono); font-size:12px; font-weight:600; text-transform:uppercase;
+      letter-spacing:0.14em; color:var(--muted); margin:0 0 14px}
+    .cta-card h3{font-family:var(--serif); font-weight:400; font-size:26px; letter-spacing:-0.02em;
+      text-transform:none; color:var(--ink); margin:0 0 14px}
+    .cta-card p{font-family:var(--serif); font-size:17.5px; line-height:1.65;
+      color:var(--muted); margin:0 0 28px; max-width:56ch}
+    .cta-actions{display:flex; flex-wrap:wrap; gap:12px}
     .btn{font-family:var(--mono); font-weight:600; font-size:13px; letter-spacing:0.08em; text-transform:uppercase;
-      text-decoration:none !important; padding:14px 22px; display:inline-flex; align-items:center; gap:8px;
-      clip-path:polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%); /* brand clipped corner */
-      transition:transform .15s ease, background .15s ease, border-color .15s ease}
-    .btn:hover{transform:translateY(-1px)}
-    .btn-primary{background:var(--accent); color:var(--ink)} /* brand: gold action on the navy panel */
+      text-decoration:none !important; padding:13px 22px; display:inline-flex; align-items:center; gap:8px;
+      border-radius:2px; transition:background .15s ease, border-color .15s ease, color .15s ease}
+    .btn-primary{background:var(--ink); color:var(--cream); border:1px solid var(--ink)}
     .btn-primary::after{content:"\2192"; font-family:var(--sans); font-weight:700; font-size:15px; margin-left:2px}
-    .btn-primary:hover{background:color-mix(in oklch, var(--accent) 86%, black)}
-    .btn-ghost{background:transparent; color:var(--charcoal-ink); border:1.5px solid color-mix(in oklch, var(--charcoal-ink) 40%, transparent)}
-    .btn-ghost:hover{border-color:var(--charcoal-ink)}
+    .btn-primary:hover{background:var(--navy-mid); border-color:var(--navy-mid)}
+    .btn-ghost{background:transparent; color:var(--ink); border:1px solid var(--ink)}
+    .btn-ghost:hover{color:var(--link); border-color:var(--link)}
 
     /* Sources reads as a real article section (matching the H2 style) but starts collapsed,
        so it's clearly part of the page while staying out of the way. Still in the DOM + JSON-LD. */
-    details.references{margin-top:48px; border-top:1px solid var(--line)}
-    details.references summary{cursor:pointer; list-style:none; display:flex; align-items:center; gap:10px;
-      font-family:var(--serif); font-weight:700; font-size:19px; line-height:1.3; color:var(--ink); padding:16px 0 4px}
+    details.references{margin-top:56px; border-top:1px solid var(--line)}
+    details.references summary{cursor:pointer; list-style:none; display:flex; align-items:baseline; gap:10px;
+      font-family:var(--serif); font-weight:400; font-size:20px; line-height:1.3; color:var(--ink); padding:18px 0 4px}
     details.references summary::-webkit-details-marker{display:none}
-    details.references summary::before{content:""; width:8px; height:8px; border-radius:2px; background:var(--accent); flex:none}
     details.references summary::after{content:"Show"; margin-left:auto; font-family:var(--mono); font-size:12px;
-      font-weight:600; letter-spacing:0.05em; text-transform:uppercase; color:var(--faint)}
+      font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--faint)}
     details.references[open] summary::after{content:"Hide"}
     details.references ul, details.references ol{margin:14px 0 0; padding-left:22px; font-family:var(--sans); font-size:15px}
     details.references li{margin:10px 0; color:var(--muted)}
-    details.references a{color:var(--accent-deep); word-break:break-word}
+    details.references a{color:var(--link); word-break:break-word}
 
-    /* Related articles = internal links (GEO Lever 4: topical authority) */
-    nav.related{margin-top:52px; padding-top:28px; border-top:1px solid var(--line)}
-    nav.related h2{font-family:var(--sans); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;
-      color:var(--faint); margin:0 0 16px}
-    nav.related ul{list-style:none; margin:0; padding:0; display:grid; gap:12px}
-    nav.related a{display:block; padding:16px 18px; background:var(--paper); border:1px solid var(--line); border-radius:14px;
-      text-decoration:none; color:var(--ink); font-family:var(--serif); font-weight:600; font-size:16px;
-      transition:border-color .15s ease, transform .15s ease}
-    nav.related a:hover{border-color:var(--accent); transform:translateY(-1px)}
+    /* Related articles = internal links (GEO Lever 4: topical authority) - hairline list, no cards */
+    nav.related{margin-top:72px; border-top:1px solid var(--line); padding-top:20px}
+    nav.related h2{font-family:var(--mono); font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.14em;
+      color:var(--muted); margin:0 0 4px}
+    nav.related ul{list-style:none; margin:0; padding:0}
+    nav.related li + li a{border-top:1px solid var(--line)}
+    nav.related a{display:block; padding:15px 2px; text-decoration:none; color:var(--ink);
+      font-family:var(--serif); font-weight:500; font-size:16.5px; transition:color .15s ease}
+    nav.related a:hover{color:var(--link)}
 
-    footer.site{margin-top:64px; padding-top:24px; border-top:1px solid var(--line);
-      font-family:var(--sans); font-size:13px; color:var(--faint)}
+    footer.site{margin-top:80px; padding-top:24px; border-top:1px solid var(--line);
+      font-family:var(--mono); font-size:12.5px; letter-spacing:0.02em; color:var(--faint)}
 
     /* Only on very wide screens: reveal the sticky "In this guide" rail in the right gutter while the
        reading column stays centered (equal empty gutters left/right), so nothing looks off-center. */
@@ -441,12 +424,12 @@
     }
     @media (max-width:640px){
       body{font-size:17px}
-      .wrap{padding:32px 20px 72px}
-      .hero{margin:0 auto 26px; padding:22px 20px 26px}
-      .hero header.article h1{font-size:27px}
-      article h2{font-size:20px; margin:32px 0 12px}
+      .wrap{padding:32px 20px 80px}
+      .hero{margin:0 auto 40px; padding:28px 0 24px}
+      header.article h1{font-size:30px}
+      article h2{font-size:23px; margin:52px 0 14px}
       p.answer{font-size:17px; padding:2px 0 2px 18px}
-      .cta-card{padding:30px 24px}
+      .cta-card{padding:28px 22px}
       .cta-card h3{font-size:23px}
       .stat-band{grid-template-columns:1fr}
       .stat-band .stat + .stat{border-left:none; border-top:1px solid var(--line)}
@@ -460,7 +443,7 @@
     </header>
     <div class="backrow"><a class="backlink" href="index.html" aria-label="Back to the evidence library"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg> Back to the library</a></div>
     <!-- GEO Lever 2: ONE H1 = the exact question this page answers; visible freshness dates.
-         The header sits on a warm ombre panel. One page = one question; sourced to GT School. -->
+         Flat article header: theme rule on top, hairline below. One page = one question; sourced to GT School. -->
     <section class="hero" style="--theme:#e48b53">
       <header class="article">
         <p class="kicker">Identifying Giftedness</p>
@@ -469,9 +452,11 @@
              datePublished/dateModified live in the JSON-LD above, and the visible <time>
              corroborates the schema date so AI engines trust the freshness signal. -->
         <div class="meta">
-          <span>Updated <time datetime="2026-07-24">July 2026</time></span>
+          <span>SOURCE: GT School Evidence Library</span>
           <span class="dot">&middot;</span>
-          <span>4 min read</span>
+          <span>Reading time 4 min</span>
+          <span class="dot">&middot;</span>
+          <span>Last updated <time datetime="2026-07-24">July 2026</time></span>
         </div>
       </header>
     </section>

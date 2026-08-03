@@ -435,28 +435,26 @@ def render(fm: dict, body: str, titles: dict[str, str], template: str) -> str:
 # --- Library (index) + COLOR SYSTEM (single source of truth) ------------------------
 # The whole visual system derives from LIBRARY_GROUPS below. Each group has:
 #   "q"     : the parent-worry question shown as the section heading on the home page.
-#   "c"     : the section THEME COLOR (warm sunset -> berry family; NO blue, NO green). It drives
-#             BOTH the home markers (ring + hand-drawn underline + row arrow) AND every article in
-#             the group: via SLUG_THEME -> {{THEME}} -> the article's --theme, which tints the
-#             article hero-card ombre corner + the Quick Answer bar. So a section's ombre corner,
-#             its Quick Answer bar, and its home markers all read as ONE coordinated color.
+#   "c"     : the section THEME COLOR. It drives BOTH the home markers (square marker + row
+#             arrow) AND every article in the group: via SLUG_THEME -> {{THEME}} -> the article's
+#             --theme, which colors the thin rule on the article header + the Quick Answer bar.
+#             So a section's header rule, its Quick Answer bar, and its home markers all read as
+#             ONE coordinated color.
 #   "label" : the short 1-2 word section name shown as the article KICKER (SLUG_KICKER ->
 #             {{CATEGORY}}), e.g. "Acceleration". Falls back to the .md `category` if unset.
 #   "items" : (slug, title, blurb) rows, in display order.
 #
-# Ombre: both the home masthead and each article hero use the SAME warm multi-color blend
-# (pink -> peach -> soft yellow); --theme only colors the section-specific corner + bar. The home
-# blend is defined in _LIB_CSS (.hero::before); the article version is in template.html (.hero).
+# Restrained "results page" look: no ombre, no gradients. --theme colors only the thin rule on
+# the article header + the Quick Answer bar (see template.html), and the home section markers.
 #
-# Locked palette: bg #fcf8f2, card #fffdfc, ink #2f343c, muted #6d7278, border #e8ded2,
-#   primary orange #e48b53, accent rose #b65e78. Section colors run warm -> berry:
-#   #e48b53 orange, #d0765a terracotta, #c77a88 dusty rose, #b65e78 berry-rose, #aa5570 deep berry.
-#   Keep any NEW section color in this warm/berry family and NOT darker than ~#aa5570 -- the ombre
-#   corner is drawn at ~50% opacity, so a darker color stops matching the solid bar and makes the
-#   header text hard to read.
+# Locked palette: bg (cream) #FAF7F2, ink (GT navy) #002A3A, muted navy #4a6572, hairline
+#   border #DDD6CD, gold accent #E48B53 (rules, list markers, focus states only - never fills).
+#   Navy variants for themes: #003B5C, #004F71. Section colors: #e48b53 gold, #d0765a terracotta,
+#   #d3897e coral, #c77a88 dusty rose, #003B5C mid navy, #aa5570 deep berry.
+#   (#b65e78 berry-rose was removed - it is not in GT's palette; its section now uses #003B5C.)
 #
 # TO ADD AN ARTICLE: write blog/<slug>.md, then add (slug, title, blurb) to the right group here;
-# it auto-inherits the section color, kicker, home row, hero ombre tint, and Quick Answer color.
+# it auto-inherits the section color, kicker, home row, header rule tint, and Quick Answer color.
 # An unlisted .md still builds (default orange theme, no home row) and the build prints a warning.
 LIBRARY_INTRO = {
     "kicker": "Evidence Library",
@@ -512,7 +510,7 @@ LIBRARY_GROUPS = [
         ("is-my-child-ready-to-skip-a-grade", "Is my child ready to skip a grade?",
          "A whole-child way to decide, and what the research says about the risk."),
     ]},
-    {"q": "How do gifted kids learn best?", "c": "#b65e78", "label": "Learning Models", "items": [
+    {"q": "How do gifted kids learn best?", "c": "#003B5C", "label": "Learning Models", "items": [
         ("what-is-mastery-based-learning", "What is a mastery-based (2-hour) model?",
          "Advance by mastery, not age or seat-time."),
         ("what-is-curriculum-compacting", "What is curriculum compacting?",
@@ -534,84 +532,61 @@ LIBRARY_GROUPS = [
     ]},
 ]
 
-# Map each article slug to its theme color (drives the per-article ombre hero + library markers).
+# Map each article slug to its theme color (drives the per-article header rule + library markers).
 SLUG_THEME = {slug: g["c"] for g in LIBRARY_GROUPS for (slug, _t, _b) in g["items"]}
 # Map each article slug to its section label (shown as the article kicker, e.g. "Acceleration").
 SLUG_KICKER = {slug: g["label"] for g in LIBRARY_GROUPS for (slug, _t, _b) in g["items"]}
 
-# Hand-drawn underline squiggles, one per section (cycled). Each is intentionally a DIFFERENT
-# wobble so the underlines look drawn by hand, not stamped from one template.
-_SQUIGGLES = [
-    "M2 8 Q 32 2 62 7 T 120 7 T 178 6",
-    "M2 7 C 26 1, 46 12, 72 6 S 132 2, 178 8",
-    "M2 6 Q 24 11 46 6 T 90 7 T 134 6 T 178 7",
-    "M2 9 Q 42 1 82 7 Q 122 12 150 6 T 178 7",
-    "M2 7 Q 18 2 38 7 T 76 6 Q 108 11 138 6 T 178 7",
-    "M2 7 Q 30 12 58 6 T 116 7 T 178 6",
-]
-
 _LIB_CSS = """<style>
-  :root{--bg:#fcf8f2;--card:#fffdfc;--ink:#2f343c;--muted:#6d7278;--faint:#8c9198;--line:#e8ded2;
-    --accent:#e48b53;--rose:#b65e78;
+  :root{--bg:#FAF7F2;--ink:#002A3A;--muted:#4a6572;--faint:#7d8f98;--line:#DDD6CD;
+    --accent:#E48B53;--navy2:#004F71;
     --serif:"Literata",Georgia,serif;--sans:"Inter Tight",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--mono:"Inconsolata",ui-monospace,monospace}
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}
+  /* Graph-paper grid (from the results page) on the body, BEHIND the content column;
+     the content column (.page) is solid cream above it. */
+  body{margin:0;background-color:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;
+    background-image:linear-gradient(#ebba9b2e 1px, transparent 1px),linear-gradient(90deg, #ebba9b2e 1px, transparent 1px);
+    background-size:24px 24px}
   a{color:inherit}
+  a:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   /* 888 = article reading width (840) + wrap padding (2x24), so the column lines up with articles. */
-  .page{max-width:888px;margin:0 auto;padding:0 22px 80px;position:relative;overflow:hidden}
-  /* Warm, blended multi-color ombre behind the masthead only, melting down into the cream page.
-     Seven large overlapping soft glows (pink -> peach -> soft yellow -> mint) so no origin shows,
-     then a mask fades the whole thing to nothing before the question list. No box, no gray. */
-  .hero{position:relative;padding:34px 22px 14px;margin:0 -22px}
-  .hero::before{content:"";position:absolute;inset:0;z-index:-1;
-    background:
-      radial-gradient(60% 110% at 6% -18%, oklch(89% .055 350/.55), transparent 70%),
-      radial-gradient(58% 110% at 40% -26%, oklch(93% .075 95/.66), transparent 72%),
-      radial-gradient(58% 112% at 88% -18%, oklch(92% .085 64/.80), transparent 72%),
-      radial-gradient(56% 112% at 108% 22%, oklch(90% .070 60/.48), transparent 72%),
-      radial-gradient(58% 112% at -4% 48%, oklch(92% .045 24/.42), transparent 74%),
-      linear-gradient(120deg, oklch(97% .03 60/.5), oklch(98.5% .015 90/.3));
-    -webkit-mask:linear-gradient(180deg,#000 54%, transparent 98%);
-            mask:linear-gradient(180deg,#000 54%, transparent 98%)}
-  .lib-header{margin:0 0 18px}
+  .page{max-width:888px;margin:0 auto;padding:0 22px 88px;position:relative;background:var(--bg)}
+  .hero{padding:38px 0 16px}
+  .lib-header{margin:0 0 22px}
   .lib-header .brand{height:30px;width:auto;display:block}
-  /* signature orange kicker: plain uppercase mono text */
-  .kick{display:block;font-family:var(--mono);font-size:12.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);margin:0}
-  .h1{font-family:var(--serif);font-weight:600;font-size:33px;line-height:1.14;letter-spacing:-.014em;margin:11px 0 12px;text-wrap:balance}
-  .h1 .l2{color:var(--rose)}
-  .sub{font-family:var(--serif);color:var(--muted);font-size:16.5px;line-height:1.5;margin:0 0 13px;max-width:560px}
-  .rev{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--muted);margin:0 0 16px}
-  .rev svg{width:15px;height:15px;flex:none}
-  .rev svg .s{fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-  .search{display:flex;align-items:center;gap:10px;width:100%;background:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.95);border-radius:12px;padding:12px 15px;margin:0 0 14px}
+  /* section eyebrow: plain uppercase mono text, muted navy */
+  .kick{display:block;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0}
+  .h1{font-family:var(--serif);font-weight:400;font-size:36px;line-height:1.14;letter-spacing:-.03em;margin:12px 0 14px;text-wrap:balance}
+  .h1 .l2{color:var(--navy2)}
+  .sub{font-family:var(--serif);color:var(--muted);font-size:16.5px;line-height:1.5;margin:0 0 14px;max-width:560px}
+  .rev{display:block;font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;color:var(--muted);margin:0 0 20px}
+  .search{display:flex;align-items:center;gap:10px;width:100%;background:transparent;border:1px solid var(--line);border-radius:2px;padding:12px 15px;margin:0 0 16px}
   .search svg{width:16px;height:16px;flex:none;stroke:var(--faint);fill:none;stroke-width:2}
   .search input{border:none;background:transparent;outline:none;width:100%;font-family:var(--sans);font-size:14px;color:var(--ink)}
   .search input::placeholder{color:var(--faint)}
   .starthere{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
-  .starthere .lbl{font-family:var(--mono);font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--rose)}
-  .pill{font-family:var(--sans);font-size:13px;color:var(--ink);background:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.92);border-radius:9px;padding:8px 13px;text-decoration:none}
-  .pill:hover{background:#fff}
-  .hrule{height:2px;border:0;margin:18px 0 2px;border-radius:2px;
-    background:linear-gradient(90deg,#e48b53 0%,#b65e78 55%,#dfa9b5 100%)}
-  /* groups: colored ring + serif question + a UNIQUE hand-drawn underline, then arrow rows.
-     Dividers appear only BETWEEN sections (never right under the colorful rule). */
-  .sec{padding:18px 0 6px}
+  .starthere .lbl{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .pill{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:2px;padding:8px 13px;text-decoration:none;transition:border-color .15s ease}
+  .pill:hover{border-color:var(--ink)}
+  /* single gold hairline under the masthead (gold = rules only, never fills) */
+  .hrule{height:1px;border:0;margin:22px 0 2px;background:var(--accent)}
+  /* groups: small section-color marker + serif question at regular weight, then arrow rows.
+     Dividers appear only BETWEEN sections. */
+  .sec{padding:26px 0 12px}
   .sec + .sec{border-top:1px solid var(--line)}
-  .gh{display:flex;align-items:center;gap:11px}
-  .ring{width:16px;height:16px;border-radius:50%;border:2.5px solid var(--c);flex:none}
+  .gh{display:flex;align-items:baseline;gap:12px;margin:0 0 6px}
+  .ring{width:10px;height:10px;border-radius:1px;background:var(--c);flex:none;align-self:center}
   .qcol{display:inline-block}
-  .qh{display:block;font-family:var(--serif);font-weight:600;font-size:20px;line-height:1.3;letter-spacing:-.01em;margin:0;color:var(--ink)}
-  .uline{display:block;width:100%;height:11px;margin-top:5px;overflow:visible}
-  .uline path{fill:none;stroke:var(--c);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
-  .row{display:flex;gap:14px;align-items:flex-start;padding:12px 8px 12px 27px;border-radius:10px;text-decoration:none;color:inherit;transition:background .13s ease}
-  .row:hover{background:color-mix(in srgb, var(--c) 9%, transparent)}
+  .qh{display:block;font-family:var(--serif);font-weight:400;font-size:21px;line-height:1.3;letter-spacing:-.02em;margin:0;color:var(--ink)}
+  .row{display:flex;gap:14px;align-items:flex-start;padding:13px 8px 13px 22px;border-radius:2px;text-decoration:none;color:inherit;transition:background .13s ease}
+  .row:hover{background:color-mix(in srgb, var(--c) 7%, transparent)}
   .row .tx{flex:1;min-width:0}
-  .row h4{font-family:var(--serif);font-weight:600;font-size:16.5px;line-height:1.28;margin:0 0 3px;color:var(--ink)}
+  .row h4{font-family:var(--serif);font-weight:500;font-size:16.5px;line-height:1.28;margin:0 0 3px;color:var(--ink)}
   .row p{font-size:13.5px;line-height:1.5;color:var(--muted);margin:0}
   .row .ar{color:var(--c);flex:none;align-self:center;font-size:16px}
   .noresults{font-family:var(--serif);color:var(--muted);font-size:16px;padding:20px 12px;display:none}
-  footer.site{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);font-family:var(--sans);font-size:13px;color:var(--faint)}
-  @media (max-width:640px){.page{padding:0 16px 60px}.hero{padding:28px 16px 12px;margin:0 -16px}.h1{font-size:27px}}
+  footer.site{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;color:var(--faint)}
+  @media (max-width:640px){.page{padding:0 16px 64px}.hero{padding:30px 0 12px}.h1{font-size:28px}}
 </style>"""
 
 _LIB_SEARCH_JS = """<script>
@@ -664,8 +639,7 @@ def build_index_jsonld(articles: list[dict]) -> str:
 
 def build_index(articles: list[dict]) -> str:
     secs = []
-    for i, g in enumerate(LIBRARY_GROUPS):
-        squiggle = _SQUIGGLES[i % len(_SQUIGGLES)]
+    for g in LIBRARY_GROUPS:
         rows = []
         for slug, title, blurb in g["items"]:
             rows.append(
@@ -676,9 +650,7 @@ def build_index(articles: list[dict]) -> str:
         secs.append(
             f'<div class="sec" style="--c:{g["c"]}">'
             f'<div class="gh"><span class="ring"></span>'
-            f'<span class="qcol"><h3 class="qh">{html.escape(g["q"])}</h3>'
-            f'<svg class="uline" viewBox="0 0 180 12" preserveAspectRatio="none"><path d="{squiggle}"/></svg>'
-            f'</span></div>'
+            f'<span class="qcol"><h3 class="qh">{html.escape(g["q"])}</h3></span></div>'
             + "".join(rows) + "</div>"
         )
     sections_html = "\n".join(secs)
@@ -713,8 +685,7 @@ def build_index(articles: list[dict]) -> str:
         f'  <p class="kick">{LIBRARY_INTRO["kicker"]}</p>\n'
         f'  <h1 class="h1">{LIBRARY_INTRO["h1"]}</h1>\n'
         f'  <p class="sub">{LIBRARY_INTRO["sub"]}</p>\n'
-        '  <p class="rev"><svg viewBox="0 0 24 24"><path class="s" d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path class="s" d="M9 12l2 2 4-4"/></svg> '
-        f'{LIBRARY_INTRO["reviewed"]}</p>\n'
+        f'  <p class="rev">{LIBRARY_INTRO["reviewed"]}</p>\n'
         '  <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg>'
         '<input id="lib-search" type="search" placeholder="Search the library&hellip;" aria-label="Search the library"/></div>\n'
         f'  <div class="starthere"><span class="lbl">New here? Start with</span>{pills}</div>\n'

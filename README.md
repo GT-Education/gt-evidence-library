@@ -69,13 +69,12 @@ When a fact genuinely changes (e.g. next year's TEFA award), update it in ONE pl
 ## Design system (colors + per-section theming)
 `LIBRARY_GROUPS` in `build.py` is the **single source of truth** for the look. Each section defines a
 `c` (theme color) and a short `label` (kicker), and everything else is derived, so **adding an article
-to a group auto-themes it** (home marker, hero ombre tint, Quick Answer bar, kicker).
+to a group auto-themes it** (home marker, article header rule, Quick Answer bar, kicker).
 
-- **Palette (locked):** background `#fcf8f2`, card `#fffdfc`, ink `#2f343c`, muted `#6d7278`, border `#e8ded2`, primary orange `#e48b53`, accent rose `#b65e78`.
-- **Section color `c`** drives the home ring + hand-drawn underline + row arrow, AND each article's `--theme` (hero-card ombre corner + Quick Answer bar), so a section reads as one coordinated color.
+- **Palette (locked, matches the GT results page):** background (cream) `#FAF7F2`, ink (GT navy) `#002A3A`, muted navy `#4a6572`, hairline border `#DDD6CD`, gold accent `#E48B53` (rules, list markers, focus states only — never fills or large areas), navy variants `#003B5C` / `#004F71`. `#b65e78` (accent rose) was removed — it is not in GT's palette.
+- **Section color `c`** drives the home square marker + row arrow, AND each article's `--theme` (the thin rule on the article header + the Quick Answer bar), so a section reads as one coordinated color.
 - **Section `label`** is the article kicker (e.g. `Acceleration`).
-- **Ombre:** home masthead and article hero share the same warm blend (pink → peach → soft yellow); `--theme` only tints the section-specific corner + bar. Home blend lives in `_LIB_CSS` (`.hero::before`); article version in `template.html` (`.hero`, a contained rounded card).
-- **Keep new section colors** in the warm→berry family (no blue, no green) and **not darker than `#aa5570`** — the ombre corner is ~50% opacity, so darker colors stop matching the solid bar and hurt header legibility.
+- **Background texture:** home page and articles draw the results-page graph-paper grid (`#ebba9b2e`, 24px) on the `body`, behind the solid-cream content column. Layout is hairline rules instead of cards — no gradients, no shadows, no rounded corners beyond 2px, no decorative illustration.
 - Add `(slug, title, blurb)` to a group to publish; an unlisted article still builds but gets the default orange theme + no home row (the build prints a warning).
 
 ## Index (live library, grouped by theme)
@@ -106,7 +105,7 @@ Five parent-question sections (same order on the site). Each shows its **kicker 
 - `what-is-single-subject-acceleration.md` : What is single-subject acceleration?
 - `is-my-child-ready-to-skip-a-grade.md` : Is my child ready to skip a grade?
 
-**How do gifted kids learn best?** — kicker `Learning Models`, color `#b65e78` (berry-rose)
+**How do gifted kids learn best?** — kicker `Learning Models`, color `#003B5C` (mid navy)
 - `what-is-mastery-based-learning.md` : What is a mastery-based (2-hour) learning model?
 - `what-is-curriculum-compacting.md` : What is curriculum compacting?
 - `enrichment-vs-acceleration.md` : Enrichment vs. acceleration
