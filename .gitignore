@@ -4,3 +4,6 @@ node_modules/
 *.log
 __pycache__/
 mockups/
+
+.vercel
+.env*

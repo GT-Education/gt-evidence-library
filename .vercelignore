@@ -1,0 +1,5 @@
+# Deploy only the built site (site/ is the outputDirectory in vercel.json)
+*
+!site
+!site/**
+!vercel.json
