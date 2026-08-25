@@ -122,9 +122,28 @@ is a Vercel project whose **Root Directory** points at that folder:
 | Evidence library | repo root (`outputDirectory: site`) | existing project, unchanged |
 | GT library | `site-gt` | new project |
 
-**`GT_CANONICAL_BASE` in `build.py` is a placeholder** (`gt-anywhere-answers.vercel.app`). Set it to
-the real URL as soon as the project exists: canonical tags, OG tags, sitemap, JSON-LD and every
-cross-site link are generated from it, so a wrong value ships wrong canonicals on every GT page.
+### The GT site is a staging copy
+
+The GT library currently deploys to a Vercel project purely for review. **If leadership approves, it
+moves onto a resources subpage of the main gt.school site and this URL goes away.**
+
+Two constants in `build.py` encode that:
+
+- **`GT_CANONICAL_BASE`** is the placeholder URL. Set it to the gt.school path when the library
+  moves; canonical tags, OG tags, the sitemap, JSON-LD and every cross-site link derive from it.
+- **`GT_SITE_LIVE`** is `False` while it is a staging copy, which does two things: the evidence
+  library omits its link across (so a public page never points at a login wall), and the GT site
+  ships a `Disallow: /` robots.txt so this copy can never be indexed and end up duplicating the
+  eventual gt.school pages. Flip it to `True` only when the library is publicly readable at its
+  final home.
+
+Deployment Protection is on for the GT project, so it is visible only to the Vercel team while the
+open facts are still unanswered.
+
+**Handing off to whoever builds the gt.school page:** everything they need is generated. `site-gt/`
+holds finished, self-contained HTML (CSS inlined, JSON-LD embedded, no build step). The source of
+truth is the `.md` files plus `template.html`; see the handoff section above for converting into a
+CMS instead.
 
 ## Open facts (`[NEEDS-FACT: ...]`)
 

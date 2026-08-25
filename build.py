@@ -67,13 +67,18 @@ SITE_URL = "https://www.gt.school"
 # When the library moves onto gt.school, update this to the new home (and 301 the old URLs).
 CANONICAL_BASE = "https://gt-school-blog.web.app"   # rebound per site by use_site().
 
-# !! The GT library's Vercel project does not exist yet. The moment it does, set this to its real
-# !! URL: canonical tags, OG tags, the sitemap, JSON-LD and every cross-site link are generated
-# !! from it, so a wrong value here ships wrong canonicals on every GT page.
-GT_CANONICAL_BASE = "https://gt-anywhere-answers.vercel.app"
+# PLACEHOLDER, deliberately. This Vercel deployment is a staging copy for review only. If
+# leadership approves, the GT library moves onto a resources subpage of the main gt.school site,
+# and this URL goes away. Set this to the gt.school path at that point: canonical tags, OG tags,
+# the sitemap, JSON-LD and every cross-site link are generated from it.
+# (gt-anywhere-answers.vercel.app is taken globally, hence the team suffix.)
+GT_CANONICAL_BASE = "https://gt-anywhere-answers-gt-school-cc7ed351.vercel.app"
 
-# Flip to True once the GT site is actually deployed at GT_CANONICAL_BASE. While it is False, the
-# other library omits its link across, so production never ships a link to a site that 404s.
+# False while the GT library is a locked staging copy. It controls two things:
+#   1. The evidence library omits its link across, so a public page never points at a login wall.
+#   2. The GT site ships a Disallow-all robots.txt, so this staging copy can never be indexed and
+#      end up competing with, or duplicating, the eventual gt.school pages.
+# Flip to True only when the GT library is publicly readable at its FINAL home.
 GT_SITE_LIVE = False
 
 SITES = {
@@ -982,7 +987,17 @@ def write_vercel_config() -> None:
         "    }\n  ]\n}\n", encoding="utf-8")
 
 
-def write_robots() -> None:
+def write_robots(live: bool = True) -> None:
+    """A site that is not live is a staging copy: keep it out of the index entirely.
+
+    Without this, an approved-and-moved GT library on gt.school would be competing with a stale
+    vercel.app copy of the same pages.
+    """
+    if not live:
+        (OUT_DIR / "robots.txt").write_text(
+            "# Staging copy, not the canonical home of these pages. Do not index.\n"
+            "User-agent: *\nDisallow: /\n", encoding="utf-8")
+        return
     (OUT_DIR / "robots.txt").write_text(
         f"User-agent: *\nAllow: /\n\nSitemap: {CANONICAL_BASE}/sitemap.xml\n", encoding="utf-8"
     )
@@ -1035,7 +1050,7 @@ def main() -> None:
         if not only:
             (OUT_DIR / "index.html").write_text(build_index(mine, track), encoding="utf-8")
             write_sitemap(mine)
-            write_robots()
+            write_robots(site.get("live", True))
             write_vercel_config()
             print(f"  {site['dir']}/  {n} article(s) + index, sitemap, robots, vercel.json")
         elif n:
