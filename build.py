@@ -72,6 +72,10 @@ CANONICAL_BASE = "https://gt-school-blog.web.app"   # rebound per site by use_si
 # !! from it, so a wrong value here ships wrong canonicals on every GT page.
 GT_CANONICAL_BASE = "https://gt-anywhere-answers.vercel.app"
 
+# Flip to True once the GT site is actually deployed at GT_CANONICAL_BASE. While it is False, the
+# other library omits its link across, so production never ships a link to a site that 404s.
+GT_SITE_LIVE = False
+
 SITES = {
     "evidence": {
         "dir": "site",
@@ -105,6 +109,7 @@ SITES = {
     "gt": {
         "dir": "site-gt",
         "base": GT_CANONICAL_BASE,
+        "live": GT_SITE_LIVE,
         "title": "GT Anywhere: How It Actually Works",
         "desc": ("Straight answers about GT Anywhere: the daily schedule, admissions, how progress "
                  "is measured, and what it costs. Built from the questions families actually ask."),
@@ -860,8 +865,9 @@ def build_index(articles: list[dict], track: str) -> str:
         )
     # Foot of the index: a single link across to the other library. The two sites are separate on
     # purpose, so this is the only bridge between them, and it runs in both directions.
+    # Only link across to a site that is actually deployed.
     sis = SITES[track].get("sister")
-    if sis:
+    if sis and SITES[sis["track"]].get("live", True):
         secs.append(
             f'<div class="band"><p class="kick">{html.escape(sis["kicker"])}</p>'
             f'<h2 class="bandh">{html.escape(sis["h"])}</h2>'
