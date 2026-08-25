@@ -974,6 +974,9 @@ def write_vercel_config() -> None:
     """
     (OUT_DIR / "vercel.json").write_text(
         '{\n  "cleanUrls": true,\n  "trailingSlash": false,\n'
+        # Explicit and required. With the project's Root Directory pointed at this folder and no
+        # build step, Vercel still looks for a build output; without this it 404s on every path.
+        '  "framework": null,\n  "buildCommand": null,\n  "outputDirectory": ".",\n'
         '  "headers": [\n    {\n      "source": "/assets/(.*)",\n'
         '      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]\n'
         "    }\n  ]\n}\n", encoding="utf-8")
