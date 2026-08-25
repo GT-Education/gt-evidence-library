@@ -94,6 +94,12 @@ def check(slugs: list[str], strict: bool) -> int:
             if c in raw_lower:
                 hard.append(f"[{slug}] competitor name present: '{c}' - remove it (house rule).")
 
+        # 1b. Unanswered facts in a published article (HARD). Drafts may carry them; `ready` may not.
+        nf = re.findall(r"\[NEEDS-FACT\s*:?\s*([^\]]*)\]", body, flags=re.I)
+        if nf and str(fm.get("status", "")).strip().lower() == "ready":
+            hard.append(f"[{slug}] {len(nf)} unanswered [NEEDS-FACT] in a status: ready article - "
+                        f"fill the fact or set status back to draft. First: {nf[0].strip()[:70]}")
+
         # 2. Em dashes in body (HARD)
         if "\u2014" in body:
             n = body.count("\u2014")

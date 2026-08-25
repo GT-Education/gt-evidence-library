@@ -377,6 +377,13 @@
       border-radius:2px; background:none; text-align:center}
     .ph-visual-tag{font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase;
       color:var(--muted); margin-bottom:8px}
+    /* An open question awaiting GT. Same flat/dashed language as a placeholder, but drawn in accent
+       rather than --line, so a half-answered page can never be mistaken for a finished one. */
+    .needs-fact{margin:36px 0; padding:20px 22px; border:1px dashed var(--accent);
+      border-radius:2px; background:none}
+    .needs-fact .nf-tag{font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:0.08em;
+      text-transform:uppercase; color:var(--accent); margin:0 0 8px}
+    .needs-fact .nf-body{margin:0; font-size:14.5px; line-height:1.55; color:var(--muted)}
     .ph-visual-desc{font-family:var(--mono); color:var(--muted); font-size:14px; margin:0}
 
     /* --- Optional rich content blocks, available to article authors via raw HTML in markdown ---

@@ -123,6 +123,12 @@ _PH_BLOCK = re.compile(
 )
 _PH_INLINE = re.compile(r"\[(STAT|NUMBER|PERCENT|%|\$)(?::[^\]]*)?\]", flags=re.I)
 
+# An open question GT has not answered yet. Written into a draft so the article can be finished the
+# moment the fact lands, instead of being rewritten from scratch. Renders LOUD on purpose: a
+# half-answered page must never read like a finished one. `check_gaps.py` lists every open one, and
+# check_style.py hard-fails if one survives into a `status: ready` article.
+_NEEDS_FACT = re.compile(r"<p>\s*\[NEEDS-FACT\s*:?\s*([^\]]*)\]\s*</p>", flags=re.I)
+
 
 def process_placeholders(html_str: str) -> str:
     def block(m: re.Match) -> str:
@@ -135,6 +141,11 @@ def process_placeholders(html_str: str) -> str:
             f'<div class="ph-visual-desc">{body}</div></figure>'
         )
 
+    html_str = _NEEDS_FACT.sub(
+        lambda m: '<div class="needs-fact"><p class="nf-tag">Open question &middot; awaiting GT</p>'
+                  f'<p class="nf-body">{html.escape(m.group(1).strip())}</p></div>',
+        html_str,
+    )
     html_str = _PH_BLOCK.sub(block, html_str)
     html_str = _PH_INLINE.sub(
         lambda m: f'<mark class="ph-stat" title="Insert a primary-source-cited figure">{html.escape(m.group(0))}</mark>',
@@ -454,6 +465,9 @@ def render(fm: dict, body: str, titles: dict[str, str], template: str) -> str:
 #   file used #d3897e, #c77a88, #aa5570, #b65e78 and #d0765a; all five were off-brand and are gone.
 #   Section colors descend gold -> blue -> navy, one official value per section. Navy (#002a3a) and
 #   Dark Navy (#001117) are close as small markers; they sit on the last two sections deliberately.
+#   TRACKS: the "evidence" track takes the gold end of the ramp, the "gt" track the blue end
+#   (#004f71), so the two read as different shelves without leaving the brand palette.
+#
 # TO ADD AN ARTICLE: write blog/<slug>.md, then add (slug, title, blurb) to the right group here;
 # it auto-inherits the section color, kicker, home row, header rule tint, and Quick Answer color.
 # An unlisted .md still builds (default orange theme, no home row) and the build prints a warning.
@@ -468,6 +482,31 @@ LIBRARY_START_HERE = [
     ("Under-challenged?", "is-my-gifted-child-under-challenged"),
     ("Does acceleration work?", "does-academic-acceleration-actually-work"),
 ]
+# --- Tracks -------------------------------------------------------------------------------------
+# The library runs on TWO tracks, rendered as two bands on the home page:
+#   "evidence" : the general gifted-education questions parents actually search. Written to be
+#                FOUND (search + AI answer engines). GT appears in the CTA, not in the argument.
+#   "gt"       : how GT itself actually works. Written to be READ by a family already deciding.
+#                Every claim is GT-specific, with GT's own numbers and operating detail.
+# A group's "track" key picks its band; groups keep their own color + kicker either way. Groups are
+# rendered in TRACK_ORDER (stable within a track), so the list below can stay in any order.
+TRACK_ORDER = ["evidence", "gt"]
+TRACK_BANDS = {
+    # First track needs no band header: the page hero already introduces it.
+    "evidence": None,
+    "gt": {
+        # GT navy. The evidence track owns the warm ramp (gold -> berry); giving the GT track the
+        # brand navy is what makes the two shelves read as different at a glance.
+        "c": "#004F71",
+        "kicker": "Inside GT",
+        "h": "How does GT actually do it?",
+        # Keep this line honest about which GT sections actually exist. Widen it as sections land
+        # (admissions, 2e support, accreditation, cost), not before.
+        "sub": "The same parent questions, answered about GT specifically. Ranked by how many "
+               "families actually asked them.",
+    },
+}
+
 LIBRARY_GROUPS = [
     {"q": "Is my child actually gifted?", "c": "#e48b53", "label": "Identifying Giftedness", "items": [
         ("signs-my-child-is-gifted", "How do I know if my child is gifted?",
@@ -531,7 +570,30 @@ LIBRARY_GROUPS = [
         ("how-to-apply-for-the-texas-education-freedom-account", "How do I apply for the Texas ESA?",
          "Who qualifies, what it covers, and the steps to apply for 2026-27."),
     ]},
+    # --- GT track --------------------------------------------------------------------------------
+    # Built from GT Anywhere's own parent question data (599 canonical questions, 5,968 instances,
+    # HubSpot, Aug 2026). The count after each row is the number of DISTINCT FAMILIES who asked it,
+    # which is why the rows are ordered the way they are. Only fully-sourced articles are listed
+    # here; anything still carrying a [NEEDS-FACT] stays off the home page until the fact lands.
+    {"q": "What does a GT day actually look like?", "c": "#004F71", "label": "The GT Day",
+     "track": "gt", "items": [
+        ("what-does-a-day-at-gt-anywhere-look-like", "What does a day at GT Anywhere look like?",
+         "The morning block, the afternoon, and how much of the week your family controls."),  # 31 families
+        ("how-the-gt-anywhere-2-hour-block-works", "Is it really only two hours a day?",
+         "How the academic block works, when you can schedule it, and what happens on a bad day."),  # 25 families
+        ("how-does-the-gt-xp-system-work", "How does the daily XP system work?",
+         "What XP measures, where 140 a day comes from, and why nobody is ranked against anybody."),  # 20 families
+        ("does-ai-teach-my-child-at-gt-anywhere", "Does AI teach my child, or are there real teachers?",
+         "What the platform does, what the humans do, and exactly where the line sits."),  # 20 families
+    ]},
 ]
+
+# Groups written without an explicit track belong to the general evidence library.
+for _g in LIBRARY_GROUPS:
+    _g.setdefault("track", "evidence")
+
+# Home-page render order: all of one track, then the next (stable within each track).
+ORDERED_GROUPS = sorted(LIBRARY_GROUPS, key=lambda g: TRACK_ORDER.index(g["track"]))
 
 # Map each article slug to its theme color (drives the per-article header rule + library markers).
 SLUG_THEME = {slug: g["c"] for g in LIBRARY_GROUPS for (slug, _t, _b) in g["items"]}
@@ -587,6 +649,13 @@ _LIB_CSS = """<style>
   .row h4{font-family:var(--serif);font-weight:500;font-size:16.5px;line-height:1.28;margin:0 0 3px;color:var(--ink)}
   .row p{font-size:13.5px;line-height:1.5;color:var(--muted);margin:0}
   .row .ar{color:var(--c);flex:none;align-self:center;font-size:16px}
+  /* Track band: introduces the second (GT-specific) library so the two read as distinct shelves.
+     Deliberately echoes the hero (kicker -> serif head -> muted serif sub) over an accent rule,
+     rather than sitting in a card. The restyle moved the system to flat surfaces and 1-2px radii. */
+  .band{margin:46px 0 0;padding:26px 0 2px;border-top:1px solid var(--c,var(--accent))}
+  .band + .sec{border-top:0}
+  .bandh{font-family:var(--serif);font-weight:400;font-size:27px;line-height:1.16;letter-spacing:-.025em;margin:12px 0 10px;color:var(--ink);text-wrap:balance}
+  .bandsub{font-family:var(--serif);color:var(--muted);font-size:16.5px;line-height:1.5;margin:0;max-width:var(--measure)}
   .noresults{font-family:var(--serif);color:var(--muted);font-size:16px;padding:20px 12px;display:none}
   footer.site{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;color:var(--faint)}
   @media (max-width:640px){.page{padding:28px 16px 64px}.hero{padding:0 0 12px}.h1{font-size:28px}}
@@ -598,11 +667,20 @@ _LIB_SEARCH_JS = """<script>
   if(!q) return;
   var rows=[].slice.call(document.querySelectorAll('.row'));
   var secs=[].slice.call(document.querySelectorAll('.sec'));
+  var bands=[].slice.call(document.querySelectorAll('.band'));
   var none=document.getElementById('noresults');
   q.addEventListener('input',function(){
     var t=q.value.trim().toLowerCase(); var hits=0;
     rows.forEach(function(r){var m=r.textContent.toLowerCase().indexOf(t)>-1; r.style.display=m?'':'none'; if(m)hits++;});
     secs.forEach(function(s){var vis=[].slice.call(s.querySelectorAll('.row')).some(function(r){return r.style.display!=='none';}); s.style.display=vis?'':'none';});
+    bands.forEach(function(b){
+      var n=b.nextElementSibling, vis=false;
+      while(n && !n.classList.contains('band')){
+        if(n.classList.contains('sec') && n.style.display!=='none'){vis=true;break;}
+        n=n.nextElementSibling;
+      }
+      b.style.display=vis?'':'none';
+    });
     if(none) none.style.display=hits?'none':'block';
   });
 })();
@@ -642,7 +720,15 @@ def build_index_jsonld(articles: list[dict]) -> str:
 
 def build_index(articles: list[dict]) -> str:
     secs = []
-    for g in LIBRARY_GROUPS:
+    for i, g in enumerate(ORDERED_GROUPS):
+        band = TRACK_BANDS.get(g["track"])
+        if band and (i == 0 or ORDERED_GROUPS[i - 1]["track"] != g["track"]):
+            secs.append(
+                f'<div class="band" style="--c:{band.get("c", "var(--accent)")}">'
+                f'<p class="kick">{html.escape(band["kicker"])}</p>'
+                f'<h2 class="bandh">{html.escape(band["h"])}</h2>'
+                f'<p class="bandsub">{html.escape(band["sub"])}</p></div>'
+            )
         rows = []
         for slug, title, blurb in g["items"]:
             rows.append(
