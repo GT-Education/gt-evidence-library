@@ -978,10 +978,12 @@ def write_vercel_config() -> None:
     /what-is-x.html). Point the project's Root Directory at this folder.
     """
     (OUT_DIR / "vercel.json").write_text(
+        # NO outputDirectory here, deliberately. Setting it to "." makes Vercel read this folder as
+        # a Build Output API directory and hunt for static/ and functions/ subfolders; finding
+        # none, it packages nothing and every path 404s ("no files were prepared" in the log).
+        # With the project's Root Directory pointed here and no build command, Vercel serves the
+        # folder as plain static files, which is what these pre-built pages need.
         '{\n  "cleanUrls": true,\n  "trailingSlash": false,\n'
-        # Explicit and required. With the project's Root Directory pointed at this folder and no
-        # build step, Vercel still looks for a build output; without this it 404s on every path.
-        '  "framework": null,\n  "buildCommand": null,\n  "outputDirectory": ".",\n'
         '  "headers": [\n    {\n      "source": "/assets/(.*)",\n'
         '      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]\n'
         "    }\n  ]\n}\n", encoding="utf-8")
