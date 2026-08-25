@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gt-school-blog.web.app/sitemap.xml
+Sitemap: https://gt-evidence-library.vercel.app/sitemap.xml

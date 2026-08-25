@@ -58,14 +58,18 @@ OUT_DIR = BLOG_DIR / "site"          # rebound per site by use_site(); see SITES
 ASSETS_SRC = BLOG_DIR / "assets"
 TEMPLATE = BLOG_DIR / "template.html"
 SITE_URL = "https://www.gt.school"
-# The library is hosted on Firebase for now, so the "Blog" breadcrumb points there.
+# Where the pages actually live and are served.
 # Swap to SITE_URL + "/blog" once the library moves onto the main gt.school site.
 # Breadcrumbs point at whichever library the page belongs to, so a GT page does not breadcrumb
 # back into the evidence library. Derived from CANONICAL_BASE, which use_site() rebinds.
 # Where the pages actually live right now (Firebase). Canonical URLs, OG URLs, the sitemap, and the
 # JSON-LD page URLs all point here, so the LIVE pages are what Google indexes and AI engines cite.
 # When the library moves onto gt.school, update this to the new home (and 301 the old URLs).
-CANONICAL_BASE = "https://gt-school-blog.web.app"   # rebound per site by use_site().
+# The live home of the evidence library. This was gt-school-blog.web.app (Firebase) before the
+# move to Vercel; leaving it there meant every page carried a canonical pointing at a stale copy,
+# telling search engines the OLD design was the authoritative one. If the library later moves onto
+# gt.school, update this and 301 the old URLs.
+CANONICAL_BASE = "https://gt-evidence-library.vercel.app"   # rebound per site by use_site().
 
 # PLACEHOLDER, deliberately. This Vercel deployment is a staging copy for review only. If
 # leadership approves, the GT library moves onto a resources subpage of the main gt.school site,
@@ -1038,6 +1042,16 @@ def main() -> None:
         mine = [fm for fm in articles if track_of(fm) == track]
         OUT_DIR.mkdir(exist_ok=True)
         copy_assets()
+
+        # Remove pages that are no longer part of THIS site. Without this, an article that moves
+        # between sites leaves its old file behind, still deployed and publicly reachable. That is
+        # how seven unanswered drafts ended up live on the evidence library.
+        if not only:
+            keep = {f"{fm['slug']}.html" for fm in mine} | {"index.html"}
+            for stale in sorted(OUT_DIR.glob("*.html")):
+                if stale.name not in keep:
+                    stale.unlink()
+                    print(f"  {site['dir']}/  removed stale {stale.name}")
 
         n = 0
         for fm in mine:
