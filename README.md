@@ -94,7 +94,7 @@ The library runs on two tracks, rendered as two bands on the home page. A group'
 | Reader | A parent searching at 11pm | A parent already deciding |
 | Wins by | Search volume + AI citations | Specificity a brochure will not give |
 | GT appears | In the CTA | In every paragraph |
-| Color | Warm ramp (gold to berry) | Navy family (`#004F71`, `#003B5C`) |
+| Color | Gold end of the ramp | Blue end of the ramp (`#004f71`) |
 
 The evidence track is deliberately generic. That is what makes it rank, so **do not rewrite those
 articles to be about GT** — GT-specific answers belong on the `gt` track instead.
@@ -171,7 +171,7 @@ Five parent-question sections (same order on the site). Each shows its **kicker 
 
 ### GT track
 
-**What does a GT day actually look like?** — kicker `The GT Day`, color `#004F71` (GT navy)
+**What does a GT day actually look like?** — kicker `The GT Day`, color `#004f71` (Blue)
 - `what-does-a-day-at-gt-anywhere-look-like.md` : What does a day at GT Anywhere look like? (31 families)
 - `how-the-gt-anywhere-2-hour-block-works.md` : Is it really only two hours a day? (25 families)
 - `how-does-the-gt-xp-system-work.md` : How does the daily XP system work? (20 families)
