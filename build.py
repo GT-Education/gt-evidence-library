@@ -71,8 +71,7 @@ CANONICAL_BASE = "https://gt-school-blog.web.app"   # rebound per site by use_si
 # leadership approves, the GT library moves onto a resources subpage of the main gt.school site,
 # and this URL goes away. Set this to the gt.school path at that point: canonical tags, OG tags,
 # the sitemap, JSON-LD and every cross-site link are generated from it.
-# (gt-anywhere-answers.vercel.app is taken globally, hence the team suffix.)
-GT_CANONICAL_BASE = "https://gt-anywhere-answers-gt-school-cc7ed351.vercel.app"
+GT_CANONICAL_BASE = "https://gt-anywhere-answers.vercel.app"
 
 # False while the GT library is a locked staging copy. It controls two things:
 #   1. The evidence library omits its link across, so a public page never points at a login wall.
