@@ -121,8 +121,8 @@ SITES = {
             "kicker": "Inside GT",
             "h1": "How GT actually works.",
             "sub": ("The questions families ask us most, answered specifically, with GT\u2019s own "
-                    "numbers rather than brochure language."),
-            "reviewed": "Ranked by how many families asked each question",
+                    "numbers."),
+            "reviewed": "Written &amp; reviewed by the GT Anywhere team",
         },
         "start_here": [
             ("A day at GT", "what-does-a-day-at-gt-anywhere-look-like"),
