@@ -1,5 +1,12 @@
-# Deploy only the built site (site/ is the outputDirectory in vercel.json)
+# Upload only the built sites. Each Vercel project points its Root Directory at one of these
+# folders, so anything not un-ignored here is stripped before the build and the deployment ends
+# up empty (symptom: every path 404s while the deployment still reports Ready in ~1s).
+#
+# ADD A NEW SITE HERE TOO. A folder missing from this list cannot deploy, no matter how the
+# project is configured.
 *
 !site
 !site/**
+!site-gt
+!site-gt/**
 !vercel.json
