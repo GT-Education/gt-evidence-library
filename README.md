@@ -71,7 +71,9 @@ When a fact genuinely changes (e.g. next year's TEFA award), update it in ONE pl
 `c` (theme color) and a short `label` (kicker), and everything else is derived, so **adding an article
 to a group auto-themes it** (home marker, article header rule, Quick Answer bar, kicker).
 
-- **Palette (locked, matches the GT results page):** background (cream) `#FAF7F2`, ink (GT navy) `#002A3A`, muted navy `#4a6572`, hairline border `#DDD6CD`, gold accent `#E48B53` (rules, list markers, focus states only — never fills or large areas), navy variants `#003B5C` / `#004F71`. `#b65e78` (accent rose) was removed — it is not in GT's palette.
+- **Palette (locked, from the GT brand portal):** the source of truth is `GT Brand/Colors/gt-brand-colors.md`. Background Off White `#fcf4ef`, ink Navy `#002a3a`, gold accent `#e48b53` (rules, list markers, focus states only — never fills or large areas), plus Gold Dark `#ab683e`, Blue `#004f71`, Blue Dark `#003b5c`, Dark Navy `#001117`, Grey `#cac6c4`.
+- **There is no pink in the GT palette.** Earlier versions used `#d3897e` (coral rose), `#c77a88` (dusty rose), `#aa5570` (deep berry), `#b65e78` (berry-rose) and `#d0765a` (terracotta). All five were off-brand and have been removed. Do not reintroduce them, and do not invent a color that is not in the brand file.
+- **Section colors descend gold → blue → navy**, one official value per section.
 - **Section color `c`** drives the home square marker + row arrow, AND each article's `--theme` (the thin rule on the article header + the Quick Answer bar), so a section reads as one coordinated color.
 - **Section `label`** is the article kicker (e.g. `Acceleration`).
 - **Background texture:** home page and articles draw the results-page graph-paper grid (`#ebba9b1f`, ~12% alpha, 24px) on the `body`. The grid runs **unbroken** under the whole page — no solid column fill on top; the column is defined by type alignment. Layout is hairline rules instead of cards — no gradients, no shadows, no rounded corners beyond 2px, no decorative illustration.
@@ -90,29 +92,29 @@ Five parent-question sections (same order on the site). Each shows its **kicker 
 - `signs-of-giftedness-in-toddlers-and-preschoolers.md` : Signs of giftedness in toddlers and preschoolers
 - `giftedness-vs-adhd.md` : Is it giftedness or ADHD?
 
-**Is my child bored or under-challenged?** — kicker `Staying Challenged`, color `#d0765a` (terracotta)
+**Is my child bored or under-challenged?** — kicker `Staying Challenged`, color `#ab683e` (Gold Dark)
 - `is-my-gifted-child-under-challenged.md` : Is my gifted child under-challenged?
 - `gifted-child-bored-what-are-my-options.md` : My gifted child is bored, what are my options?
 - `how-to-advocate-for-your-gifted-child-at-school.md` : How do I advocate for my gifted child at school?
 - `why-is-my-gifted-child-getting-bad-grades.md` : Why is my gifted child getting bad grades?
 
-**How is my child doing emotionally?** — kicker `Social & Emotional`, color `#d3897e` (coral rose)
+**How is my child doing emotionally?** — kicker `Social & Emotional`, color `#004f71` (Blue)
 - `why-is-my-gifted-child-so-intense.md` : Why is my gifted child so intense or emotional?
 - `how-to-help-a-gifted-perfectionist.md` : How do I help a gifted perfectionist?
 
-**Should we let them move ahead?** — kicker `Acceleration`, color `#c77a88` (dusty rose)
+**Should we let them move ahead?** — kicker `Acceleration`, color `#003b5c` (Blue Dark)
 - `does-academic-acceleration-actually-work.md` : Does academic acceleration actually work?
 - `does-grade-skipping-hurt-kids-socially.md` : Does grade-skipping hurt kids socially?
 - `what-is-single-subject-acceleration.md` : What is single-subject acceleration?
 - `is-my-child-ready-to-skip-a-grade.md` : Is my child ready to skip a grade?
 
-**How do gifted kids learn best?** — kicker `Learning Models`, color `#003B5C` (mid navy)
+**How do gifted kids learn best?** — kicker `Learning Models`, color `#002a3a` (Navy)
 - `what-is-mastery-based-learning.md` : What is a mastery-based (2-hour) learning model?
 - `what-is-curriculum-compacting.md` : What is curriculum compacting?
 - `enrichment-vs-acceleration.md` : Enrichment vs. acceleration
 - `what-is-the-2-hour-school-day.md` : What is the 2-hour school day, and does it work?
 
-**Where should they go to school?** — kicker `School Options`, color `#aa5570` (deep berry)
+**Where should they go to school?** — kicker `School Options`, color `#001117` (Dark Navy)
 - `online-gifted-school-vs-homeschooling-gifted-child.md` : Online gifted school vs. homeschooling
 - `use-texas-tefa-voucher-online-gifted-school.md` : Can I use my Texas TEFA voucher for an online gifted school?
 - `what-is-the-texas-education-freedom-account.md` : What is the Texas Education Freedom Account (ESA)?

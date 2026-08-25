@@ -6,9 +6,9 @@
   Each commented block below maps to a GEO lever from the gt-school-blog skill's geo-checklist.md.
 
   COLOR SYSTEM: restrained "results page" palette. Global tokens live in :root (GT navy ink
-  #002A3A, cream #FAF7F2, warm-grey hairline #DDD6CD, gold accent #E48B53 used sparingly for
+  #002A3A, cream #fcf4ef, warm-grey hairline #DDD6CD, gold accent #E48B53 used sparingly for
   rules / list markers / focus states only - never fills or large areas). Each article ALSO
-  gets a per-section color via --theme, set on .wrap from #003B5C, which build.py derives from
+  gets a per-section color via --theme, set on .wrap from #002a3a, which build.py derives from
   the article's LIBRARY_GROUP. --theme colors only the section-specific parts: the thin rule at
   the top of the article header + the Quick Answer bar, so the header rule, the bar, and the home
   markers read as one coordinated color per section. The kicker (Learning Models) is the section's
@@ -170,7 +170,7 @@
 
   <style>
     :root{
-      --cream:#FAF7F2;                 /* background (locked token) */
+      --cream:#fcf4ef;                 /* background (locked token) */
       --ink:#002A3A;                   /* text - GT navy */
       --muted:#4a6572;                 /* muted navy text */
       --faint:#7d8f98;                 /* faint text */
@@ -431,14 +431,14 @@
   </style>
 </head>
 <body>
-  <div class="wrap" style="--theme:#003B5C">
+  <div class="wrap" style="--theme:#002a3a">
     <header class="site-header">
       <a href="index.html" aria-label="GT School home"><img class="brand" src="assets/gt-school-logo.png" alt="GT School" height="30" loading="eager" /></a>
     </header>
     <div class="backrow"><a class="backlink" href="index.html" aria-label="Back to the evidence library"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg> Back to the library</a></div>
     <!-- GEO Lever 2: ONE H1 = the exact question this page answers; visible freshness dates.
          Flat article header: theme rule on top, hairline below. One page = one question; sourced to GT School. -->
-    <section class="hero" style="--theme:#003B5C">
+    <section class="hero" style="--theme:#002a3a">
       <header class="article">
         <p class="kicker">Learning Models</p>
         <h1>What Is Curriculum Compacting?</h1>

@@ -447,12 +447,13 @@ def render(fm: dict, body: str, titles: dict[str, str], template: str) -> str:
 # Restrained "results page" look: no ombre, no gradients. --theme colors only the thin rule on
 # the article header + the Quick Answer bar (see template.html), and the home section markers.
 #
-# Locked palette: bg (cream) #FAF7F2, ink (GT navy) #002A3A, muted navy #4a6572, hairline
-#   border #DDD6CD, gold accent #E48B53 (rules, list markers, focus states only - never fills).
-#   Navy variants for themes: #003B5C, #004F71. Section colors: #e48b53 gold, #d0765a terracotta,
-#   #d3897e coral, #c77a88 dusty rose, #003B5C mid navy, #aa5570 deep berry.
-#   (#b65e78 berry-rose was removed - it is not in GT's palette; its section now uses #003B5C.)
-#
+# LOCKED PALETTE - GT brand portal (see "GT Brand/Colors/gt-brand-colors.md"). Do not invent colors.
+#   Gold #e48b53 (brand calls gold "the single accent") | Gold Dark #ab683e | Blue #004f71
+#   Blue Dark #003b5c | Navy #002a3a | Dark Navy #001117 | Off White #fcf4ef (bg) | Grey #cac6c4
+#   There is NO pink, rose, berry, coral or terracotta in the GT palette. Earlier versions of this
+#   file used #d3897e, #c77a88, #aa5570, #b65e78 and #d0765a; all five were off-brand and are gone.
+#   Section colors descend gold -> blue -> navy, one official value per section. Navy (#002a3a) and
+#   Dark Navy (#001117) are close as small markers; they sit on the last two sections deliberately.
 # TO ADD AN ARTICLE: write blog/<slug>.md, then add (slug, title, blurb) to the right group here;
 # it auto-inherits the section color, kicker, home row, header rule tint, and Quick Answer color.
 # An unlisted .md still builds (default orange theme, no home row) and the build prints a warning.
@@ -484,7 +485,7 @@ LIBRARY_GROUPS = [
         ("giftedness-vs-adhd", "Is it giftedness or ADHD?",
          "Why the two can look alike, when it\u2019s both (2e), and how to get clarity."),
     ]},
-    {"q": "Is my child bored or under-challenged?", "c": "#d0765a", "label": "Staying Challenged", "items": [
+    {"q": "Is my child bored or under-challenged?", "c": "#ab683e", "label": "Staying Challenged", "items": [
         ("is-my-gifted-child-under-challenged", "Is my gifted child under-challenged?",
          "The signs a gifted child isn\u2019t being stretched, and what to do."),
         ("gifted-child-bored-what-are-my-options", "My gifted child is bored, what are my options?",
@@ -494,13 +495,13 @@ LIBRARY_GROUPS = [
         ("why-is-my-gifted-child-getting-bad-grades", "Why is my gifted child getting bad grades?",
          "How a capable kid ends up with average grades, and what actually helps."),
     ]},
-    {"q": "How is my child doing emotionally?", "c": "#d3897e", "label": "Social & Emotional", "items": [
+    {"q": "How is my child doing emotionally?", "c": "#004f71", "label": "Social & Emotional", "items": [
         ("why-is-my-gifted-child-so-intense", "Why is my gifted child so intense or emotional?",
          "Big feelings are common in gifted kids. What\u2019s normal, and how to help."),
         ("how-to-help-a-gifted-perfectionist", "How do I help a gifted perfectionist?",
          "Turning fear of failure into healthy striving, at home and at school."),
     ]},
-    {"q": "Should we let them move ahead?", "c": "#c77a88", "label": "Acceleration", "items": [
+    {"q": "Should we let them move ahead?", "c": "#003b5c", "label": "Acceleration", "items": [
         ("does-academic-acceleration-actually-work", "Does academic acceleration actually work?",
          "Decades of research on whether moving faster actually helps."),
         ("does-grade-skipping-hurt-kids-socially", "Does grade-skipping hurt kids socially?",
@@ -510,7 +511,7 @@ LIBRARY_GROUPS = [
         ("is-my-child-ready-to-skip-a-grade", "Is my child ready to skip a grade?",
          "A whole-child way to decide, and what the research says about the risk."),
     ]},
-    {"q": "How do gifted kids learn best?", "c": "#003B5C", "label": "Learning Models", "items": [
+    {"q": "How do gifted kids learn best?", "c": "#002a3a", "label": "Learning Models", "items": [
         ("what-is-mastery-based-learning", "What is a mastery-based (2-hour) model?",
          "Advance by mastery, not age or seat-time."),
         ("what-is-curriculum-compacting", "What is curriculum compacting?",
@@ -520,7 +521,7 @@ LIBRARY_GROUPS = [
         ("what-is-the-2-hour-school-day", "What is the 2-hour school day?",
          "How a focused, mastery-based block covers more in less time, and whether it works."),
     ]},
-    {"q": "Where should they go to school?", "c": "#aa5570", "label": "School Options", "items": [
+    {"q": "Where should they go to school?", "c": "#001117", "label": "School Options", "items": [
         ("online-gifted-school-vs-homeschooling-gifted-child", "Online gifted school vs. homeschooling",
          "A neutral guide to pace, parent time, cost, and funding."),
         ("use-texas-tefa-voucher-online-gifted-school", "Can I use my Texas TEFA voucher online?",
@@ -538,7 +539,7 @@ SLUG_THEME = {slug: g["c"] for g in LIBRARY_GROUPS for (slug, _t, _b) in g["item
 SLUG_KICKER = {slug: g["label"] for g in LIBRARY_GROUPS for (slug, _t, _b) in g["items"]}
 
 _LIB_CSS = """<style>
-  :root{--bg:#FAF7F2;--ink:#002A3A;--muted:#4a6572;--faint:#7d8f98;--line:#DDD6CD;
+  :root{--bg:#fcf4ef;--ink:#002A3A;--muted:#4a6572;--faint:#7d8f98;--line:#DDD6CD;
     --accent:#E48B53;
     --shell:1140px;   /* page shell: nav, indexes, question-group listings, footer */
     --measure:700px;  /* long-form prose reading measure (articles; index subhead) */
