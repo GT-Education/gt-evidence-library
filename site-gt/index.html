@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>GT Anywhere: How It Actually Works</title>
+<meta name="description" content="Straight answers about GT Anywhere: the daily schedule, admissions, how progress is measured, and what it costs. Built from the questions families actually ask."/>
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"/>
+<link rel="canonical" href="https://gt-anywhere-answers.vercel.app/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="GT School"/>
+<meta property="og:title" content="GT Anywhere: How It Actually Works"/>
+<meta property="og:description" content="Straight answers about GT Anywhere: the daily schedule, admissions, how progress is measured, and what it costs. Built from the questions families actually ask."/>
+<meta property="og:url" content="https://gt-anywhere-answers.vercel.app/"/>
+<meta property="og:image" content="https://gt-anywhere-answers.vercel.app/assets/og-default.png"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://gt-anywhere-answers.vercel.app/assets/og-default.png"/>
+<link rel="icon" type="image/png" href="assets/gt-icon.png"/>
+<link rel="apple-touch-icon" href="assets/gt-icon.png"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://gt-anywhere-answers.vercel.app/#website",
+      "url": "https://gt-anywhere-answers.vercel.app/",
+      "name": "GT Anywhere: How It Actually Works",
+      "description": "Straight answers about GT Anywhere: the daily schedule, admissions, how progress is measured, and what it costs. Built from the questions families actually ask.",
+      "inLanguage": "en",
+      "publisher": {
+        "@type": "Organization",
+        "name": "GT School",
+        "url": "https://www.gt.school/"
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "https://gt-anywhere-answers.vercel.app/#library",
+      "url": "https://gt-anywhere-answers.vercel.app/",
+      "name": "GT Anywhere: How It Actually Works",
+      "isPartOf": {
+        "@id": "https://gt-anywhere-answers.vercel.app/#website"
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "url": "https://gt-anywhere-answers.vercel.app/what-does-a-day-at-gt-anywhere-look-like",
+            "name": "What does a day at GT Anywhere look like?"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://gt-anywhere-answers.vercel.app/how-the-gt-anywhere-2-hour-block-works",
+            "name": "Is it really only two hours a day?"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://gt-anywhere-answers.vercel.app/how-does-the-gt-xp-system-work",
+            "name": "How does the daily XP system work?"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "url": "https://gt-anywhere-answers.vercel.app/does-ai-teach-my-child-at-gt-anywhere",
+            "name": "Does AI teach my child, or are there real teachers?"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.gt.school/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://gt-anywhere-answers.vercel.app/"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,300..600&family=Inter+Tight:wght@400;500;600;700&family=Inconsolata:wght@500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root{--bg:#fcf4ef;--ink:#002A3A;--muted:#4a6572;--faint:#7d8f98;--line:#DDD6CD;
+    --accent:#E48B53;
+    --shell:1140px;   /* page shell: nav, indexes, question-group listings, footer */
+    --measure:700px;  /* long-form prose reading measure (articles; index subhead) */
+    --serif:"Literata",Georgia,serif;--sans:"Inter Tight",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;--mono:"Inconsolata",ui-monospace,monospace}
+  *{box-sizing:border-box}
+  /* Graph-paper grid (from the results page) runs UNBROKEN under the whole page - no solid
+     column fill (a fill makes a hard edge where the grid stops). The column is defined by type
+     alignment; the grid stays faint (~12% alpha) so text reads cleanly over it. */
+  body{margin:0;background-color:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;
+    background-image:linear-gradient(#ebba9b1f 1px, transparent 1px),linear-gradient(90deg, #ebba9b1f 1px, transparent 1px);
+    background-size:24px 24px}
+  a{color:inherit}
+  a:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  /* Shell matches the article pages' --shell + 24px padding, so columns line up across pages. */
+  .page{max-width:var(--shell);margin:0 auto;padding:40px 24px 88px;position:relative}
+  .hero{padding:0 0 16px}
+  .lib-header{margin:0 0 22px}
+  .lib-header .brand{height:30px;width:auto;display:block}
+  /* section eyebrow: plain uppercase mono text, muted navy */
+  .kick{display:block;font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0}
+  .h1{font-family:var(--serif);font-weight:400;font-size:36px;line-height:1.14;letter-spacing:-.03em;margin:12px 0 14px;text-wrap:balance}
+  .sub{font-family:var(--serif);color:var(--muted);font-size:16.5px;line-height:1.5;margin:0 0 14px;max-width:var(--measure)}
+  .rev{display:block;font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;color:var(--muted);margin:0 0 20px}
+  .search{display:flex;align-items:center;gap:10px;width:100%;max-width:var(--measure);background:transparent;border:1px solid var(--line);border-radius:2px;padding:12px 15px;margin:0 0 16px}
+  .search svg{width:16px;height:16px;flex:none;stroke:var(--faint);fill:none;stroke-width:2}
+  .search input{border:none;background:transparent;outline:none;width:100%;font-family:var(--sans);font-size:14px;color:var(--ink)}
+  .search input::placeholder{color:var(--faint)}
+  .starthere{display:flex;flex-wrap:wrap;align-items:center;gap:9px}
+  .starthere .lbl{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .pill{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:2px;padding:8px 13px;text-decoration:none;transition:border-color .15s ease}
+  .pill:hover{border-color:var(--ink)}
+  /* single gold hairline under the masthead (gold = rules only, never fills) */
+  .hrule{height:1px;border:0;margin:22px 0 2px;background:var(--accent)}
+  /* groups: small section-color marker + serif question at regular weight, then arrow rows.
+     Dividers appear only BETWEEN sections. */
+  .sec{padding:26px 0 12px}
+  .sec + .sec{border-top:1px solid var(--line)}
+  .gh{display:flex;align-items:baseline;gap:12px;margin:0 0 6px}
+  .ring{width:10px;height:10px;border-radius:1px;background:var(--c);flex:none;align-self:center}
+  .qcol{display:inline-block}
+  .qh{display:block;font-family:var(--serif);font-weight:400;font-size:21px;line-height:1.3;letter-spacing:-.02em;margin:0;color:var(--ink)}
+  .row{display:flex;gap:14px;align-items:flex-start;padding:13px 8px 13px 22px;border-radius:2px;text-decoration:none;color:inherit;transition:background .13s ease}
+  .row:hover{background:color-mix(in srgb, var(--c) 7%, transparent)}
+  .row .tx{flex:1;min-width:0}
+  .row h4{font-family:var(--serif);font-weight:500;font-size:16.5px;line-height:1.28;margin:0 0 3px;color:var(--ink)}
+  .row p{font-size:13.5px;line-height:1.5;color:var(--muted);margin:0}
+  .row .ar{color:var(--c);flex:none;align-self:center;font-size:16px}
+  /* Track band: introduces the second (GT-specific) library so the two read as distinct shelves.
+     Deliberately echoes the hero (kicker -> serif head -> muted serif sub) over an accent rule,
+     rather than sitting in a card. The restyle moved the system to flat surfaces and 1-2px radii. */
+  .band{margin:46px 0 0;padding:26px 0 2px;border-top:1px solid var(--c,var(--accent))}
+  .band + .sec{border-top:0}
+  .bandh{font-family:var(--serif);font-weight:400;font-size:27px;line-height:1.16;letter-spacing:-.025em;margin:12px 0 10px;color:var(--ink);text-wrap:balance}
+  .bandsub{font-family:var(--serif);color:var(--muted);font-size:16.5px;line-height:1.5;margin:0;max-width:var(--measure)}
+  .bandcta{margin:14px 0 0}
+  .bandcta a{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px}
+  .noresults{font-family:var(--serif);color:var(--muted);font-size:16px;padding:20px 12px;display:none}
+  footer.site{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;color:var(--faint)}
+  @media (max-width:640px){.page{padding:28px 16px 64px}.hero{padding:0 0 12px}.h1{font-size:28px}}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hero">
+  <header class="lib-header"><a href="index.html" aria-label="GT School home"><img class="brand" src="assets/gt-school-logo.png" alt="GT School" height="30"/></a></header>
+  <p class="kick">Inside GT</p>
+  <h1 class="h1">How GT actually works.</h1>
+  <p class="sub">The questions families ask us most, answered specifically, with GT’s own numbers rather than brochure language.</p>
+  <p class="rev">Ranked by how many families asked each question</p>
+  <div class="search"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="21" y2="21"/></svg><input id="lib-search" type="search" placeholder="Search the library&hellip;" aria-label="Search the library"/></div>
+  <div class="starthere"><span class="lbl">New here? Start with</span><a class="pill" href="what-does-a-day-at-gt-anywhere-look-like.html">A day at GT</a><a class="pill" href="how-the-gt-anywhere-2-hour-block-works.html">Only two hours?</a><a class="pill" href="does-ai-teach-my-child-at-gt-anywhere.html">AI or teachers?</a></div>
+  </div>
+  <hr class="hrule"/>
+<div class="sec" style="--c:#004F71"><div class="gh"><span class="ring"></span><span class="qcol"><h3 class="qh">What does a GT day actually look like?</h3></span></div><a class="row" href="what-does-a-day-at-gt-anywhere-look-like.html"><div class="tx"><h4>What does a day at GT Anywhere look like?</h4><p>The morning block, the afternoon, and how much of the week your family controls.</p></div><span class="ar">→</span></a><a class="row" href="how-the-gt-anywhere-2-hour-block-works.html"><div class="tx"><h4>Is it really only two hours a day?</h4><p>How the academic block works, when you can schedule it, and what happens on a bad day.</p></div><span class="ar">→</span></a><a class="row" href="how-does-the-gt-xp-system-work.html"><div class="tx"><h4>How does the daily XP system work?</h4><p>What XP measures, where 140 a day comes from, and why nobody is ranked against anybody.</p></div><span class="ar">→</span></a><a class="row" href="does-ai-teach-my-child-at-gt-anywhere.html"><div class="tx"><h4>Does AI teach my child, or are there real teachers?</h4><p>What the platform does, what the humans do, and exactly where the line sits.</p></div><span class="ar">→</span></a></div>
+<div class="band"><p class="kick">Still deciding?</p><h2 class="bandh">The research behind all of this</h2><p class="bandsub">Before GT specifics, it can help to read the general evidence: what giftedness is, whether acceleration works, and how to weigh school options. That library is separate, and it is not about GT.</p><p class="bandcta"><a href="https://gt-school-blog.web.app/">Open the evidence library &rarr;</a></p></div>
+  <p class="noresults" id="noresults">No guides match that yet. Try a different word.</p>
+  <footer class="site">Published by GT School, the gifted academy of the Alpha School family. &copy; 2026 GT School.</footer>
+</div>
+<script>
+(function(){
+  var q=document.getElementById('lib-search');
+  if(!q) return;
+  var rows=[].slice.call(document.querySelectorAll('.row'));
+  var secs=[].slice.call(document.querySelectorAll('.sec'));
+  var bands=[].slice.call(document.querySelectorAll('.band'));
+  var none=document.getElementById('noresults');
+  q.addEventListener('input',function(){
+    var t=q.value.trim().toLowerCase(); var hits=0;
+    rows.forEach(function(r){var m=r.textContent.toLowerCase().indexOf(t)>-1; r.style.display=m?'':'none'; if(m)hits++;});
+    secs.forEach(function(s){var vis=[].slice.call(s.querySelectorAll('.row')).some(function(r){return r.style.display!=='none';}); s.style.display=vis?'':'none';});
+    bands.forEach(function(b){
+      var n=b.nextElementSibling, vis=false;
+      while(n && !n.classList.contains('band')){
+        if(n.classList.contains('sec') && n.style.display!=='none'){vis=true;break;}
+        n=n.nextElementSibling;
+      }
+      b.style.display=vis?'':'none';
+    });
+    if(none) none.style.display=hits?'none':'block';
+  });
+})();
+</script>
+</body>
+</html>

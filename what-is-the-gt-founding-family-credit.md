@@ -20,6 +20,7 @@ internal_links:
 cta:
   text: "See the full GT Anywhere program"
   href: "https://anywhere.gt.school/"
+track: gt
 status: draft
 ---
 

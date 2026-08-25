@@ -83,27 +83,48 @@ to a group auto-themes it** (home marker, article header rule, Quick Answer bar,
 - **Two-tier width:** `--shell: 1140px` for the page shell (nav, indexes, question-group listings, footer) and `--measure: 700px` for long-form prose (article body copy). Both tokens live in `template.html` and `_LIB_CSS`.
 - Add `(slug, title, blurb)` to a group to publish; an unlisted article still builds but gets the default orange theme + no home row (the build prints a warning).
 
-## Two tracks (evidence + GT)
+## Two sites, one repo
 
-The library runs on two tracks, rendered as two bands on the home page. A group's `track` key in
-`LIBRARY_GROUPS` decides which band it lands in; groups without one default to `evidence`.
+The library builds into **two separate sites**, each its own Vercel project. A group's `track` key
+in `LIBRARY_GROUPS` decides which; an article not in a group uses its front-matter `track:`, else
+the evidence library.
 
-| | `evidence` | `gt` |
+| | `evidence` → `site/` | `gt` → `site-gt/` |
 |---|---|---|
 | Job | Get found | Get chosen |
 | Reader | A parent searching at 11pm | A parent already deciding |
 | Wins by | Search volume + AI citations | Specificity a brochure will not give |
 | GT appears | In the CTA | In every paragraph |
-| Color | Gold end of the ramp | Blue end of the ramp (`#004f71`) |
+| Color | Gold end of the ramp | Blue end (`#004f71`) |
 
-The evidence track is deliberately generic. That is what makes it rank, so **do not rewrite those
-articles to be about GT** — GT-specific answers belong on the `gt` track instead.
+**Why separate.** The evidence library works *because* it reads as neutral, and that is what gets it
+cited and trusted. Hosting GT sales content on the same domain undercuts exactly that. The usual
+cost of splitting (dividing search authority) does not apply, because GT-specific content is not a
+search play: nobody googles "what is a GT Academic Advisor". That library is something you *send*
+to a family. Each index carries one link across to the other, so a searching parent can still get in.
 
-**GT track article selection is data-driven.** Articles come from GT Anywhere's own parent question
-data (599 canonical questions, 5,968 question instances, HubSpot, Aug 2026), ordered by the number of
-DISTINCT FAMILIES who asked. Each row in a `gt` group carries that count as a comment. Support and
-operational questions (logins, portal errors, enrollment status, calendar dates) are excluded on
-purpose: they belong in a help center, and they go stale within a term.
+**Do not rewrite evidence articles to be about GT.** Generic is what makes them rank. GT-specific
+answers belong in `site-gt/`.
+
+**GT article selection is data-driven.** Articles come from GT Anywhere's own parent question data
+(599 canonical questions, 5,968 instances, HubSpot, Aug 2026), ordered by DISTINCT FAMILIES who
+asked; each row carries that count as a comment. Support and operational questions (logins, portal
+errors, enrollment status, calendar dates) are excluded on purpose: they belong in a help center and
+go stale within a term.
+
+### Deploying
+
+Each output folder carries its own generated `vercel.json` (cleanUrls, asset caching), so each site
+is a Vercel project whose **Root Directory** points at that folder:
+
+| Site | Root Directory | URL |
+|---|---|---|
+| Evidence library | repo root (`outputDirectory: site`) | existing project, unchanged |
+| GT library | `site-gt` | new project |
+
+**`GT_CANONICAL_BASE` in `build.py` is a placeholder** (`gt-anywhere-answers.vercel.app`). Set it to
+the real URL as soon as the project exists: canonical tags, OG tags, sitemap, JSON-LD and every
+cross-site link are generated from it, so a wrong value ships wrong canonicals on every GT page.
 
 ## Open facts (`[NEEDS-FACT: ...]`)
 

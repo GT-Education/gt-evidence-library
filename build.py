@@ -40,17 +40,112 @@ except ImportError:
     sys.exit("Missing dependency: pip install markdown")
 
 BLOG_DIR = Path(__file__).resolve().parent
-OUT_DIR = BLOG_DIR / "site"
+# --- Sites ---------------------------------------------------------------------------------------
+# The library ships as TWO SEPARATE SITES built from this one repo, each its own Vercel project:
+#
+#   evidence -> site/      The general gifted-education library. Written to be FOUND (search + AI
+#                          answer engines). Deliberately neutral; GT appears only in the CTA.
+#   gt       -> site-gt/   How GT itself works. Written to be READ by a family already deciding.
+#
+# They are kept apart on purpose. The evidence library works BECAUSE it reads as neutral, and that
+# is what gets it cited; hosting GT sales content on the same domain would undercut it. The usual
+# cost of splitting (dividing search authority) does not apply here, because GT-specific content is
+# not a search play. Nobody googles "what is a GT Academic Advisor" - that library is something you
+# SEND to a family. The two link to each other, so a searching parent can still find their way in.
+#
+# TO ADD A SITE: add an entry here and give its groups a matching "track" in LIBRARY_GROUPS.
+OUT_DIR = BLOG_DIR / "site"          # rebound per site by use_site(); see SITES below.
 ASSETS_SRC = BLOG_DIR / "assets"
 TEMPLATE = BLOG_DIR / "template.html"
 SITE_URL = "https://www.gt.school"
 # The library is hosted on Firebase for now, so the "Blog" breadcrumb points there.
 # Swap to SITE_URL + "/blog" once the library moves onto the main gt.school site.
-BLOG_INDEX_URL = "https://gt-school-blog.web.app/"
+# Breadcrumbs point at whichever library the page belongs to, so a GT page does not breadcrumb
+# back into the evidence library. Derived from CANONICAL_BASE, which use_site() rebinds.
 # Where the pages actually live right now (Firebase). Canonical URLs, OG URLs, the sitemap, and the
 # JSON-LD page URLs all point here, so the LIVE pages are what Google indexes and AI engines cite.
 # When the library moves onto gt.school, update this to the new home (and 301 the old URLs).
-CANONICAL_BASE = "https://gt-school-blog.web.app"
+CANONICAL_BASE = "https://gt-school-blog.web.app"   # rebound per site by use_site().
+
+# !! The GT library's Vercel project does not exist yet. The moment it does, set this to its real
+# !! URL: canonical tags, OG tags, the sitemap, JSON-LD and every cross-site link are generated
+# !! from it, so a wrong value here ships wrong canonicals on every GT page.
+GT_CANONICAL_BASE = "https://gt-anywhere-answers.vercel.app"
+
+SITES = {
+    "evidence": {
+        "dir": "site",
+        "base": CANONICAL_BASE,
+        "title": "GT School: Gifted Education Evidence Library",
+        "desc": ("Calm, clear, primary-source answers to the questions parents of gifted and "
+                 "twice-exceptional K-8 students actually ask."),
+        "intro": {
+            "kicker": "Evidence Library",
+            "h1": "The questions gifted parents ask, answered.",
+            "sub": ("Clear, research-backed answers about giftedness, boredom, acceleration, "
+                    "and choosing a school."),
+            "reviewed": "Written &amp; reviewed by GT School\u2019s gifted-education team",
+        },
+        "start_here": [
+            ("Is my child gifted?", "signs-my-child-is-gifted"),
+            ("Under-challenged?", "is-my-gifted-child-under-challenged"),
+            ("Does acceleration work?", "does-academic-acceleration-actually-work"),
+        ],
+        # Link across to the other library, rendered at the foot of the index.
+        "sister": {
+            "track": "gt",
+            "kicker": "Looking at GT?",
+            "h": "How GT actually does it",
+            "sub": ("This library answers the general questions. If you are weighing GT itself, "
+                    "there is a separate library on how the program actually works: the day, "
+                    "the admissions bar, how progress is measured, and what it costs."),
+            "cta": "Open the GT library",
+        },
+    },
+    "gt": {
+        "dir": "site-gt",
+        "base": GT_CANONICAL_BASE,
+        "title": "GT Anywhere: How It Actually Works",
+        "desc": ("Straight answers about GT Anywhere: the daily schedule, admissions, how progress "
+                 "is measured, and what it costs. Built from the questions families actually ask."),
+        "intro": {
+            "kicker": "Inside GT",
+            "h1": "How GT actually works.",
+            "sub": ("The questions families ask us most, answered specifically, with GT\u2019s own "
+                    "numbers rather than brochure language."),
+            "reviewed": "Ranked by how many families asked each question",
+        },
+        "start_here": [
+            ("A day at GT", "what-does-a-day-at-gt-anywhere-look-like"),
+            ("Only two hours?", "how-the-gt-anywhere-2-hour-block-works"),
+            ("AI or teachers?", "does-ai-teach-my-child-at-gt-anywhere"),
+        ],
+        "sister": {
+            "track": "evidence",
+            "kicker": "Still deciding?",
+            "h": "The research behind all of this",
+            "sub": ("Before GT specifics, it can help to read the general evidence: what giftedness "
+                    "is, whether acceleration works, and how to weigh school options. That library "
+                    "is separate, and it is not about GT."),
+            "cta": "Open the evidence library",
+        },
+    },
+}
+
+
+def use_site(track: str) -> dict:
+    """Point the module at one site. Rebinds the globals the builders read.
+
+    The builders were written against a single OUT_DIR / CANONICAL_BASE pair. Rebinding here keeps
+    that working while emitting two sites, instead of threading a config through every signature.
+    """
+    global OUT_DIR, CANONICAL_BASE, LIBRARY_INTRO, LIBRARY_START_HERE
+    site = SITES[track]
+    OUT_DIR = BLOG_DIR / site["dir"]
+    CANONICAL_BASE = site["base"]
+    LIBRARY_INTRO = site["intro"]
+    LIBRARY_START_HERE = site["start_here"]
+    return site
 
 FM_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n?(.*)$", re.S)
 
@@ -343,7 +438,7 @@ def build_jsonld(fm: dict, canonical: str, content_html: str) -> str:
         "@type": "BreadcrumbList",
         "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL + "/"},
-            {"@type": "ListItem", "position": 2, "name": "Blog", "item": BLOG_INDEX_URL},
+            {"@type": "ListItem", "position": 2, "name": "Blog", "item": CANONICAL_BASE + "/"},
             {"@type": "ListItem", "position": 3, "name": title, "item": canonical},
         ],
     })
@@ -357,7 +452,7 @@ def breadcrumb_html(title: str) -> str:
     return (
         '<nav class="crumbs" aria-label="Breadcrumb">'
         f'<a href="{SITE_URL}/">Home</a><span class="sep">/</span>'
-        f'<a href="{BLOG_INDEX_URL}">Blog</a><span class="sep">/</span>'
+        f'<a href="{CANONICAL_BASE}/">Blog</a><span class="sep">/</span>'
         f'<span class="current">{html.escape(title)}</span></nav>'
     )
 
@@ -387,7 +482,7 @@ def build_toc(content_html: str) -> str:
     )
 
 
-def render(fm: dict, body: str, titles: dict[str, str], template: str) -> str:
+def render(fm: dict, body: str, titles: dict[str, str], template: str, track: str) -> str:
     slug = fm["slug"]
     canonical = f"{CANONICAL_BASE}/{slug}"
     h1_from_body, body_clean = strip_h1_and_dates(body)
@@ -440,7 +535,8 @@ def render(fm: dict, body: str, titles: dict[str, str], template: str) -> str:
     out = template
     for k, v in repl.items():
         out = out.replace(k, v)
-    return out
+    # Links to the OTHER site must be absolute; a bare slug would 404 there.
+    return absolutize_cross_site_links(out, track)
 
 
 # --- Library (index) + COLOR SYSTEM (single source of truth) ------------------------
@@ -599,6 +695,33 @@ ORDERED_GROUPS = sorted(LIBRARY_GROUPS, key=lambda g: TRACK_ORDER.index(g["track
 SLUG_THEME = {slug: g["c"] for g in LIBRARY_GROUPS for (slug, _t, _b) in g["items"]}
 # Map each article slug to its section label (shown as the article kicker, e.g. "Acceleration").
 SLUG_KICKER = {slug: g["label"] for g in LIBRARY_GROUPS for (slug, _t, _b) in g["items"]}
+# Map each article slug to the SITE it belongs to. Drives which site a page is written into, and
+# which links have to become absolute because they point at the other site.
+SLUG_TRACK = {slug: g["track"] for g in LIBRARY_GROUPS for (slug, _t, _b) in g["items"]}
+
+
+def track_of(fm: dict) -> str:
+    """Which site an article belongs to: its group's track, else its front-matter `track`, else
+    the evidence library. The fallback matters for drafts that are not in a group yet."""
+    return SLUG_TRACK.get(fm["slug"]) or fm.get("track") or "evidence"
+
+
+_HREF_RE = re.compile(r'href="([a-z0-9][a-z0-9-]*)(\.html)?"')
+
+
+def absolutize_cross_site_links(html_str: str, track: str) -> str:
+    """Point same-repo links at the OTHER site to that site's absolute URL.
+
+    Within a site, links stay relative bare slugs (Vercel cleanUrls resolves them). Across sites a
+    relative link would 404, so it is rewritten to the sister site's canonical base.
+    """
+    def repl(m: re.Match) -> str:
+        slug = m.group(1)
+        other = SLUG_TRACK.get(slug)
+        if other and other != track:
+            return f'href="{SITES[other]["base"]}/{slug}"'
+        return m.group(0)
+    return _HREF_RE.sub(repl, html_str)
 
 _LIB_CSS = """<style>
   :root{--bg:#fcf4ef;--ink:#002A3A;--muted:#4a6572;--faint:#7d8f98;--line:#DDD6CD;
@@ -656,6 +779,8 @@ _LIB_CSS = """<style>
   .band + .sec{border-top:0}
   .bandh{font-family:var(--serif);font-weight:400;font-size:27px;line-height:1.16;letter-spacing:-.025em;margin:12px 0 10px;color:var(--ink);text-wrap:balance}
   .bandsub{font-family:var(--serif);color:var(--muted);font-size:16.5px;line-height:1.5;margin:0;max-width:var(--measure)}
+  .bandcta{margin:14px 0 0}
+  .bandcta a{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent);padding-bottom:2px}
   .noresults{font-family:var(--serif);color:var(--muted);font-size:16px;padding:20px 12px;display:none}
   footer.site{margin-top:44px;padding-top:24px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;color:var(--faint)}
   @media (max-width:640px){.page{padding:28px 16px 64px}.hero{padding:0 0 12px}.h1{font-size:28px}}
@@ -687,26 +812,25 @@ _LIB_SEARCH_JS = """<script>
 </script>"""
 
 
-def build_index_jsonld(articles: list[dict]) -> str:
+def build_index_jsonld(articles: list[dict], track: str) -> str:
     """WebSite + CollectionPage/ItemList + BreadcrumbList for the library hub, so search + AI
     engines understand the hub page and every article it links to."""
     url = CANONICAL_BASE + "/"
     items = []
     pos = 1
-    for g in LIBRARY_GROUPS:
+    for g in [g for g in LIBRARY_GROUPS if g["track"] == track]:
         for slug, title, _blurb in g["items"]:
             items.append({"@type": "ListItem", "position": pos,
                           "url": f"{CANONICAL_BASE}/{slug}", "name": title})
             pos += 1
     graph = [
         {"@type": "WebSite", "@id": url + "#website", "url": url,
-         "name": "GT School Evidence Library",
-         "description": "Primary-source answers to the questions parents of gifted and "
-                        "twice-exceptional K-8 students ask.",
+         "name": SITES[track]["title"],
+         "description": SITES[track]["desc"],
          "inLanguage": "en",
          "publisher": {"@type": "Organization", "name": "GT School", "url": SITE_URL + "/"}},
         {"@type": "CollectionPage", "@id": url + "#library", "url": url,
-         "name": "GT School: Gifted Education Evidence Library",
+         "name": SITES[track]["title"],
          "isPartOf": {"@id": url + "#website"},
          "mainEntity": {"@type": "ItemList", "itemListElement": items}},
         {"@type": "BreadcrumbList", "itemListElement": [
@@ -718,17 +842,9 @@ def build_index_jsonld(articles: list[dict]) -> str:
     return f'<script type="application/ld+json">\n{blob}\n</script>'
 
 
-def build_index(articles: list[dict]) -> str:
+def build_index(articles: list[dict], track: str) -> str:
     secs = []
-    for i, g in enumerate(ORDERED_GROUPS):
-        band = TRACK_BANDS.get(g["track"])
-        if band and (i == 0 or ORDERED_GROUPS[i - 1]["track"] != g["track"]):
-            secs.append(
-                f'<div class="band" style="--c:{band.get("c", "var(--accent)")}">'
-                f'<p class="kick">{html.escape(band["kicker"])}</p>'
-                f'<h2 class="bandh">{html.escape(band["h"])}</h2>'
-                f'<p class="bandsub">{html.escape(band["sub"])}</p></div>'
-            )
+    for g in [g for g in ORDERED_GROUPS if g["track"] == track]:
         rows = []
         for slug, title, blurb in g["items"]:
             rows.append(
@@ -742,6 +858,17 @@ def build_index(articles: list[dict]) -> str:
             f'<span class="qcol"><h3 class="qh">{html.escape(g["q"])}</h3></span></div>'
             + "".join(rows) + "</div>"
         )
+    # Foot of the index: a single link across to the other library. The two sites are separate on
+    # purpose, so this is the only bridge between them, and it runs in both directions.
+    sis = SITES[track].get("sister")
+    if sis:
+        secs.append(
+            f'<div class="band"><p class="kick">{html.escape(sis["kicker"])}</p>'
+            f'<h2 class="bandh">{html.escape(sis["h"])}</h2>'
+            f'<p class="bandsub">{html.escape(sis["sub"])}</p>'
+            f'<p class="bandcta"><a href="{SITES[sis["track"]]["base"]}/">'
+            f'{html.escape(sis["cta"])} &rarr;</a></p></div>'
+        )
     sections_html = "\n".join(secs)
     pills = "".join(
         f'<a class="pill" href="{slug}.html">{html.escape(label)}</a>'
@@ -750,21 +877,21 @@ def build_index(articles: list[dict]) -> str:
     return (
         '<!DOCTYPE html>\n<html lang="en"><head><meta charset="utf-8"/>\n'
         '<meta name="viewport" content="width=device-width, initial-scale=1"/>\n'
-        '<title>GT School: Gifted Education Evidence Library</title>\n'
-        '<meta name="description" content="Calm, clear, primary-source answers to the questions parents of gifted and twice-exceptional K-8 students actually ask."/>\n'
+        f'<title>{html.escape(SITES[track]["title"])}</title>\n'
+        f'<meta name="description" content="{html.escape(SITES[track]["desc"])}"/>\n'
         '<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1"/>\n'
         f'<link rel="canonical" href="{CANONICAL_BASE}/"/>\n'
         '<meta property="og:type" content="website"/>\n'
         '<meta property="og:site_name" content="GT School"/>\n'
-        '<meta property="og:title" content="GT School: Gifted Education Evidence Library"/>\n'
-        '<meta property="og:description" content="Primary-source answers to the questions parents of gifted and twice-exceptional K-8 students ask."/>\n'
+        f'<meta property="og:title" content="{html.escape(SITES[track]["title"])}"/>\n'
+        f'<meta property="og:description" content="{html.escape(SITES[track]["desc"])}"/>\n'
         f'<meta property="og:url" content="{CANONICAL_BASE}/"/>\n'
         f'<meta property="og:image" content="{CANONICAL_BASE}/assets/og-default.png"/>\n'
         '<meta name="twitter:card" content="summary_large_image"/>\n'
         f'<meta name="twitter:image" content="{CANONICAL_BASE}/assets/og-default.png"/>\n'
         '<link rel="icon" type="image/png" href="assets/gt-icon.png"/>\n'
         '<link rel="apple-touch-icon" href="assets/gt-icon.png"/>\n'
-        + build_index_jsonld(articles) + '\n'
+        + build_index_jsonld(articles, track) + '\n'
         '<link rel="preconnect" href="https://fonts.googleapis.com"/>\n'
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>\n'
         '<link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,300..600&family=Inter+Tight:wght@400;500;600;700&family=Inconsolata:wght@500;600;700&display=swap" rel="stylesheet"/>\n'
@@ -833,6 +960,19 @@ def write_sitemap(articles: list[dict]) -> None:
     )
 
 
+def write_vercel_config() -> None:
+    """Each site is its own Vercel project, so each output dir carries its own host config.
+
+    cleanUrls is what makes the bare-slug links in every article resolve (/what-is-x, not
+    /what-is-x.html). Point the project's Root Directory at this folder.
+    """
+    (OUT_DIR / "vercel.json").write_text(
+        '{\n  "cleanUrls": true,\n  "trailingSlash": false,\n'
+        '  "headers": [\n    {\n      "source": "/assets/(.*)",\n'
+        '      "headers": [{ "key": "Cache-Control", "value": "public, max-age=86400" }]\n'
+        "    }\n  ]\n}\n", encoding="utf-8")
+
+
 def write_robots() -> None:
     (OUT_DIR / "robots.txt").write_text(
         f"User-agent: *\nAllow: /\n\nSitemap: {CANONICAL_BASE}/sitemap.xml\n", encoding="utf-8"
@@ -843,8 +983,6 @@ def main() -> None:
     if not TEMPLATE.exists():
         sys.exit(f"Template not found: {TEMPLATE}")
     template = TEMPLATE.read_text(encoding="utf-8")
-    OUT_DIR.mkdir(exist_ok=True)
-    copy_assets()
 
     paths = [p for p in BLOG_DIR.glob("*.md") if p.name.lower() != "readme.md"]
     check_no_competitors(paths)
@@ -861,29 +999,40 @@ def main() -> None:
     # obvious the article needs to be added to a section (see LIBRARY_GROUPS) to get its colors.
     orphans = sorted(s for s in titles if s not in SLUG_THEME)
     if orphans:
-        print("  WARNING: these articles aren't in any LIBRARY_GROUP, so they get the default "
-              "orange theme + no home row:")
+        print("  NOTE: these articles aren't in any LIBRARY_GROUP, so they build but get no row on")
+        print("  their home page (this is how a [NEEDS-FACT] draft stays off the site):")
         for s in orphans:
-            print(f"    - {s}  (add it to a group in build.py to give it a section color + kicker)")
+            print(f"    - {s}")
 
     only = sys.argv[1] if len(sys.argv) > 1 else None
     built = 0
-    for fm in articles:
-        if only and fm["slug"] != only:
-            continue
-        page = render(fm, fm["_body"], titles, template)
-        (OUT_DIR / f"{fm['slug']}.html").write_text(page, encoding="utf-8")
-        built += 1
-        print(f"  built site/{fm['slug']}.html")
 
-    if not only:
-        (OUT_DIR / "index.html").write_text(build_index(articles), encoding="utf-8")
-        print("  built site/index.html")
-        write_sitemap(articles)
-        write_robots()
-        print("  built site/sitemap.xml + site/robots.txt")
+    # One pass per site. use_site() rebinds OUT_DIR / CANONICAL_BASE / the index copy.
+    for track in SITES:
+        site = use_site(track)
+        mine = [fm for fm in articles if track_of(fm) == track]
+        OUT_DIR.mkdir(exist_ok=True)
+        copy_assets()
 
-    print(f"Done. {built} article page(s) -> {OUT_DIR}")
+        n = 0
+        for fm in mine:
+            if only and fm["slug"] != only:
+                continue
+            page = render(fm, fm["_body"], titles, template, track)
+            (OUT_DIR / f"{fm['slug']}.html").write_text(page, encoding="utf-8")
+            n += 1
+            built += 1
+
+        if not only:
+            (OUT_DIR / "index.html").write_text(build_index(mine, track), encoding="utf-8")
+            write_sitemap(mine)
+            write_robots()
+            write_vercel_config()
+            print(f"  {site['dir']}/  {n} article(s) + index, sitemap, robots, vercel.json")
+        elif n:
+            print(f"  {site['dir']}/  {n} article(s)")
+
+    print(f"Done. {built} page(s) across {len(SITES)} site(s).")
 
 
 if __name__ == "__main__":

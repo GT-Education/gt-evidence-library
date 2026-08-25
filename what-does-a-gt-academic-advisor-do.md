@@ -35,6 +35,7 @@ internal_links:
 cta:
   text: "Meet the people behind the program"
   href: "https://anywhere.gt.school/"
+track: gt
 status: draft
 ---
 
