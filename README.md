@@ -49,8 +49,11 @@ Two automated checkers guard the library; both are wired into the git **pre-push
 
 **`check_facts.py`** — validates every article's recurring stats against the vetted canonical values in the skill's `source-library.md`, flags conflicts (a single wrong article, or two that disagree), and catches competitor names. Exits non-zero on a conflict.
 
+**`check_gaps.py`** — advisory report of every open `[NEEDS-FACT]`, so outstanding questions are one
+command away instead of buried in the drafts. Never blocks a push; the real gate lives in `check_style.py`.
+
 **`check_style.py`** — enforces the writing house rules across every article:
-- **Hard (blocks the push):** competitor names (e.g. Davidson), em dashes in the body.
+- **Hard (blocks the push):** competitor names (e.g. Davidson), em dashes in the body, an unanswered `[NEEDS-FACT]` in a `status: ready` article.
 - **Advisory (reported, non-blocking):** inline citations in the body (attribution belongs in the bottom Sources list), and thin data coverage — an article with no `[STAT]`/`[CHART]` placeholder and almost no figures ("it's a guide, but numbers back credibility"). Add `--strict` to make advisories fail too.
 
 ```
@@ -79,6 +82,52 @@ to a group auto-themes it** (home marker, article header rule, Quick Answer bar,
 - **Background texture:** home page and articles draw the results-page graph-paper grid (`#ebba9b1f`, ~12% alpha, 24px) on the `body`. The grid runs **unbroken** under the whole page — no solid column fill on top; the column is defined by type alignment. Layout is hairline rules instead of cards — no gradients, no shadows, no rounded corners beyond 2px, no decorative illustration.
 - **Two-tier width:** `--shell: 1140px` for the page shell (nav, indexes, question-group listings, footer) and `--measure: 700px` for long-form prose (article body copy). Both tokens live in `template.html` and `_LIB_CSS`.
 - Add `(slug, title, blurb)` to a group to publish; an unlisted article still builds but gets the default orange theme + no home row (the build prints a warning).
+
+## Two tracks (evidence + GT)
+
+The library runs on two tracks, rendered as two bands on the home page. A group's `track` key in
+`LIBRARY_GROUPS` decides which band it lands in; groups without one default to `evidence`.
+
+| | `evidence` | `gt` |
+|---|---|---|
+| Job | Get found | Get chosen |
+| Reader | A parent searching at 11pm | A parent already deciding |
+| Wins by | Search volume + AI citations | Specificity a brochure will not give |
+| GT appears | In the CTA | In every paragraph |
+| Color | Warm ramp (gold to berry) | Navy family (`#004F71`, `#003B5C`) |
+
+The evidence track is deliberately generic. That is what makes it rank, so **do not rewrite those
+articles to be about GT** — GT-specific answers belong on the `gt` track instead.
+
+**GT track article selection is data-driven.** Articles come from GT Anywhere's own parent question
+data (599 canonical questions, 5,968 question instances, HubSpot, Aug 2026), ordered by the number of
+DISTINCT FAMILIES who asked. Each row in a `gt` group carries that count as a comment. Support and
+operational questions (logins, portal errors, enrollment status, calendar dates) are excluded on
+purpose: they belong in a help center, and they go stale within a term.
+
+## Open facts (`[NEEDS-FACT: ...]`)
+
+Some questions cannot be answered without a fact only GT has. Rather than leave those articles
+unwritten, draft the framing and mark the hole:
+
+```
+[NEEDS-FACT: What are the credential requirements for Academic Advisors? 15 families asked.]
+```
+
+Three things then hold the line:
+
+1. It renders as a loud dashed accent block, so a half-answered page can never read as finished.
+2. `check_style.py` HARD-fails if one survives into a `status: ready` article.
+3. It is not listed in `LIBRARY_GROUPS`, so it never reaches the home page.
+
+```
+python3 check_gaps.py            # every open fact, grouped by article
+python3 check_gaps.py --slugs    # just the blocked slugs
+```
+
+When the answer lands: paste it in, delete the `[NEEDS-FACT: ...]` line, add the article to its group
+in `build.py`, rebuild. Do not delete an article whose program has changed; answer it with what is
+true now, because families are still asking.
 
 ## Index (live library, grouped by theme)
 Five parent-question sections (same order on the site). Each shows its **kicker label** and **color**.
@@ -120,6 +169,23 @@ Five parent-question sections (same order on the site). Each shows its **kicker 
 - `what-is-the-texas-education-freedom-account.md` : What is the Texas Education Freedom Account (ESA)?
 - `how-to-apply-for-the-texas-education-freedom-account.md` : How do I apply for the Texas ESA (eligibility + steps)?
 
+### GT track
+
+**What does a GT day actually look like?** — kicker `The GT Day`, color `#004F71` (GT navy)
+- `what-does-a-day-at-gt-anywhere-look-like.md` : What does a day at GT Anywhere look like? (31 families)
+- `how-the-gt-anywhere-2-hour-block-works.md` : Is it really only two hours a day? (25 families)
+- `how-does-the-gt-xp-system-work.md` : How does the daily XP system work? (20 families)
+- `does-ai-teach-my-child-at-gt-anywhere.md` : Does AI teach my child, or are there real teachers? (20 families)
+
+**Drafted, awaiting facts from GT** — off the home page until answered (`python3 check_gaps.py`)
+- `does-gt-anywhere-offer-high-school.md` (68 families, the #2 question overall)
+- `is-financial-aid-available-at-gt-anywhere.md` (54 families)
+- `can-we-use-our-state-esa-for-gt-anywhere.md` (30 families)
+- `what-is-the-gt-founding-family-credit.md` (21 families)
+- `is-gt-anywhere-accredited.md` (19 families)
+- `what-does-a-gt-academic-advisor-do.md` (15 families — advisor credentials only)
+- `does-gt-anywhere-support-2e-and-neurodivergent-learners.md` (~60 families across six questions)
+
 **House rules (enforced):** sources live in front matter + the end Sources list only (no inline citations; the builder strips them). Never name or cite a competitor (the build fails if one appears). No em dashes.
 
-25 articles across the 7 archetypes and 6 sections.
+29 published articles across 7 sections (25 evidence + 4 GT), plus 7 GT drafts awaiting facts.
